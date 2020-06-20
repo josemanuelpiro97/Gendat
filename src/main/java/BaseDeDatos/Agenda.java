@@ -38,7 +38,6 @@ public class Agenda {
 
     //-------------GETTERS----------------------
     //******************************************
-
     /**
      * @return lista de materias
      * @brief getter de lista de materias
@@ -53,5 +52,13 @@ public class Agenda {
      */
     public ArrayList<EventoInterfaz> getListaEventos() {
         return this.listaEventos;
+    }
+
+    /**
+     * @brief getter de id de agenda
+     * @return id de agenda
+     */
+    public int getID(){
+        return this.ID;
     }
 }

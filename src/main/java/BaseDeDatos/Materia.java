@@ -90,9 +90,7 @@ public class Materia implements EventoInterfaz {
      * @brief obtiene toda las comisiones de la materia
      * @return lista de comisiones
      */
-    public ArrayList<VarianteInterfaz> getListaVariantes() {
-        return this.comisiones;
-    }
+    public ArrayList<VarianteInterfaz> getListaVariantes() {return this.comisiones;}
 
     /**
      * @brief getter del anio de la materia
