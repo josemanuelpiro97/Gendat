@@ -6,7 +6,7 @@ public class Materia implements EventoInterfaz {
     //-----------VARIABLES----------------------
     //******************************************
 
-    //-----------Interface needed-------------
+    //-----------requerido por interfaz--------
     /**
      * nombre de la materia
      */
@@ -19,7 +19,7 @@ public class Materia implements EventoInterfaz {
      * lista de comisiones para esta materia
      */
     private ArrayList<VarianteInterfaz> comisiones;
-    //------------materia needed--------------
+    //------------requerido por materia---------
     /**
      * anio de cursado de la materia
      */

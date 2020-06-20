@@ -1,10 +1,25 @@
 package BaseDeDatos;
 
+import Observer.Sujeto;
+import Observer.Observador;
+
 import java.util.ArrayList;
 
-public class Usuario {
+
+public class Usuario implements Sujeto {
+
+
     //-----------VARIABLES----------------------
     //******************************************
+    //-----------Interface needed-------------
+
+    //-----------requerido por interfaz--------
+    /**
+     * lista de los observadores que hacen uso de esta base de datos
+     */
+    private ArrayList<Observador> listaDeObservadores;
+
+    //------------requerido por usuario---------
     /**
      * nombre de usuario
      */
@@ -109,6 +124,10 @@ public class Usuario {
                 return msjERROR;
         }
         this.listaEventosInterfaz.add(evento);
+
+        //notifico cambios
+        this.notificarObservador();
+
         return msjCORRECT;
     }
 
@@ -133,6 +152,9 @@ public class Usuario {
                         return msjERROR;
                 }
                 eventoActual.getListaVariantes().add(variante);
+
+                //notifico cambios
+                this.notificarObservador();
                 return msjCORRECT;
             }
         }
@@ -158,16 +180,19 @@ public class Usuario {
                 return msjERROR;
             }
         }
+
+        //notifico cambios
+        this.notificarObservador();
         return msjCORRECT;
     }
 
     /**
-     * @brief quita una variante de un evento en particular y retorna un mensaje de confirmacion,
-     *        en caso de no encontrar el evento o la variante retorna un mensaje de error, indicando
-     *        cual fue el causante
      * @param nombreEvento nombre del evento del que quiero borrar la variable
-     * @param idVariante id de la variable a eliminar
+     * @param idVariante   id de la variable a eliminar
      * @return
+     * @brief quita una variante de un evento en particular y retorna un mensaje de confirmacion,
+     * en caso de no encontrar el evento o la variante retorna un mensaje de error, indicando
+     * cual fue el causante
      */
     public String quitVariante(String nombreEvento, int idVariante) {
         final String msjERROR = "Evento no encontrado";
@@ -180,6 +205,9 @@ public class Usuario {
                     VarianteInterfaz varianteActual = eventoActual.getListaVariantes().get(j);
                     if (varianteActual.getIdentificador() == idVariante) {
                         eventoActual.getListaVariantes().remove(j);
+
+                        //notifico cambios
+                        this.notificarObservador();
                         return msjCORRECT;
                     }
                 }
@@ -189,5 +217,25 @@ public class Usuario {
         return msjERROR;
     }
 
+    //----------------SUBJECT----------------------
+    //*********************************************
+    @Override
+    public int registrarObservador(Observador nuevoObservador) {
+        this.listaDeObservadores.add(nuevoObservador);
+        int ID = this.listaDeObservadores.size();
+        return ID;
+    }
 
+    @Override
+    public void removerObservador(Observador observadorPorEliminar) {
+        int i = observadorPorEliminar.getID();
+        this.listaDeObservadores.remove(i);
+    }
+
+    @Override
+    public void notificarObservador() {
+        for (Observador observadorActual : this.listaDeObservadores){
+            observadorActual.actialuzar();
+        }
+    }
 }
