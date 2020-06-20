@@ -8,6 +8,7 @@ public interface VarianteInterfaz {
     public int getMinFin();
     public boolean getPrioridad();
     public int getIdentificador();
+    public int getDia();
 
     //-----------setters-------------
     public boolean setHoraInicio();

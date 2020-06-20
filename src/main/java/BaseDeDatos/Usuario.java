@@ -33,6 +33,13 @@ public class Usuario implements Sujeto {
      */
     private ArrayList<Agenda> agendas;
 
+    /**
+     * variables destinadas al control de rangos de horarios
+     */
+    private final int NUM_DIAS = 7;
+    private final int NUM_MIN_X_DIA = 1080;
+    private int[][] horariosOcupados;
+
     //-------------CONSTRUCTOR------------------
     //******************************************
 
@@ -42,6 +49,13 @@ public class Usuario implements Sujeto {
      */
     public Usuario(String nombreDeUsuario) {
         this.nombreDeUsusario = nombreDeUsuario;
+
+        horariosOcupados = new int[this.NUM_DIAS][this.NUM_MIN_X_DIA];
+        for (int i = 0; i < this.NUM_DIAS; i++) {
+            for (int j = 0; j < this.NUM_MIN_X_DIA; j++) {
+                this.horariosOcupados[i][j] = 0;
+            }
+        }
     }
 
     //-------------GETTERS----------------------
@@ -123,8 +137,6 @@ public class Usuario implements Sujeto {
             if (eventoActual.getNombre().equals(evento.getNombre()))
                 return msjERROR;
         }
-        this.listaEventosInterfaz.add(evento);
-
         //notifico cambios
         this.notificarObservador();
 
@@ -134,15 +146,18 @@ public class Usuario implements Sujeto {
     /**
      * @param variante     variante a agregar
      * @param nombreEvento nombre del evento al que quiero agregarle la variante
-     * @brief añade una variante al evento especificado e imprime un mensaje de confirmacion,
-     * en caso de encontrar el evento pero que la variante este duplicada se imprime
-     * un mensaje de error y no se agrega la varianto, por ultimo, se pude dar el caso
-     * en que no se encuentre el evento, en este caso tambien se imprimira un mensaje
-     * de error
+     * @brief añade una variante al evento especificado e imprime un mensaje de
+     *        confirmacion(si es que esta en rango adecuado),
+     *        en caso de encontrar el evento pero que la variante este duplicada se imprime
+     *        un mensaje de error y no se agrega la varianto, por ultimo, se pude dar el caso
+     *        en que no se encuentre el evento, en este caso tambien se imprimira un mensaje
+     *        de error
      */
     public String addVariante(VarianteInterfaz variante, String nombreEvento) {
         final String msjERROR = "Variante duplicada";
         final String msjERROR2 = "Evento no encontrado";
+        final String msjERROR3 = "Este evento ocupa una franja horaria que ya esta ocupada por una" +
+                                 "variante obligatoria";
         final String msjCORRECT = "Variante agregada";
 
         for (EventoInterfaz eventoActual : this.listaEventosInterfaz) {
@@ -151,11 +166,17 @@ public class Usuario implements Sujeto {
                     if (varianteActual.getIdentificador() == variante.getIdentificador())
                         return msjERROR;
                 }
-                eventoActual.getListaVariantes().add(variante);
+                if(this.estaEnRango(variante)){
+                    //agrego variante
+                    eventoActual.getListaVariantes().add(variante);
+                    if(variante.get)
 
-                //notifico cambios
-                this.notificarObservador();
-                return msjCORRECT;
+                    //notifico cambios
+                    this.notificarObservador();
+                    return msjCORRECT;
+                }
+                else
+                    return msjERROR3;
             }
         }
         return msjERROR2;
@@ -236,6 +257,43 @@ public class Usuario implements Sujeto {
     public void notificarObservador() {
         for (Observador observadorActual : this.listaDeObservadores){
             observadorActual.actialuzar();
+        }
+    }
+
+    //----------------TOOLS----------------------
+    //**************************************************
+    /**
+     * @brief consulta si el dia y horario establecido en la variante del evento esta ocupado por algun evento obligatorio
+     * @param variante variante del evento
+     * @return true en caso de que el rango sea correcto, false en caso contrario, es decir, esta ocupando un tiempo que
+     *         no deba
+     */
+    private boolean estaEnRango(VarianteInterfaz variante) {
+        int valInicial = (variante.getHoraInicio()*60) + variante.getMinInicio();
+        int valFinal = (variante.getHoraFin()*60) + variante.getMinFin();
+        int dia = variante.getDia();
+        for (int i = valInicial-1 ; i< valFinal-1 ; i++){
+            if(this.horariosOcupados[dia][i] == 1)
+                return false;
+        }
+        return true;
+    }
+
+    private void setHorarioOcupado(VarianteInterfaz variante){
+        int valInicial = (variante.getHoraInicio()*60) + variante.getMinInicio();
+        int valFinal = (variante.getHoraFin()*60) + variante.getMinFin();
+        int dia = variante.getDia();
+        for (int i = valInicial-1 ; i< valFinal-1 ; i++){
+            this.horariosOcupados[dia][i] = 1;
+        }
+    }
+
+    private void quitHorarioOcupado(VarianteInterfaz variante){
+        int valInicial = (variante.getHoraInicio()*60) + variante.getMinInicio();
+        int valFinal = (variante.getHoraFin()*60) + variante.getMinFin();
+        int dia = variante.getDia();
+        for (int i = valInicial-1 ; i< valFinal-1 ; i++){
+            this.horariosOcupados[dia][i] = 0;
         }
     }
 }
