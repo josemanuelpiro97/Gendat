@@ -10,7 +10,7 @@ public class CreadorAgendas {
     /**
      * variable que llevara la cuenta de cuantas veces si invoca a la creacion de agendas
      */
-    private int numeroDeLLamados;
+    private int agendasRequeridas;
     private ArrayList<EventoInterfaz> eventosRegulares;
     private ArrayList<EventoInterfaz> eventosObligatorios;
 
@@ -22,8 +22,9 @@ public class CreadorAgendas {
     /**
      * @brief constructor de clase
      */
-    public CreadorAgendas(ArrayList<EventoInterfaz> listaDeEventos, int[][] horariosOcupados, int dias, int minPorDia) {
-        this.numeroDeLLamados = 0;
+    public CreadorAgendas(ArrayList<EventoInterfaz> listaDeEventos, int[][] horariosOcupados, int dias, int minPorDia,
+                          int agendasRequeridas) {
+        this.agendasRequeridas = agendasRequeridas;
         this.horariosDisponibles = new int[dias][minPorDia];
         this.horariosDisponibles = horariosOcupados;
 
@@ -39,9 +40,24 @@ public class CreadorAgendas {
     //-------------METODOS DE CALCULO-----------
     //******************************************
     public ArrayList<Agenda> generarAgendas() {
-        Agenda agenda = new Agenda();
-        //le agrego los eventos obligatorios
-        this.agregadorDeObligatorias(agenda);
+        //lista de agendas
+        ArrayList<Agenda> agendas = new ArrayList<Agenda>();
+
+        //genero lista de eventos ordinarios pero ordenados
+        ArrayList<EventoInterfaz> eventosOrdinariosOrdenados = this.generadorColumnasOrden(this.eventosRegulares);
+        eventosOrdinariosOrdenados = this.generadorFilasOrden(eventosOrdinariosOrdenados);
+
+        //una ves ya listo
+        for (int i = 0; i < this.agendasRequeridas; i++) {
+            Agenda agendaGenerada = new Agenda();
+            //le agrego los eventos obligatorios
+            this.agregadorDeObligatorias(agendaGenerada);
+            this.asignadorDeEventos(agendaGenerada, eventosOrdinariosOrdenados);
+
+            agendas.add(agendaGenerada);
+        }
+
+        return agendas;
     }
 
     /**
@@ -58,6 +74,38 @@ public class CreadorAgendas {
             } else if (eventoActual instanceof EventoParticular) {
                 EventoParticular eventoParticular = (EventoParticular) eventoActual;
                 agenda.setEvento(eventoParticular);
+            }
+        }
+    }
+
+    private void asignadorDeEventos(Agenda agenda, ArrayList<EventoInterfaz> eventosParaAsignar) {
+        boolean controlFlag = true;
+        boolean controlFlag2 = true;
+        while (controlFlag) {
+            controlFlag = false;
+            for (EventoInterfaz eventoActual : eventosParaAsignar) {
+                for (VarianteInterfaz varianteActual : eventoActual.getListaVariantes()) {
+                    if (this.estaEnRango(varianteActual) && controlFlag2) {
+                        if (eventoActual instanceof Materia) {
+                            //agrego la materia en la lista
+                            Materia nuevaMateria = this.contructorMateriaSimple((Materia) varianteActual, varianteActual);
+                            agenda.setMateria(nuevaMateria);
+                            //actualizo bandera
+                            controlFlag2 = false;
+                            //actualizo matriz de tiempo disponible
+                            this.setHorarioOcupado(varianteActual);
+                        } else if (eventoActual instanceof EventoParticular) {
+                            //agrego el evento particular
+                            EventoParticular eventoNuevo =
+                                    this.contructorEventoSimple((EventoParticular) varianteActual,varianteActual);
+                            agenda.setEvento(eventoNuevo);
+                            //actualizo bandera
+                            controlFlag2 = false;
+                            //actualizo matriz de tiempo disponible
+                            this.setHorarioOcupado(varianteActual);
+                        }
+                    }
+                }
             }
         }
     }
@@ -97,38 +145,36 @@ public class CreadorAgendas {
     }
 
     /**
-     * @brief acomoda los eventos del array, poniendo primero los que tengan al menos una variante prioritaria y ultimo
-     * los que no.
      * @param listaDeEventos lista a ordenar
      * @return lista ordenada
+     * @brief acomoda los eventos del array, poniendo primero los que tengan al menos una variante prioritaria y ultimo
+     * los que no.
      */
     private ArrayList<EventoInterfaz> generadorColumnasOrden(ArrayList<EventoInterfaz> listaDeEventos) {
         ArrayList<EventoInterfaz> listaRetorno;
         listaRetorno = listaDeEventos;
 
         boolean controlFlag = true;
-        EventoInterfaz eventoA;
-        EventoInterfaz eventoB;
         while (controlFlag) {
             controlFlag = false;
-            //busco un prioritario
+            //busco un NO prioritario
             for (int i = 0; i < listaDeEventos.size(); i++) {
                 EventoInterfaz eventoActual = listaRetorno.get(i);
-                //si encontramos un prioritario y no es el ultimo de la lista
-                if (tieneUnPriori(eventoActual) && i != listaDeEventos.size()-1){
-                    //busco un NO prioritario para intercambiar
-                    for (int j = i+1 ; j<listaDeEventos.size() ;j++){
+                //si encontramos un NO prioritario y no es el ultimo de la lista
+                if (!tieneUnPriori(eventoActual) && i != listaDeEventos.size() - 1) {
+                    //busco un  prioritario para intercambiar
+                    for (int j = i + 1; j < listaDeEventos.size(); j++) {
                         eventoActual = listaRetorno.get(j);
                         //si lo encuentro
-                        if(!this.tieneUnPriori(eventoActual)){
+                        if (this.tieneUnPriori(eventoActual)) {
                             //los capturo
                             EventoInterfaz aux1 = listaRetorno.get(i);
                             EventoInterfaz aux2 = listaRetorno.get(j);
                             //realizo el cambio
                             listaRetorno.remove(i);
-                            listaRetorno.add(i,aux2);
+                            listaRetorno.add(i, aux2);
                             listaRetorno.remove(j);
-                            listaRetorno.add(j,aux1);
+                            listaRetorno.add(j, aux1);
                             //actualizo el flag
                             controlFlag = true;
                         }
@@ -140,9 +186,54 @@ public class CreadorAgendas {
     }
 
     /**
-     * @brief revisa si el evento tiene al menos una variante con prioridad
+     * @param listaDeEventos lista a ordenar
+     * @return lista ordenada
+     * @brief acomoda las variantes de cada evento del array, poniendo primero las variantes prioritarias y ultimas
+     * las NO prioritarias
+     */
+    private ArrayList<EventoInterfaz> generadorFilasOrden(ArrayList<EventoInterfaz> listaDeEventos) {
+        ArrayList<EventoInterfaz> listaRetorno;
+        listaRetorno = listaDeEventos;
+
+        boolean controlFlag = true;
+        while (controlFlag) {
+            controlFlag = false;
+            for (EventoInterfaz eventoActual : listaRetorno) {
+                //reviso si la columna tiene un priori, en dicho caso ordeno
+                if (this.tieneUnPriori(eventoActual)) {
+                    ArrayList<VarianteInterfaz> columna = eventoActual.getListaVariantes();
+                    //recorro la columna pra ordenarla
+                    for (int i = 0; i < columna.size(); i++) {
+                        VarianteInterfaz varianteActual = columna.get(i);
+                        //si encuentro una variante NO prioritaria y no es la ultima, busco una priori
+                        if (!varianteActual.getPrioridad() && i != columna.size() - 1) {
+                            //busco una prioritaria
+                            for (int j = i + 1; j < columna.size(); j++) {
+                                varianteActual = columna.get(j);
+                                //si no es prioritaria, la capturo
+                                if (varianteActual.getPrioridad()) {
+                                    //cumplido esto quiere decir que debo reEncolar la priori
+                                    //la saco de la columna
+                                    VarianteInterfaz aux1 = columna.remove(j);
+                                    //la reEncolo
+                                    columna.add(aux1);
+
+                                    //acomodo el flag para una nueva iteracion
+                                    controlFlag = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return listaRetorno;
+    }
+
+    /**
      * @param evento evento a ser revisado
      * @return true en caso de que el evento tenga al menos una variante con prioridad, false en caso contrario
+     * @brief revisa si el evento tiene al menos una variante con prioridad
      */
     private boolean tieneUnPriori(EventoInterfaz evento) {
         for (VarianteInterfaz varianteActual : evento.getListaVariantes()) {
@@ -150,6 +241,56 @@ public class CreadorAgendas {
                 return true;
         }
         return false;
+    }
+
+    /**
+     * @param materia  matria de la cual tomar los datos
+     * @param variante variante elegida para asignar
+     * @return nueva materia
+     * @brief genera una nueva materia con una unica comision, la cual es la elegida por el creador de agendas
+     */
+    private Materia contructorMateriaSimple(Materia materia, VarianteInterfaz variante) {
+        //tomo los datos de la materia
+        String nombre = materia.getNombre();
+        boolean obligatoriedad = materia.isObligatoria();
+        int anio = materia.getAnio();
+        int semestre = materia.getSemestre();
+        boolean optativa = materia.isOptativa();
+
+        //creo la materia y le asigno la comision
+        Materia nuevaMateria = new Materia();
+        nuevaMateria.setNombre(nombre);
+        nuevaMateria.setObligatoriedad(obligatoriedad);
+        nuevaMateria.setAnio(anio);
+        nuevaMateria.setSemestre(semestre);
+        nuevaMateria.setOptativa(optativa);
+        nuevaMateria.setVariante(variante);
+
+        //retorno la nueva materia
+        return nuevaMateria;
+    }
+
+    /**
+     * @param eventoParticular evento del cual tomare los datos
+     * @param variante         variante a asignar
+     * @return nuevo evento particular
+     * @brief genero un nuevo evento particular con una sola opcion, la cual sera la elegida por el creador de agendas
+     */
+    private EventoParticular contructorEventoSimple(EventoParticular eventoParticular, VarianteInterfaz variante) {
+        //tomo los datos del evento particular
+        String nombre = eventoParticular.getNombre();
+        boolean obligatoriedad = eventoParticular.isObligatoria();
+        String rubro = eventoParticular.getRubro();
+
+        //creo el evento particular y le asigno la opcion
+        EventoParticular nuevoEventoParticular = new EventoParticular();
+        nuevoEventoParticular.setNombre(nombre);
+        nuevoEventoParticular.setObligatoriedad(obligatoriedad);
+        nuevoEventoParticular.setRubro(rubro);
+        nuevoEventoParticular.setVariante(variante);
+
+        //retorno la nueva materia
+        return nuevoEventoParticular;
     }
 
 }

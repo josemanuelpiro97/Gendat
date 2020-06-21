@@ -11,7 +11,6 @@ public class Usuario implements Sujeto {
 
     //-----------VARIABLES----------------------
     //******************************************
-    //-----------Interface needed-------------
 
     //-----------requerido por interfaz--------
     /**

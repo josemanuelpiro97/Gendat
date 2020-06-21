@@ -35,23 +35,10 @@ public class Materia implements EventoInterfaz {
 
     //-------------CONSTRUCTOR------------------
     //******************************************
-
     /**
-     * @brief  constructor de la clase
-     * @param nombre nombre de materia
-     * @param obligatoriedad obligatoriedad de la materia
-     * @param anio anio de cursado
-     * @param semestre semestre de cursado
-     * @param optativa optatividad de la materia
+     * constructor vacio
      */
-    public Materia(String nombre, boolean obligatoriedad, int anio, int semestre, boolean optativa) {
-        this.nombre = nombre;
-        this.obligatoriedad = obligatoriedad;
-        this.anio = anio;
-        this.semestre = semestre;
-        this.optativa = optativa;
-        this.comisiones = new ArrayList<VarianteInterfaz>();
-    }
+    public Materia() {}
 
     //-------------GETTERS----------------------
     //******************************************

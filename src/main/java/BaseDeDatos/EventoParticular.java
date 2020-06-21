@@ -28,20 +28,10 @@ public class EventoParticular implements EventoInterfaz{
 
     //-------------CONSTRUCTOR------------------
     //******************************************
-
     /**
-     * @brief constructor del evento
-     * @param nombre nombre del evento
-     * @param obligatoriedad obligatoriedad del evento
-     * @param rubro rubro del evento
+     *  constructor del evento
      */
-    public EventoParticular(String nombre, boolean obligatoriedad, String rubro){
-        this.nombre = nombre;
-        this.obligatoriedad = obligatoriedad;
-        this.rubro = rubro;
-        this.variantes = new ArrayList<VarianteInterfaz>();
-    }
-
+    public EventoParticular(){}
 
     //-------------GETTERS----------------------
     //******************************************

@@ -11,9 +11,12 @@ public interface VarianteInterfaz {
     public int getDia();
 
     //-----------setters-------------
-    public boolean setHoraInicio();
-    public boolean setMinInicio();
-    public boolean setHoraFin();
-    public boolean setMinFin();
-    public boolean setPrioridad(boolean priori);
+    public boolean setHoraInicio(int hora);
+    public boolean setMinInicio(int minuto);
+    public boolean setHoraFin(int hora);
+    public boolean setMinFin(int minuto);
+    public boolean setIdentificador(int iden);
+    public void setPrioridad(boolean priori);
+
+
 }
