@@ -23,13 +23,11 @@ public class Agenda {
     //******************************************
 
     /**
-     * @param listaMaterias lista de materias contenidas en esta agenda
-     * @param listaEventos  lista de eventos particulares ontenidos en esta agenda
      * @brief constructor de clase
      */
-    public Agenda(ArrayList<EventoInterfaz> listaMaterias, ArrayList<EventoInterfaz> listaEventos) {
-        this.listaMaterias = listaMaterias;
-        this.listaEventos = listaEventos;
+    public Agenda() {
+        this.listaMaterias = new ArrayList<EventoInterfaz>();
+        this.listaEventos = new ArrayList<EventoInterfaz>();
 
         //asigno ID luego incremento
         this.ID = Agenda.idCount;
@@ -61,4 +59,23 @@ public class Agenda {
     public int getID(){
         return this.ID;
     }
+
+    //-------------SETTERS----------------------
+    //******************************************
+    /**
+     * @brief agrega una materia a la liusta de materias
+     * @param materia materia a agregar
+     */
+    public void setMateria(Materia materia){
+        this.listaMaterias.add(materia);
+    }
+
+    /**
+     * @brief agrega un evento a la lista de eventos
+     * @param evento evento a agregar
+     */
+    public void setEvento(EventoParticular evento){
+        this.listaEventos.add(evento);
+    }
+
 }

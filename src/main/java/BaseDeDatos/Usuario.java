@@ -38,6 +38,8 @@ public class Usuario implements Sujeto {
      */
     private final int NUM_DIAS = 7;
     private final int NUM_MIN_X_DIA = 1080;
+    private final int MIN_INICIAL = 360; //representa los minutos de las 6 [am]
+    private final int MIN_FINAL = 1440; //representa los minutos de las 12 [pm]
     private int[][] horariosOcupados;
 
     //-------------CONSTRUCTOR------------------
@@ -146,40 +148,53 @@ public class Usuario implements Sujeto {
     /**
      * @param variante     variante a agregar
      * @param nombreEvento nombre del evento al que quiero agregarle la variante
-     * @brief añade una variante al evento especificado e imprime un mensaje de
-     *        confirmacion(si es que esta en rango adecuado),
-     *        en caso de encontrar el evento pero que la variante este duplicada se imprime
-     *        un mensaje de error y no se agrega la varianto, por ultimo, se pude dar el caso
-     *        en que no se encuentre el evento, en este caso tambien se imprimira un mensaje
-     *        de error
+     * @brief añade una variante al evento especificado
+     * @return retornara uno de los mensajes dependiendo el caso
      */
     public String addVariante(VarianteInterfaz variante, String nombreEvento) {
-        final String msjERROR = "Variante duplicada";
-        final String msjERROR2 = "Evento no encontrado";
-        final String msjERROR3 = "Este evento ocupa una franja horaria que ya esta ocupada por una" +
+        final String msjERROR1 = "Evento no encontrado";
+        final String msjERROR2 = "Este evento ocupa una franja horaria que ya esta ocupada por una" +
                                  "variante obligatoria";
+        final String msjERROR3 = "Solo puede haber una variante por evento obligatorio";
         final String msjCORRECT = "Variante agregada";
+        final String msjERROR4 = "Horario invalido";
+        final String msjERROR5 = "Dia invalido";
 
+        //reviso parametros
+        if((variante.getHoraInicio()*60) + variante.getMinInicio() < this.MIN_INICIAL ||
+                (variante.getHoraFin() *60) + variante.getMinFin() > this.MIN_FINAL)
+            return msjERROR4;
+        if(variante.getDia() < 0 || variante.getDia() > 6)
+            return msjERROR5;
+
+        //busco evento
         for (EventoInterfaz eventoActual : this.listaEventosInterfaz) {
             if (eventoActual.getNombre().equals(nombreEvento)) {
-                for (VarianteInterfaz varianteActual : eventoActual.getListaVariantes()) {
-                    if (varianteActual.getIdentificador() == variante.getIdentificador())
-                        return msjERROR;
+                //una vez encontrado el evento reviso si es obligatorio
+                if (eventoActual.isObligatoria()) {
+                    //si es obligatorio reviso si hay ya una variante
+                    if (eventoActual.getListaVariantes().size() == 1) {
+                        //si es obligatorio y ya hay una variante retorno mensaje de error
+                        return msjERROR3;
+                        //si no habia variante, pregunto si esta en rango
+                    } else if (!this.estaEnRango(variante)) {
+                        return msjERROR2;
+                    }
+                    //si es bligatoro, no hay ninguna variante y ademas esta en rango, seteo rango ocupado
+                    else {
+                        //ocupo rango
+                        this.setHorarioOcupado(variante);
+                    }
                 }
-                if(this.estaEnRango(variante)){
-                    //agrego variante
-                    eventoActual.getListaVariantes().add(variante);
-                    if(variante.get)
+                //agrego variante
+                eventoActual.getListaVariantes().add(variante);
+                //notifico
+                this.notificarObservador();
+                return msjCORRECT;
 
-                    //notifico cambios
-                    this.notificarObservador();
-                    return msjCORRECT;
-                }
-                else
-                    return msjERROR3;
             }
         }
-        return msjERROR2;
+        return msjERROR1;
     }
 
     //-------------ELIMINATORS----------------------
@@ -225,10 +240,17 @@ public class Usuario implements Sujeto {
                 for (int j = 0; j < eventoActual.getListaVariantes().size(); j++) {
                     VarianteInterfaz varianteActual = eventoActual.getListaVariantes().get(j);
                     if (varianteActual.getIdentificador() == idVariante) {
+
+                        //si el evento es obligatorio, antes de quitar la variante limpio el rango de horario usado
+                        if(eventoActual.isObligatoria())
+                            this.quitHorarioOcupado(varianteActual);
+
+                        //quito la variante
                         eventoActual.getListaVariantes().remove(j);
 
                         //notifico cambios
                         this.notificarObservador();
+
                         return msjCORRECT;
                     }
                 }
@@ -255,44 +277,45 @@ public class Usuario implements Sujeto {
 
     @Override
     public void notificarObservador() {
-        for (Observador observadorActual : this.listaDeObservadores){
+        for (Observador observadorActual : this.listaDeObservadores) {
             observadorActual.actialuzar();
         }
     }
 
     //----------------TOOLS----------------------
     //**************************************************
+
     /**
-     * @brief consulta si el dia y horario establecido en la variante del evento esta ocupado por algun evento obligatorio
      * @param variante variante del evento
      * @return true en caso de que el rango sea correcto, false en caso contrario, es decir, esta ocupando un tiempo que
-     *         no deba
+     * no deba
+     * @brief consulta si el dia y horario establecido en la variante del evento esta ocupado por algun evento obligatorio
      */
     private boolean estaEnRango(VarianteInterfaz variante) {
-        int valInicial = (variante.getHoraInicio()*60) + variante.getMinInicio();
-        int valFinal = (variante.getHoraFin()*60) + variante.getMinFin();
+        int valInicial = (variante.getHoraInicio() * 60) + variante.getMinInicio();
+        int valFinal = (variante.getHoraFin() * 60) + variante.getMinFin();
         int dia = variante.getDia();
-        for (int i = valInicial-1 ; i< valFinal-1 ; i++){
-            if(this.horariosOcupados[dia][i] == 1)
+        for (int i = valInicial - 1; i < valFinal - 1; i++) {
+            if (this.horariosOcupados[dia][i] == 1)
                 return false;
         }
         return true;
     }
 
-    private void setHorarioOcupado(VarianteInterfaz variante){
-        int valInicial = (variante.getHoraInicio()*60) + variante.getMinInicio();
-        int valFinal = (variante.getHoraFin()*60) + variante.getMinFin();
+    private void setHorarioOcupado(VarianteInterfaz variante) {
+        int valInicial = (variante.getHoraInicio() * 60) + variante.getMinInicio();
+        int valFinal = (variante.getHoraFin() * 60) + variante.getMinFin();
         int dia = variante.getDia();
-        for (int i = valInicial-1 ; i< valFinal-1 ; i++){
+        for (int i = valInicial - 1; i < valFinal - 1; i++) {
             this.horariosOcupados[dia][i] = 1;
         }
     }
 
-    private void quitHorarioOcupado(VarianteInterfaz variante){
-        int valInicial = (variante.getHoraInicio()*60) + variante.getMinInicio();
-        int valFinal = (variante.getHoraFin()*60) + variante.getMinFin();
+    private void quitHorarioOcupado(VarianteInterfaz variante) {
+        int valInicial = (variante.getHoraInicio() * 60) + variante.getMinInicio();
+        int valFinal = (variante.getHoraFin() * 60) + variante.getMinFin();
         int dia = variante.getDia();
-        for (int i = valInicial-1 ; i< valFinal-1 ; i++){
+        for (int i = valInicial - 1; i < valFinal - 1; i++) {
             this.horariosOcupados[dia][i] = 0;
         }
     }
