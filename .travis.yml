@@ -1,5 +1,5 @@
 language: java
 rvm:
-  - 4.12
+  - release
   - junit  
 

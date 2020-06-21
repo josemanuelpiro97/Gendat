@@ -38,7 +38,9 @@ public class Materia implements EventoInterfaz {
     /**
      * constructor vacio
      */
-    public Materia() {}
+    public Materia() {
+        this.comisiones = new ArrayList<VarianteInterfaz>();
+    }
 
     //-------------GETTERS----------------------
     //******************************************

@@ -130,4 +130,14 @@ public class OpcionEP implements VarianteInterfaz {
     public void setPrioridad(boolean priori) {
         this.prioritario = priori;
     }
+
+    @Override
+    public boolean setDia(int dia) {
+        if(dia < 0 || dia > 6)
+            return false;
+        else{
+            this.dia = dia;
+            return true;
+        }
+    }
 }

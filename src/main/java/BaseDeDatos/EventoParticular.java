@@ -31,7 +31,9 @@ public class EventoParticular implements EventoInterfaz{
     /**
      *  constructor del evento
      */
-    public EventoParticular(){}
+    public EventoParticular(){
+        this.variantes = new ArrayList<VarianteInterfaz>();
+    }
 
     //-------------GETTERS----------------------
     //******************************************

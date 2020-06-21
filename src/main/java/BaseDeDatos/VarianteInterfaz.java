@@ -17,6 +17,7 @@ public interface VarianteInterfaz {
     public boolean setMinFin(int minuto);
     public boolean setIdentificador(int iden);
     public void setPrioridad(boolean priori);
+    public boolean setDia(int dia);
 
 
 }
