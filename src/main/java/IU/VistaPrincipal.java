@@ -1,26 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package IU;
-
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author FedeSSD
  */
 public class VistaPrincipal extends javax.swing.JFrame {
+    VistaIngresar vistaIngresar;
     String nombreUsuario;
 
-    /**
-     * Creates new form VistaPrincipal
-     */
     public VistaPrincipal() {
         initComponents();
-        this.setVisible(true);
+        this.vistaIngresar = new VistaIngresar(this);
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setVisible(false);
+    }
+
+    public void updateVista()
+    {
+        labelUsuario.setText(nombreUsuario);
     }
 
     /**
@@ -32,86 +30,92 @@ public class VistaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PanelLogIn = new javax.swing.JPanel();
-        BotonLogIn = new javax.swing.JButton();
-        textLogIn = new javax.swing.JTextField();
-        ingreseNombre = new javax.swing.JLabel();
-        bienvenido = new javax.swing.JLabel();
-        botonRegistrarse = new javax.swing.JButton();
+        panelMenu = new javax.swing.JPanel();
+        botonAgregarEvento = new javax.swing.JButton();
+        botonVerAgendas = new javax.swing.JButton();
+        botonCalcularAgendas = new javax.swing.JButton();
+        botonCerrarSesion = new javax.swing.JButton();
+        labelMenu = new javax.swing.JLabel();
+        labelGendat = new javax.swing.JLabel();
+        labelUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gendat v1.0.0");
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setName("frameLogIn"); // NOI18N
-        setResizable(false);
-        setSize(new java.awt.Dimension(400, 300));
+        setPreferredSize(new java.awt.Dimension(800, 600));
+        setSize(new java.awt.Dimension(800, 600));
 
-        BotonLogIn.setText("Ingresar");
-        BotonLogIn.setMaximumSize(new java.awt.Dimension(100, 25));
-        BotonLogIn.setMinimumSize(new java.awt.Dimension(100, 25));
-        BotonLogIn.setPreferredSize(new java.awt.Dimension(100, 25));
-        BotonLogIn.addActionListener(new java.awt.event.ActionListener() {
+        panelMenu.setToolTipText("");
+        panelMenu.setName(""); // NOI18N
+        panelMenu.setPreferredSize(new java.awt.Dimension(500, 400));
+
+        botonAgregarEvento.setText("Agregar Evento");
+        botonAgregarEvento.setMaximumSize(new java.awt.Dimension(120, 25));
+        botonAgregarEvento.setMinimumSize(new java.awt.Dimension(120, 25));
+        botonAgregarEvento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonLogInActionPerformed(evt);
+                botonAgregarEventoActionPerformed(evt);
             }
         });
 
-        textLogIn.addActionListener(new java.awt.event.ActionListener() {
+        botonVerAgendas.setText("Ver Agendas");
+
+        botonCalcularAgendas.setText("Generar Agendas");
+
+        botonCerrarSesion.setText("Cerrar Sesión");
+        botonCerrarSesion.setMaximumSize(new java.awt.Dimension(117, 23));
+        botonCerrarSesion.setMinimumSize(new java.awt.Dimension(117, 23));
+        botonCerrarSesion.setPreferredSize(new java.awt.Dimension(117, 23));
+        botonCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textLogInActionPerformed(evt);
+                botonCerrarSesionActionPerformed(evt);
             }
         });
 
-        ingreseNombre.setText("Ingrese su nombre de usuario:");
+        labelMenu.setText("Menu Principal del Usuario:");
 
-        bienvenido.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        bienvenido.setText("Bienvenido a Gendat v1.0.0");
+        labelGendat.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelGendat.setText("Gendat");
 
-        botonRegistrarse.setText("Registrarse");
-        botonRegistrarse.setMaximumSize(new java.awt.Dimension(110, 25));
-        botonRegistrarse.setMinimumSize(new java.awt.Dimension(110, 25));
-        botonRegistrarse.setPreferredSize(new java.awt.Dimension(110, 25));
-        botonRegistrarse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonRegistrarseActionPerformed(evt);
-            }
-        });
+        labelUsuario.setText("nombreUsuario");
 
-        javax.swing.GroupLayout PanelLogInLayout = new javax.swing.GroupLayout(PanelLogIn);
-        PanelLogIn.setLayout(PanelLogInLayout);
-        PanelLogInLayout.setHorizontalGroup(
-            PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLogInLayout.createSequentialGroup()
-                .addContainerGap(106, Short.MAX_VALUE)
-                .addGroup(PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ingreseNombre)
-                    .addComponent(textLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(100, 100, 100))
-            .addGroup(PanelLogInLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(botonRegistrarse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotonLogIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
+        panelMenu.setLayout(panelMenuLayout);
+        panelMenuLayout.setHorizontalGroup(
+            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMenuLayout.createSequentialGroup()
+                .addContainerGap(290, Short.MAX_VALUE)
+                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelGendat)
+                    .addComponent(labelMenu))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelUsuario)
+                .addGap(144, 144, 144))
+            .addGroup(panelMenuLayout.createSequentialGroup()
+                .addGap(189, 189, 189)
+                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botonAgregarEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonVerAgendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonCalcularAgendas, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(botonCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLogInLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bienvenido)
-                .addGap(59, 59, 59))
         );
-        PanelLogInLayout.setVerticalGroup(
-            PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLogInLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(bienvenido)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addComponent(ingreseNombre)
-                .addGap(18, 18, 18)
-                .addComponent(textLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BotonLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        panelMenuLayout.setVerticalGroup(
+            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMenuLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(labelGendat)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelMenu)
+                    .addComponent(labelUsuario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                .addComponent(botonAgregarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(botonVerAgendas)
+                .addGap(18, 18, 18)
+                .addComponent(botonCalcularAgendas)
+                .addGap(18, 18, 18)
+                .addComponent(botonCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -120,47 +124,37 @@ public class VistaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PanelLogIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelLogIn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
+                .addGap(21, 21, 21))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotonLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonLogInActionPerformed
-        nombreUsuario = textLogIn.getText();
-        if(nombreUsuario.equals(""))
-        {
-            JOptionPane.showMessageDialog(rootPane, "Debes ingresar tu nombre de usuario.");
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(rootPane, "Hola " + nombreUsuario);
-            this.setVisible(false);
-            VistaMenu vistaMenu = new VistaMenu();
-            vistaMenu.setVisible(true);            
-        }
-    }//GEN-LAST:event_BotonLogInActionPerformed
+    private void botonCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarSesionActionPerformed
+        this.setVisible(false);
+        vistaIngresar.setVisible(true);
+    }//GEN-LAST:event_botonCerrarSesionActionPerformed
 
-    private void textLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textLogInActionPerformed
+    private void botonAgregarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarEventoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textLogInActionPerformed
-
-    private void botonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarseActionPerformed
-        //checkear que no exista
-        nombreUsuario = textLogIn.getText();
-    }//GEN-LAST:event_botonRegistrarseActionPerformed
-    
+    }//GEN-LAST:event_botonAgregarEventoActionPerformed
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotonLogIn;
-    private javax.swing.JPanel PanelLogIn;
-    private javax.swing.JLabel bienvenido;
-    private javax.swing.JButton botonRegistrarse;
-    private javax.swing.JLabel ingreseNombre;
-    private javax.swing.JTextField textLogIn;
+    private javax.swing.JButton botonAgregarEvento;
+    private javax.swing.JButton botonCalcularAgendas;
+    private javax.swing.JButton botonCerrarSesion;
+    private javax.swing.JButton botonVerAgendas;
+    private javax.swing.JLabel labelGendat;
+    private javax.swing.JLabel labelMenu;
+    private javax.swing.JLabel labelUsuario;
+    private javax.swing.JPanel panelMenu;
     // End of variables declaration//GEN-END:variables
 }

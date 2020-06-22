@@ -1,3 +1,4 @@
+import IU.VistaIngresar;
 import IU.VistaPrincipal;
 
 public class Gendat{
