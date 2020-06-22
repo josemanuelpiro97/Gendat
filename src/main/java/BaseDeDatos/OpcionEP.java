@@ -87,7 +87,7 @@ public class OpcionEP implements VarianteInterfaz {
 
     @Override
     public boolean setMinInicio(int minuto) {
-        if(minuto < 0 || minuto > 60)
+        if(minuto < 0 || minuto > 59)
             return false;
         else{
             this.minutoInicio = minuto;
@@ -107,7 +107,7 @@ public class OpcionEP implements VarianteInterfaz {
 
     @Override
     public boolean setMinFin(int minuto) {
-        if(minuto < 0 || minuto > 60)
+        if(minuto < 0 || minuto > 59)
             return false;
         else{
             this.minutoFin = minuto;

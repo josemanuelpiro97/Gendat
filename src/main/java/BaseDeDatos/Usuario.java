@@ -22,7 +22,7 @@ public class Usuario implements Sujeto {
     /**
      * nombre de usuario
      */
-    private String nombreDeUsusario;
+    private String nombreDeUsuario;
     /**
      * lista de eventos particulares cargados por este usuarios
      */
@@ -48,7 +48,7 @@ public class Usuario implements Sujeto {
      * @brief constructor de la clase
      */
     public Usuario(String nombreDeUsuario) {
-        this.nombreDeUsusario = nombreDeUsuario;
+        this.nombreDeUsuario = nombreDeUsuario;
         this.listaEventosInterfaz = new ArrayList<EventoInterfaz>();
         this.agendas = new ArrayList<Agenda>();
         this.listaDeObservadores = new ArrayList<Observador>();

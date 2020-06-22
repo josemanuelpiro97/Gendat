@@ -147,7 +147,7 @@ public class Materia implements EventoInterfaz {
      * @return true en caso de que el parametro sea corecto, falso en caso contrario
      */
     public boolean setAnio(int anio) {
-        if (anio < 0) {
+        if (anio < 2019) {
             System.out.println("Anio invalido");
             return false;
         }

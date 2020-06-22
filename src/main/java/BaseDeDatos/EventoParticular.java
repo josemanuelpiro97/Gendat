@@ -20,7 +20,7 @@ public class EventoParticular implements EventoInterfaz{
      */
     private ArrayList<VarianteInterfaz> variantes;
 
-    //------------materia needed--------------
+    //------------eventoParticular needed--------------
     /**
      * rubro de la actividad, Ej: deporte, trabajo, etc
      */
