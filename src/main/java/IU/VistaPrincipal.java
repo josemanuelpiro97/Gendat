@@ -6,11 +6,13 @@ package IU;
  */
 public class VistaPrincipal extends javax.swing.JFrame {
     VistaIngresar vistaIngresar;
+    VistaAgregar vistaAgregar;
     String nombreUsuario;
 
     public VistaPrincipal() {
         initComponents();
         this.vistaIngresar = new VistaIngresar(this);
+        this.vistaAgregar = new VistaAgregar(this);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(false);
@@ -38,6 +40,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         labelMenu = new javax.swing.JLabel();
         labelGendat = new javax.swing.JLabel();
         labelUsuario = new javax.swing.JLabel();
+        botonBorrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -50,6 +53,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         botonAgregarEvento.setText("Agregar Evento");
         botonAgregarEvento.setMaximumSize(new java.awt.Dimension(120, 25));
         botonAgregarEvento.setMinimumSize(new java.awt.Dimension(120, 25));
+        botonAgregarEvento.setPreferredSize(new java.awt.Dimension(120, 25));
         botonAgregarEvento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonAgregarEventoActionPerformed(evt);
@@ -57,13 +61,19 @@ public class VistaPrincipal extends javax.swing.JFrame {
         });
 
         botonVerAgendas.setText("Ver Agendas");
+        botonVerAgendas.setMaximumSize(new java.awt.Dimension(120, 25));
+        botonVerAgendas.setMinimumSize(new java.awt.Dimension(120, 25));
+        botonVerAgendas.setPreferredSize(new java.awt.Dimension(120, 25));
 
         botonCalcularAgendas.setText("Generar Agendas");
+        botonCalcularAgendas.setMaximumSize(new java.awt.Dimension(120, 25));
+        botonCalcularAgendas.setMinimumSize(new java.awt.Dimension(120, 25));
+        botonCalcularAgendas.setPreferredSize(new java.awt.Dimension(120, 25));
 
         botonCerrarSesion.setText("Cerrar Sesión");
-        botonCerrarSesion.setMaximumSize(new java.awt.Dimension(117, 23));
-        botonCerrarSesion.setMinimumSize(new java.awt.Dimension(117, 23));
-        botonCerrarSesion.setPreferredSize(new java.awt.Dimension(117, 23));
+        botonCerrarSesion.setMaximumSize(new java.awt.Dimension(120, 25));
+        botonCerrarSesion.setMinimumSize(new java.awt.Dimension(120, 25));
+        botonCerrarSesion.setPreferredSize(new java.awt.Dimension(120, 25));
         botonCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonCerrarSesionActionPerformed(evt);
@@ -77,45 +87,57 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         labelUsuario.setText("nombreUsuario");
 
+        botonBorrar.setText("Eliminar Usuario");
+        botonBorrar.setMaximumSize(new java.awt.Dimension(120, 25));
+        botonBorrar.setMinimumSize(new java.awt.Dimension(120, 25));
+        botonBorrar.setPreferredSize(new java.awt.Dimension(120, 25));
+
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
         panelMenuLayout.setHorizontalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMenuLayout.createSequentialGroup()
-                .addContainerGap(290, Short.MAX_VALUE)
-                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labelGendat)
-                    .addComponent(labelMenu))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelUsuario)
-                .addGap(144, 144, 144))
+                .addContainerGap(342, Short.MAX_VALUE)
+                .addComponent(labelGendat)
+                .addGap(233, 233, 233))
             .addGroup(panelMenuLayout.createSequentialGroup()
-                .addGap(189, 189, 189)
-                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(botonAgregarEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonVerAgendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonCalcularAgendas, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                    .addComponent(botonCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelMenuLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labelMenu)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelUsuario))
+                    .addGroup(panelMenuLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(botonBorrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(botonAgregarEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botonVerAgendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botonCalcularAgendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botonCerrarSesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelMenuLayout.setVerticalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMenuLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addContainerGap()
                 .addComponent(labelGendat)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(36, 36, 36)
                 .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelMenu)
-                    .addComponent(labelUsuario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                    .addComponent(labelUsuario)
+                    .addComponent(labelMenu))
+                .addGap(65, 65, 65)
                 .addComponent(botonAgregarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(botonVerAgendas)
+                .addComponent(botonVerAgendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(botonCalcularAgendas)
+                .addComponent(botonCalcularAgendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(botonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(botonCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -129,10 +151,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
-                .addGap(21, 21, 21))
+            .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
         );
 
         pack();
@@ -144,11 +163,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCerrarSesionActionPerformed
 
     private void botonAgregarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarEventoActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        vistaAgregar.setVisible(true);
     }//GEN-LAST:event_botonAgregarEventoActionPerformed
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAgregarEvento;
+    private javax.swing.JButton botonBorrar;
     private javax.swing.JButton botonCalcularAgendas;
     private javax.swing.JButton botonCerrarSesion;
     private javax.swing.JButton botonVerAgendas;

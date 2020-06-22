@@ -170,8 +170,16 @@ public class VistaIngresar extends javax.swing.JFrame {
         }
         else
         {
-            comboUsuarios.addItem(textLogIn.getText());
-            textLogIn.setText("");
+            //TODO: Llamar al metodo de la base de datos addUsuario(String nombre)
+            if(true) //Si el usuario no existe y se crea correctamente, devuelve true
+            {
+                comboUsuarios.addItem(textLogIn.getText());
+                textLogIn.setText("");
+            }   
+            else
+            {
+                JOptionPane.showMessageDialog(rootPane, "Ese usuario ya existe, ingrese otro nombre.");
+            }
         }
     }//GEN-LAST:event_botonRegistrarseActionPerformed
     
