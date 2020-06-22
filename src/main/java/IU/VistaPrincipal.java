@@ -35,19 +35,21 @@ public class VistaPrincipal extends javax.swing.JFrame {
         PanelLogIn = new javax.swing.JPanel();
         BotonLogIn = new javax.swing.JButton();
         textLogIn = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        ingreseNombre = new javax.swing.JLabel();
+        bienvenido = new javax.swing.JLabel();
+        botonRegistrarse = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gendat v1.0.0");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("frameLogIn"); // NOI18N
         setResizable(false);
+        setSize(new java.awt.Dimension(400, 300));
 
         BotonLogIn.setText("Ingresar");
-        BotonLogIn.setMaximumSize(new java.awt.Dimension(85, 23));
-        BotonLogIn.setMinimumSize(new java.awt.Dimension(85, 23));
+        BotonLogIn.setMaximumSize(new java.awt.Dimension(100, 25));
+        BotonLogIn.setMinimumSize(new java.awt.Dimension(100, 25));
+        BotonLogIn.setPreferredSize(new java.awt.Dimension(100, 25));
         BotonLogIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonLogInActionPerformed(evt);
@@ -60,14 +62,20 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Ingrese su nombre de usuario:");
+        ingreseNombre.setText("Ingrese su nombre de usuario:");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Bienvenido a Gendat v1.0.0");
+        bienvenido.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        bienvenido.setText("Bienvenido a Gendat v1.0.0");
 
-        jButton1.setText("Registrarse");
-        jButton1.setMaximumSize(new java.awt.Dimension(85, 23));
-        jButton1.setMinimumSize(new java.awt.Dimension(85, 23));
+        botonRegistrarse.setText("Registrarse");
+        botonRegistrarse.setMaximumSize(new java.awt.Dimension(110, 25));
+        botonRegistrarse.setMinimumSize(new java.awt.Dimension(110, 25));
+        botonRegistrarse.setPreferredSize(new java.awt.Dimension(110, 25));
+        botonRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegistrarseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelLogInLayout = new javax.swing.GroupLayout(PanelLogIn);
         PanelLogIn.setLayout(PanelLogInLayout);
@@ -76,30 +84,33 @@ public class VistaPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLogInLayout.createSequentialGroup()
                 .addContainerGap(106, Short.MAX_VALUE)
                 .addGroup(PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
+                    .addComponent(ingreseNombre)
                     .addComponent(textLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(100, 100, 100))
             .addGroup(PanelLogInLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botonRegistrarse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotonLogIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLogInLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bienvenido)
+                .addGap(59, 59, 59))
         );
         PanelLogInLayout.setVerticalGroup(
             PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLogInLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(bienvenido)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addComponent(ingreseNombre)
                 .addGap(18, 18, 18)
                 .addComponent(textLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(BotonLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
 
@@ -138,13 +149,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void textLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textLogInActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textLogInActionPerformed
+
+    private void botonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarseActionPerformed
+        //checkear que no exista
+        nombreUsuario = textLogIn.getText();
+    }//GEN-LAST:event_botonRegistrarseActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonLogIn;
     private javax.swing.JPanel PanelLogIn;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel bienvenido;
+    private javax.swing.JButton botonRegistrarse;
+    private javax.swing.JLabel ingreseNombre;
     private javax.swing.JTextField textLogIn;
     // End of variables declaration//GEN-END:variables
 }
