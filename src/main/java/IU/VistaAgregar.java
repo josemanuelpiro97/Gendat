@@ -294,10 +294,10 @@ public class VistaAgregar extends javax.swing.JFrame {
         anioFlag = anioValido(this.AnioMateria.getText());
         if(anioFlag) {
             anioFlag = nuevaMateria.setAnio(Integer.parseInt(this.AnioMateria.getText()));
-            if(!anioFlag) {
-                controlFlag = false;
-                JOptionPane.showMessageDialog(null, "Anio invalido");
-            }
+        }
+        if(!anioFlag) {
+            controlFlag = false;
+            JOptionPane.showMessageDialog(null, "Anio invalido");
         }
 
         //agrego obligatoriedad
@@ -318,7 +318,6 @@ public class VistaAgregar extends javax.swing.JFrame {
         if (controlFlag) {
             vistaPrincipal.agregarEventoLista(NombreMateria.getText());
             //si esta todito bien se agrega el evento y se hace visible la vista principal
-            vistaPrincipal.agregarEventoLista(NombreMateria.getText());
             this.setVisible(false);
             vistaPrincipal.setVisible(true);
             //reseteo valores-------------------------

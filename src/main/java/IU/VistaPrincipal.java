@@ -315,7 +315,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         vistaEventos.vaciarLista();
         for(EventoInterfaz e : usuarioSeleccionado.getListaEventos())
         {
-            vistaEventos.AgregarALista(e.getNombre());
+            vistaEventos.agregarALista(e.getNombre());
         }
     }
 
@@ -324,7 +324,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
      * @param NombreEvento nombre del evento que quiero agregar
      */
     public void agregarEventoLista(String NombreEvento){
-        vistaEventos.AgregarALista(NombreEvento);
+        vistaEventos.agregarALista(NombreEvento);
     }
 
     public Usuario getUsuarioSeleccionado(){
