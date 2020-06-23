@@ -107,6 +107,14 @@ public class Usuario implements Sujeto {
         return null;
     }
 
+    /**
+     * getter del nombre de usuario
+     * @return nombre de usuario
+     */
+    public String getNombreDeUsuario(){
+        return this.nombreDeUsuario;
+    }
+
 
     /**
      * @param evento nombre del evento del cual quiero obtener las variantes
