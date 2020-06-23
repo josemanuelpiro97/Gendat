@@ -277,7 +277,7 @@ public class Usuario implements Sujeto {
     @Override
     public void notificarObservador() {
         for (Observador observadorActual : this.listaDeObservadores) {
-            observadorActual.actialuzar();
+            observadorActual.actualizar();
         }
     }
 

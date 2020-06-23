@@ -40,8 +40,8 @@ public class VistaIngresar extends javax.swing.JFrame {
         ingreseNombre = new javax.swing.JLabel();
         bienvenido = new javax.swing.JLabel();
         botonRegistrarse = new javax.swing.JButton();
-        comboUsuarios = new javax.swing.JComboBox(); //<>();
-        jLabel1 = new javax.swing.JLabel();
+        comboUsuarios = new javax.swing.JComboBox<>();
+        labelExistentes = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gendat v1.0.0");
@@ -87,7 +87,7 @@ public class VistaIngresar extends javax.swing.JFrame {
         comboUsuarios.setMinimumSize(new java.awt.Dimension(100, 25));
         comboUsuarios.setPreferredSize(new java.awt.Dimension(100, 25));
 
-        jLabel1.setText("Usuarios Existentes");
+        labelExistentes.setText("Usuarios Existentes");
 
         javax.swing.GroupLayout PanelLogInLayout = new javax.swing.GroupLayout(PanelLogIn);
         PanelLogIn.setLayout(PanelLogInLayout);
@@ -108,7 +108,7 @@ public class VistaIngresar extends javax.swing.JFrame {
                 .addGroup(PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BotonLogIn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboUsuarios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(labelExistentes, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(28, 28, 28))
         );
         PanelLogInLayout.setVerticalGroup(
@@ -119,7 +119,7 @@ public class VistaIngresar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                 .addGroup(PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ingreseNombre)
-                    .addComponent(jLabel1))
+                    .addComponent(labelExistentes))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -190,7 +190,7 @@ public class VistaIngresar extends javax.swing.JFrame {
     private javax.swing.JButton botonRegistrarse;
     private javax.swing.JComboBox<String> comboUsuarios;
     private javax.swing.JLabel ingreseNombre;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel labelExistentes;
     private javax.swing.JTextField textLogIn;
     // End of variables declaration//GEN-END:variables
 }

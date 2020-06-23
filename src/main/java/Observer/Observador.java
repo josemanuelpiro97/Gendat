@@ -1,6 +1,6 @@
 package Observer;
 
 public interface Observador {
-    public void actialuzar();
+    public void actualizar();
     public int getID();
 }
