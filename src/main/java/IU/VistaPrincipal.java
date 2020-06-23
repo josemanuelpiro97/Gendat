@@ -33,8 +33,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public VistaPrincipal(BaseDeDatos baseDeDatos) {
         //asigno base
         this.baseDeDatos = baseDeDatos;
-        //Usuario seleccionado
-        this.usuarioSeleccionado = new Usuario();
 
         //inicio los componentes
         initComponents();
@@ -95,6 +93,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         botonGenerarAgendas.setMaximumSize(new java.awt.Dimension(140, 25));
         botonGenerarAgendas.setMinimumSize(new java.awt.Dimension(140, 25));
         botonGenerarAgendas.setPreferredSize(new java.awt.Dimension(140, 25));
+        botonGenerarAgendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGenerarAgendasActionPerformed(evt);
+            }
+        });
 
         botonImprimirAgenda.setText("Imprimir Agenda");
         botonImprimirAgenda.setMaximumSize(new java.awt.Dimension(140, 25));
@@ -243,6 +246,16 @@ public class VistaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_botonImprimirAgendaActionPerformed
 
+    private void botonGenerarAgendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonImprimirAgendaActionPerformed
+        // TODO add your handling code here:
+        // aca vamos a crear una lista de posibles agendas?
+        //osea vamos a llamar a un metodo de usuario o por ahi que las genere?
+        //para ver si de aca generamos un for que recorra esa arrayList y nos vaya mandando
+        //las agendas a un metodo en vista agendas llamado AgregarAListaAgendas
+        //que va a recibir objetos
+
+    }//GEN-LAST:event_botonImprimirAgendaActionPerformed
+
     //-------------METODOS PARTICULARES---------
     //******************************************
 
@@ -254,6 +267,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public boolean setNuevoUsuario(String nombreUsuario){
         //trata de agregar usuario
         boolean controlFlag = this.baseDeDatos.addUsuario(nombreUsuario);
+
 
         //en caso de setear correctamente el usuario
         return controlFlag;
@@ -272,13 +286,16 @@ public class VistaPrincipal extends javax.swing.JFrame {
      * @param nombreUsuario nombre de usuario
      */
     public void setNombreUsuario(String nombreUsuario){
+        //setea el nombre de usuario en la label
         this.nombreUsuario = nombreUsuario;
+        //sete el objeto usuario en su campo usuario
+        this.usuarioSeleccionado = this.baseDeDatos.getUsuario(nombreUsuario);
 
         //actualiza la label
         this.updateSetLabelVista();
 
         //setea el sujeto en los observadores
-        this.vistaEventos.setSujeto(this.baseDeDatos.getUsuario(nombreUsuario));
+        //this.vistaEventos.setSujeto(this.baseDeDatos.getUsuario(nombreUsuario));
     }
 
     /**
@@ -291,6 +308,17 @@ public class VistaPrincipal extends javax.swing.JFrame {
         this.baseDeDatos.toPrint();
     }
 
+    /**
+     * @brief agrego evento a la vista de la lista
+     * @param NombreEvento nombre del evento que quiero agregar
+     */
+    public void agregarEventoLista(String NombreEvento){
+        vistaEventos.AgregarALista(NombreEvento);
+    }
+
+    public Usuario getUsuarioSeleccionado(){
+        return this.usuarioSeleccionado;
+    }
 
 
     //-------------INTOCABLE-------------------

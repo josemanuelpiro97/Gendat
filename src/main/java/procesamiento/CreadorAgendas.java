@@ -269,8 +269,7 @@ public class CreadorAgendas {
         String nombre = materia.getNombre();
         boolean obligatoriedad = materia.isObligatoria();
         int anio = materia.getAnio();
-        int semestre = materia.getSemestre();
-        boolean optativa = materia.isOptativa();
+        boolean semestre = materia.getSemestre();
 
         //creo la materia y le asigno la comision
         Materia nuevaMateria = new Materia();
@@ -278,7 +277,6 @@ public class CreadorAgendas {
         nuevaMateria.setObligatoriedad(obligatoriedad);
         nuevaMateria.setAnio(anio);
         nuevaMateria.setSemestre(semestre);
-        nuevaMateria.setOptativa(optativa);
         nuevaMateria.setVariante(variante);
 
         //retorno la nueva materia

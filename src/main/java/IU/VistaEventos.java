@@ -3,24 +3,30 @@ package IU;
 import Observer.Observador;
 import Observer.Sujeto;
 
+import javax.swing.*;
+
 /**
  *
  * @author FedeSSD
  */
-public class VistaEventos extends javax.swing.JPanel implements Observador{
+public class VistaEventos extends javax.swing.JPanel{
     VistaPrincipal vistaPrincipal;
-    Sujeto usuario;
 
     /**
      * @brief constructor de clase
      * @param vp vista prioncipal
      */
+    DefaultListModel modeloLista = new DefaultListModel();
+
+
     public VistaEventos(VistaPrincipal vp) {
         //asigno la vita principal
         this.vistaPrincipal = vp;
 
         //inicio componentes
         initComponents();
+
+        listaEventos.setModel(modeloLista);
     }
 
 
@@ -60,12 +66,19 @@ public class VistaEventos extends javax.swing.JPanel implements Observador{
         EliminarEventos.setMaximumSize(new java.awt.Dimension(125, 25));
         EliminarEventos.setMinimumSize(new java.awt.Dimension(125, 25));
         EliminarEventos.setPreferredSize(new java.awt.Dimension(125, 25));
+        EliminarEventos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarEventosActionPerformed(evt);
+            }
+        });
 
-        listaEventos.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "sdvcsdv", "sdvsdvsf" };
+
+
+        /*listaEventos.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
-        });
+        });*/
         listaEventos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         listaEventos.setToolTipText("");
         jScrollPane1.setViewportView(listaEventos);
@@ -112,28 +125,36 @@ public class VistaEventos extends javax.swing.JPanel implements Observador{
         vistaPrincipal.setVisible(false);
     }//GEN-LAST:event_AgregarVarianteActionPerformed
 
+
     //-------------METODOS PARTICULARES---------
     //******************************************
-    @Override
-    public void actualizar() {
-        //se debe pedir a mi objeto la lista de eventos
 
-        // la lista de eventos sera la que debe actualizarse
-    }
-
-    @Override
-    public int getID() {
-        return 0;
+    private void EliminarEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarVarianteActionPerformed
+        boolean seleccion = listaEventos.isSelectionEmpty();
+        if(seleccion) {
+            JOptionPane.showMessageDialog(null, "No selecciono ningun evento a eliminar.");
+        }
+        else{
+            int index = listaEventos.getSelectedIndex();
+            String NombreEvento = modeloLista.get(index).toString();
+            EliminarDeLista(NombreEvento);
+        }
     }
 
     /**
-     * @brief setea el usuario actual en la vista
-     * @param usuario usuario que observara la vista
+     * Agrego a la lista el elemento del evento
+     * @param NombreEvento
      */
-    public void setSujeto(Sujeto usuario){
-        //asigno el sujeto y me registro
-        this.usuario = usuario;
-        this.usuario.registrarObservador(this);
+    public void AgregarALista(String NombreEvento){
+        modeloLista.addElement(NombreEvento);
+    }
+
+    /**
+     * Elimino el elemento seleccionado de la lista
+     * @param NombreEvento
+     */
+    public void EliminarDeLista(String NombreEvento){
+        modeloLista.removeElement(NombreEvento);
     }
 
 
@@ -147,3 +168,23 @@ public class VistaEventos extends javax.swing.JPanel implements Observador{
     public javax.swing.JList<String> listaEventos;
     // End of variables declaration//GEN-END:variables
 }
+
+
+
+
+
+
+/*
+pendiente
+
+--------------------------------------------------------
+    **
+     * @brief setea el usuario actual en la vista
+     * @param usuario usuario que observara la vista
+     *
+public void setSujeto(Sujeto usuario){
+    //asigno el sujeto y me registro
+    this.usuario = usuario;
+    this.usuario.registrarObservador(this);
+}
+ */

@@ -24,9 +24,8 @@ class UsuarioTest {
         Materia nuevoEvento = new Materia();
         nuevoEvento.setNombre("Algebra");
         nuevoEvento.setObligatoriedad(true);
-        nuevoEvento.setOptativa(true);
         nuevoEvento.setAnio(2021);
-        nuevoEvento.setSemestre(1);
+        nuevoEvento.setSemestre(false);
         nuevoEvento.setVariante(nuevaComision);
 
         assertEquals("Evento agregado",usuario.addEvento(nuevoEvento));
@@ -89,23 +88,20 @@ class UsuarioTest {
         Materia nuevoEvento = new Materia();
         nuevoEvento.setNombre("Algebra");
         nuevoEvento.setObligatoriedad(true);
-        nuevoEvento.setOptativa(true);
         nuevoEvento.setAnio(2021);
-        nuevoEvento.setSemestre(1);
+        nuevoEvento.setSemestre(false);
         //materia 2
         Materia nuevoEvento2 = new Materia();
         nuevoEvento2.setNombre("concurrente");
         nuevoEvento2.setObligatoriedad(true);
-        nuevoEvento2.setOptativa(true);
         nuevoEvento2.setAnio(2021);
-        nuevoEvento2.setSemestre(1);
+        nuevoEvento2.setSemestre(false);
         //materia 3
         Materia nuevoEvento3 = new Materia();
         nuevoEvento3.setNombre("fisica");
         nuevoEvento3.setObligatoriedad(false);
-        nuevoEvento3.setOptativa(true);
         nuevoEvento3.setAnio(2021);
-        nuevoEvento3.setSemestre(1);
+        nuevoEvento3.setSemestre(false);
 
 
         //----------------------PRUEBAS---------------------------------------------------------------------------------
@@ -167,17 +163,15 @@ class UsuarioTest {
         Materia nuevoEvento = new Materia();
         nuevoEvento.setNombre("Algebra");
         nuevoEvento.setObligatoriedad(true);
-        nuevoEvento.setOptativa(true);
         nuevoEvento.setAnio(2021);
-        nuevoEvento.setSemestre(1);
+        nuevoEvento.setSemestre(false);
         nuevoEvento.setVariante(nuevaComision);
         //materia 2
         Materia nuevoEvento2 = new Materia();
         nuevoEvento2.setNombre("concurrente");
         nuevoEvento2.setObligatoriedad(false);
-        nuevoEvento2.setOptativa(true);
         nuevoEvento2.setAnio(2021);
-        nuevoEvento2.setSemestre(1);
+        nuevoEvento2.setSemestre(false);
         nuevoEvento2.setVariante(nuevaComision2);
 
         //----------------------PRUEBAS---------------------------------------------------------------------------------
@@ -224,9 +218,8 @@ class UsuarioTest {
         Materia nuevoEvento = new Materia();
         nuevoEvento.setNombre("Algebra");
         nuevoEvento.setObligatoriedad(true);
-        nuevoEvento.setOptativa(true);
         nuevoEvento.setAnio(2021);
-        nuevoEvento.setSemestre(1);
+        nuevoEvento.setSemestre(false);
         nuevoEvento.setVariante(nuevaComision);
         nuevoEvento.setVariante(nuevaComision2);
 

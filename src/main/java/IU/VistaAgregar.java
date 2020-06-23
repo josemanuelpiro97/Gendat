@@ -1,13 +1,20 @@
 package IU;
 
+import BaseDeDatos.Materia;
+
+import javax.swing.*;
+
 /**
- *
  * @author marco
  */
 public class VistaAgregar extends javax.swing.JFrame {
     VistaPrincipal vistaPrincipal;
 
     public VistaAgregar(VistaPrincipal vp) {
+        //asignar usuario
+
+
+        //inicializar componentes
         initComponents();
         this.vistaPrincipal = vp;
         this.setVisible(false);
@@ -50,7 +57,7 @@ public class VistaAgregar extends javax.swing.JFrame {
 
         AgMateriaFrame.setVisible(true);
 
-        SemestreBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Primero", "Segundo" }));
+        SemestreBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Primero", "Segundo"}));
 
         ObligatorieadMateria.setText("Obligatoria");
 
@@ -70,53 +77,53 @@ public class VistaAgregar extends javax.swing.JFrame {
         javax.swing.GroupLayout AgMateriaFrameLayout = new javax.swing.GroupLayout(AgMateriaFrame.getContentPane());
         AgMateriaFrame.getContentPane().setLayout(AgMateriaFrameLayout);
         AgMateriaFrameLayout.setHorizontalGroup(
-            AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AgMateriaFrameLayout.createSequentialGroup()
-                .addGroup(AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AgMateriaFrameLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AgMateriaFrameLayout.createSequentialGroup()
+                AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(AgMateriaFrameLayout.createSequentialGroup()
+                                .addGroup(AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(AgMateriaFrameLayout.createSequentialGroup()
+                                                .addGap(25, 25, 25)
+                                                .addGroup(AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(AgMateriaFrameLayout.createSequentialGroup()
+                                                                .addGroup(AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                        .addComponent(MateriaNombreLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addComponent(MateriaAnioLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                .addGap(0, 0, Short.MAX_VALUE))
+                                                        .addComponent(SemestreLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)))
+                                        .addGroup(AgMateriaFrameLayout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(BtAgMateria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18)
                                 .addGroup(AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(MateriaNombreLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(MateriaAnioLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(SemestreLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)))
-                    .addGroup(AgMateriaFrameLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(BtAgMateria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addGroup(AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(AnioMateria)
-                    .addComponent(SemestreBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ObligatorieadMateria, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                    .addComponent(NombreMateria, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
+                                        .addComponent(AnioMateria)
+                                        .addComponent(SemestreBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(ObligatorieadMateria, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                        .addComponent(NombreMateria, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addContainerGap())
         );
         AgMateriaFrameLayout.setVerticalGroup(
-            AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AgMateriaFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NombreMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MateriaNombreLabel))
-                .addGap(18, 18, 18)
-                .addGroup(AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AnioMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MateriaAnioLabel))
-                .addGap(18, 18, 18)
-                .addGroup(AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SemestreBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SemestreLabel))
-                .addGroup(AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AgMateriaFrameLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ObligatorieadMateria)
-                        .addContainerGap(43, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgMateriaFrameLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtAgMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(AgMateriaFrameLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(NombreMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(MateriaNombreLabel))
+                                .addGap(18, 18, 18)
+                                .addGroup(AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(AnioMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(MateriaAnioLabel))
+                                .addGap(18, 18, 18)
+                                .addGroup(AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(SemestreBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(SemestreLabel))
+                                .addGroup(AgMateriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(AgMateriaFrameLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(ObligatorieadMateria)
+                                                .addContainerGap(43, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgMateriaFrameLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(BtAgMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addContainerGap())))
         );
 
         AgEventoPFrame.setVisible(true);
@@ -143,44 +150,44 @@ public class VistaAgregar extends javax.swing.JFrame {
         javax.swing.GroupLayout AgEventoPFrameLayout = new javax.swing.GroupLayout(AgEventoPFrame.getContentPane());
         AgEventoPFrame.getContentPane().setLayout(AgEventoPFrameLayout);
         AgEventoPFrameLayout.setHorizontalGroup(
-            AgEventoPFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgEventoPFrameLayout.createSequentialGroup()
-                .addGroup(AgEventoPFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AgEventoPFrameLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(AgEventoPFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(NombreEventoPLabel)
-                            .addComponent(RubroLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE))
-                    .addGroup(AgEventoPFrameLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(BtAgEventoP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(AgEventoPFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(EventoObligatorio, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                    .addComponent(RubroEventoP)
-                    .addComponent(NombreEventoP))
-                .addContainerGap())
+                AgEventoPFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgEventoPFrameLayout.createSequentialGroup()
+                                .addGroup(AgEventoPFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(AgEventoPFrameLayout.createSequentialGroup()
+                                                .addGap(21, 21, 21)
+                                                .addGroup(AgEventoPFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(NombreEventoPLabel)
+                                                        .addComponent(RubroLabel))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE))
+                                        .addGroup(AgEventoPFrameLayout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(BtAgEventoP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                .addGroup(AgEventoPFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(EventoObligatorio, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                        .addComponent(RubroEventoP)
+                                        .addComponent(NombreEventoP))
+                                .addContainerGap())
         );
         AgEventoPFrameLayout.setVerticalGroup(
-            AgEventoPFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AgEventoPFrameLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(AgEventoPFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NombreEventoPLabel)
-                    .addComponent(NombreEventoP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(AgEventoPFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RubroEventoP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RubroLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(AgEventoPFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgEventoPFrameLayout.createSequentialGroup()
-                        .addComponent(EventoObligatorio)
-                        .addGap(41, 41, 41))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgEventoPFrameLayout.createSequentialGroup()
-                        .addComponent(BtAgEventoP, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                AgEventoPFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(AgEventoPFrameLayout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addGroup(AgEventoPFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(NombreEventoPLabel)
+                                        .addComponent(NombreEventoP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(AgEventoPFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(RubroEventoP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(RubroLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(AgEventoPFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgEventoPFrameLayout.createSequentialGroup()
+                                                .addComponent(EventoObligatorio)
+                                                .addGap(41, 41, 41))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgEventoPFrameLayout.createSequentialGroup()
+                                                .addComponent(BtAgEventoP, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addContainerGap())))
         );
 
         AgregarMateria.setText("Materia");
@@ -207,39 +214,39 @@ public class VistaAgregar extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(AgMateriaFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(AgEventoPFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(BtVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(AgregarMateria)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(AgregarEventoP, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                                .addComponent(AgMateriaFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(AgEventoPFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(BtVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(80, 80, 80)
+                                                .addComponent(AgregarMateria)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(AgregarEventoP, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(34, 34, 34)))
+                                .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AgregarEventoP)
-                    .addComponent(AgregarMateria))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(AgMateriaFrame)
-                    .addComponent(AgEventoPFrame))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtVolver)
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(AgregarEventoP)
+                                        .addComponent(AgregarMateria))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(AgMateriaFrame)
+                                        .addComponent(AgEventoPFrame))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BtVolver)
+                                .addContainerGap())
         );
         setUndecorated(true);
         pack();
@@ -267,15 +274,60 @@ public class VistaAgregar extends javax.swing.JFrame {
     }//GEN-LAST:event_BtVolverActionPerformed
 
     private void BtAgMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAgMateriaActionPerformed
-        /*VistaMenu vM = new VistaMenu();
-        vM.setVisible(true);
-        this.setVisible(false);*/
-    }//GEN-LAST:event_BtAgMateriaActionPerformed
+        boolean controlFlag = true;
+        boolean nombreDupliFlag = true;
+        boolean nombreFlag = true;
+        boolean anioFlag = true;
+
+        //creo materia
+        Materia nuevaMateria = new Materia();
+        //agrego nombre y chequeo estado
+        nombreFlag = nuevaMateria.setNombre(this.NombreMateria.getText());
+        if(!nombreFlag) {
+            JOptionPane.showMessageDialog(null, "El nombre es invalido");
+            controlFlag = false;
+        }
+        //agrego anio y chequeo estado
+        anioFlag = nuevaMateria.setAnio(Integer.parseInt(this.AnioMateria.getText()));
+        if(!nombreFlag){
+            JOptionPane.showMessageDialog(null, "El anio es invalido");
+            controlFlag = false;
+        }
+        //agrego obligatoriedad
+        nuevaMateria.setObligatoriedad(this.ObligatorieadMateria.isSelected());
+        //agrego semestre
+        nuevaMateria.setSemestre(this.SemestreBox.getSelectedIndex() == 0);
+        //trato de agregar la materia en la base de datos
+        nombreDupliFlag = this.vistaPrincipal.getUsuarioSeleccionado().addEvento(nuevaMateria);
+        if(!nombreDupliFlag) {
+            JOptionPane.showMessageDialog(null, "Nombre de materia duplicado");
+            controlFlag = false;
+        }
+
+
+        if (controlFlag) {
+            //si esta todito bien se agrega el evento y se hace visible la vista principal
+            this.setVisible(false);
+            vistaPrincipal.setVisible(true);
+            //reseteo valores-------------------------
+            AnioMateria.setText("");
+            NombreMateria.setText("");
+            ObligatorieadMateria.setSelected(false);
+            AgregarMateria.setSelected(false);
+            AgMateriaFrame.setVisible(false);
+            //-----------------------------------------
+        }
+    }
 
     private void BtAgEventoPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAgEventoPActionPerformed
-        /*VistaMenu vM = new VistaMenu();
-        vM.setVisible(true);
-        this.setVisible(false);*/
+        this.setVisible(false);
+        vistaPrincipal.setVisible(true);
+        vistaPrincipal.agregarEventoLista(NombreEventoP.getText());
+        RubroEventoP.setText("");
+        NombreEventoP.setText("");
+        EventoObligatorio.setSelected(false);
+        AgEventoPFrame.setVisible(false);
+        AgregarEventoP.setSelected(false);
     }//GEN-LAST:event_BtAgEventoPActionPerformed
 
 
