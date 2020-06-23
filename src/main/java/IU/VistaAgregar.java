@@ -294,10 +294,10 @@ public class VistaAgregar extends javax.swing.JFrame {
         anioFlag = anioValido(this.AnioMateria.getText());
         if(anioFlag) {
             anioFlag = nuevaMateria.setAnio(Integer.parseInt(this.AnioMateria.getText()));
-            if(!anioFlag) {
-                controlFlag = false;
-                JOptionPane.showMessageDialog(null, "Anio invalido");
-            }
+        }
+        if(!anioFlag) {
+            controlFlag = false;
+            JOptionPane.showMessageDialog(null, "Anio invalido");
         }
 
         //agrego obligatoriedad
