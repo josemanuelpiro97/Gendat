@@ -16,47 +16,180 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="321" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="471" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="878" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="204" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="282" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="VISTA SELECCION"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jButton2"/>
-      </Properties>
-    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="AgendaSemanal">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder/>
+              </Border>
+            </Property>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="8" rowCount="73">
+                <Column editable="false" title="Hora/Dia" type="java.lang.Object">
+                  <Data value="06:00"/>
+                  <Data value="06:15"/>
+                  <Data value="06:30"/>
+                  <Data value="06:45"/>
+                  <Data value="07:00"/>
+                  <Data value="07:15"/>
+                  <Data value="07:30"/>
+                  <Data value="07:45"/>
+                  <Data value="08:00"/>
+                  <Data value="08:15"/>
+                  <Data value="08:30"/>
+                  <Data value="08:45"/>
+                  <Data value="09:00"/>
+                  <Data value="09:15"/>
+                  <Data value="09:30"/>
+                  <Data value="09:45"/>
+                  <Data value="10:00"/>
+                  <Data value="10:15"/>
+                  <Data value="10:30"/>
+                  <Data value="10:45"/>
+                  <Data value="11:00"/>
+                  <Data value="11:15"/>
+                  <Data value="11:30"/>
+                  <Data value="11:45"/>
+                  <Data value="12:00"/>
+                  <Data value="12:15"/>
+                  <Data value="12:30"/>
+                  <Data value="12:45"/>
+                  <Data value="13:00"/>
+                  <Data value="13:15"/>
+                  <Data value="13:30"/>
+                  <Data value="13:45"/>
+                  <Data value="14:00"/>
+                  <Data value="14:15"/>
+                  <Data value="14:30"/>
+                  <Data value="14:45"/>
+                  <Data value="15:00"/>
+                  <Data value="15:15"/>
+                  <Data value="15:30"/>
+                  <Data value="15:45"/>
+                  <Data value="16:00"/>
+                  <Data value="16:15"/>
+                  <Data value="16:30"/>
+                  <Data value="16:45"/>
+                  <Data value="17:00"/>
+                  <Data value="17:15"/>
+                  <Data value="17:30"/>
+                  <Data value="17:45"/>
+                  <Data value="18:00"/>
+                  <Data value="18:15"/>
+                  <Data value="18:30"/>
+                  <Data value="18:45"/>
+                  <Data value="19:00"/>
+                  <Data value="19:15"/>
+                  <Data value="19:30"/>
+                  <Data value="19:45"/>
+                  <Data value="20:00"/>
+                  <Data value="20:15"/>
+                  <Data value="20:30"/>
+                  <Data value="20:45"/>
+                  <Data value="21:00"/>
+                  <Data value="21:15"/>
+                  <Data value="21:30"/>
+                  <Data value="21:45"/>
+                  <Data value="22:00"/>
+                  <Data value="22:15"/>
+                  <Data value="22:30"/>
+                  <Data value="22:45"/>
+                  <Data value="23:00"/>
+                  <Data value="23:15"/>
+                  <Data value="23:30"/>
+                  <Data value="23:45"/>
+                  <Data value="00:00"/>
+                </Column>
+                <Column editable="false" title="Lunes" type="java.lang.Object"/>
+                <Column editable="false" title="Martes" type="java.lang.Object"/>
+                <Column editable="false" title="Miercoles" type="java.lang.Object"/>
+                <Column editable="false" title="Jueves" type="java.lang.Object"/>
+                <Column editable="false" title="Viernes" type="java.lang.Object"/>
+                <Column editable="false" title="Sabado" type="java.lang.Object"/>
+                <Column editable="false" title="Domingo" type="java.lang.Object"/>
+              </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="3">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
+            </Property>
+            <Property name="columnSelectionAllowed" type="boolean" value="true"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Default Cursor"/>
+            </Property>
+            <Property name="rowMargin" type="int" value="2"/>
+            <Property name="showGrid" type="boolean" value="true"/>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>

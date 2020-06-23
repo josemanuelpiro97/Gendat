@@ -20,43 +20,79 @@ public class VistaEventos extends javax.swing.JPanel{ // implements Observador {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        VistaEventos = new javax.swing.JLabel();
+        AgregarVariante = new javax.swing.JButton();
+        EliminarEventos = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaEventos = new javax.swing.JList<>();
 
-        jLabel1.setText("VISTA EVENTOS ");
+        setPreferredSize(new java.awt.Dimension(280, 280));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        VistaEventos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        VistaEventos.setText("Eventos");
+
+        AgregarVariante.setText("Agregar Variante");
+        AgregarVariante.setMaximumSize(new java.awt.Dimension(130, 25));
+        AgregarVariante.setMinimumSize(new java.awt.Dimension(130, 25));
+        AgregarVariante.setPreferredSize(new java.awt.Dimension(135, 25));
+        AgregarVariante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AgregarVarianteActionPerformed(evt);
             }
         });
+
+        EliminarEventos.setText("Eliminar Evento");
+        EliminarEventos.setMaximumSize(new java.awt.Dimension(125, 25));
+        EliminarEventos.setMinimumSize(new java.awt.Dimension(125, 25));
+        EliminarEventos.setPreferredSize(new java.awt.Dimension(125, 25));
+
+        listaEventos.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "sdvcsdv", "sdvsdvsf" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        listaEventos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        listaEventos.setToolTipText("");
+        jScrollPane1.setViewportView(listaEventos);
+        listaEventos.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(jLabel1)
-                .addContainerGap(98, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(AgregarVariante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(EliminarEventos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(VistaEventos)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
-                .addComponent(jButton1))
+                .addContainerGap()
+                .addComponent(VistaEventos)
+                .addGap(13, 13, 13)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AgregarVariante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EliminarEventos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(14, 14, 14))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void AgregarVarianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarVarianteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_AgregarVarianteActionPerformed
 
     /*
     @Override
@@ -71,7 +107,10 @@ public class VistaEventos extends javax.swing.JPanel{ // implements Observador {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton AgregarVariante;
+    private javax.swing.JButton EliminarEventos;
+    private javax.swing.JLabel VistaEventos;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JList<String> listaEventos;
     // End of variables declaration//GEN-END:variables
 }

@@ -49,13 +49,14 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         panelMenu = new javax.swing.JPanel();
         botonAgregarEvento = new javax.swing.JButton();
-        botonVerAgendas = new javax.swing.JButton();
-        botonCalcularAgendas = new javax.swing.JButton();
+        botonGenerarAgendas = new javax.swing.JButton();
+        botonImprimirAgenda = new javax.swing.JButton();
         botonCerrarSesion = new javax.swing.JButton();
         labelMenu = new javax.swing.JLabel();
         labelGendat = new javax.swing.JLabel();
         labelUsuario = new javax.swing.JLabel();
         botonBorrar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(900, 600));
@@ -65,98 +66,109 @@ public class VistaPrincipal extends javax.swing.JFrame {
         panelMenu.setPreferredSize(new java.awt.Dimension(280, 280));
 
         botonAgregarEvento.setText("Agregar Evento");
-        botonAgregarEvento.setMaximumSize(new java.awt.Dimension(120, 25));
-        botonAgregarEvento.setMinimumSize(new java.awt.Dimension(120, 25));
-        botonAgregarEvento.setPreferredSize(new java.awt.Dimension(120, 25));
+        botonAgregarEvento.setMaximumSize(new java.awt.Dimension(140, 25));
+        botonAgregarEvento.setMinimumSize(new java.awt.Dimension(140, 25));
+        botonAgregarEvento.setPreferredSize(new java.awt.Dimension(140, 25));
         botonAgregarEvento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonAgregarEventoActionPerformed(evt);
             }
         });
 
-        botonVerAgendas.setText("Ver Agendas");
-        botonVerAgendas.setMaximumSize(new java.awt.Dimension(120, 25));
-        botonVerAgendas.setMinimumSize(new java.awt.Dimension(120, 25));
-        botonVerAgendas.setPreferredSize(new java.awt.Dimension(120, 25));
+        botonGenerarAgendas.setText("Generar Agendas");
+        botonGenerarAgendas.setMaximumSize(new java.awt.Dimension(140, 25));
+        botonGenerarAgendas.setMinimumSize(new java.awt.Dimension(140, 25));
+        botonGenerarAgendas.setPreferredSize(new java.awt.Dimension(140, 25));
 
-        botonCalcularAgendas.setText("Generar Agendas");
-        botonCalcularAgendas.setMaximumSize(new java.awt.Dimension(120, 25));
-        botonCalcularAgendas.setMinimumSize(new java.awt.Dimension(120, 25));
-        botonCalcularAgendas.setPreferredSize(new java.awt.Dimension(120, 25));
+        botonImprimirAgenda.setText("Imprimir Agenda");
+        botonImprimirAgenda.setMaximumSize(new java.awt.Dimension(140, 25));
+        botonImprimirAgenda.setMinimumSize(new java.awt.Dimension(140, 25));
+        botonImprimirAgenda.setPreferredSize(new java.awt.Dimension(140, 25));
+        botonImprimirAgenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonImprimirAgendaActionPerformed(evt);
+            }
+        });
 
         botonCerrarSesion.setText("Cerrar Sesión");
-        botonCerrarSesion.setMaximumSize(new java.awt.Dimension(120, 25));
-        botonCerrarSesion.setMinimumSize(new java.awt.Dimension(120, 25));
-        botonCerrarSesion.setPreferredSize(new java.awt.Dimension(120, 25));
+        botonCerrarSesion.setMaximumSize(new java.awt.Dimension(140, 25));
+        botonCerrarSesion.setMinimumSize(new java.awt.Dimension(140, 25));
+        botonCerrarSesion.setPreferredSize(new java.awt.Dimension(140, 25));
         botonCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonCerrarSesionActionPerformed(evt);
             }
         });
 
+        labelMenu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labelMenu.setText("Menu Principal del Usuario:");
 
         labelGendat.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelGendat.setText("Gendat");
 
+        labelUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labelUsuario.setText("nombreUsuario");
 
         botonBorrar.setText("Eliminar Usuario");
-        botonBorrar.setMaximumSize(new java.awt.Dimension(120, 25));
-        botonBorrar.setMinimumSize(new java.awt.Dimension(120, 25));
-        botonBorrar.setPreferredSize(new java.awt.Dimension(120, 25));
+        botonBorrar.setMaximumSize(new java.awt.Dimension(140, 25));
+        botonBorrar.setMinimumSize(new java.awt.Dimension(140, 25));
+        botonBorrar.setPreferredSize(new java.awt.Dimension(140, 25));
         botonBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonBorrarActionPerformed(evt);
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("MV Boli", 3, 30)); // NOI18N
+        jLabel1.setText("G");
+
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
         panelMenuLayout.setHorizontalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMenuLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
                 .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelMenuLayout.createSequentialGroup()
-                        .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelMenu)
-                            .addGroup(panelMenuLayout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addComponent(labelGendat)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
+                        .addComponent(labelGendat))
+                    .addGroup(panelMenuLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labelMenu)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelUsuario))
                     .addGroup(panelMenuLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
+                        .addGap(69, 69, 69)
                         .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(botonBorrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(botonAgregarEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botonVerAgendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botonCalcularAgendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botonGenerarAgendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botonImprimirAgenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(botonCerrarSesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelMenuLayout.setVerticalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMenuLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(labelGendat)
-                .addGap(5, 5, 5)
+                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelGendat))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelUsuario)
                     .addComponent(labelMenu))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(11, 11, 11)
                 .addComponent(botonAgregarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(botonVerAgendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonGenerarAgendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(botonCalcularAgendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonImprimirAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(botonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(botonCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -193,13 +205,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
         this.setVisible(false);
         vistaIngresar.setVisible(true);
     }//GEN-LAST:event_botonBorrarActionPerformed
+
+    private void botonImprimirAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonImprimirAgendaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonImprimirAgendaActionPerformed
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAgregarEvento;
     private javax.swing.JButton botonBorrar;
-    private javax.swing.JButton botonCalcularAgendas;
     private javax.swing.JButton botonCerrarSesion;
-    private javax.swing.JButton botonVerAgendas;
+    private javax.swing.JButton botonGenerarAgendas;
+    private javax.swing.JButton botonImprimirAgenda;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelGendat;
     private javax.swing.JLabel labelMenu;
     private javax.swing.JLabel labelUsuario;
