@@ -275,6 +275,8 @@ public class VistaAgregar extends javax.swing.JFrame {
         ObligatorieadMateria.setSelected(false);
         AgMateriaFrame.setVisible(false);
         AgregarMateria.setSelected(false);
+        //System.out.println("Semestre elegido 1:");
+        //System.out.println(this.SemestreBox.getSelectedIndex());
     }//GEN-LAST:event_BtAgMateriaActionPerformed
 
 
