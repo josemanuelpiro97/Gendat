@@ -209,7 +209,7 @@ public class VistaIngresar extends javax.swing.JFrame {
      * @param indexNombreDeUsuario indice del usuario a eliminar
      */
     public void quitElemento(int indexNombreDeUsuario){
-        this.comboUsuarios.remove(indexNombreDeUsuario);
+        this.comboUsuarios.removeItemAt(indexNombreDeUsuario);
     }
 
 

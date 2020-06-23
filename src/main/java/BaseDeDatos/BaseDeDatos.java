@@ -40,8 +40,10 @@ public class BaseDeDatos {
      */
     public void quitUsuario(String nombreDeUsuario){
         for (Usuario usuarioActual:this.listaDeUsuarios){
-            if(usuarioActual.getNombreDeUsuario().equals(nombreDeUsuario))
+            if(usuarioActual.getNombreDeUsuario().equals(nombreDeUsuario)) {
                 this.listaDeUsuarios.remove(usuarioActual);
+                break;
+            }
         }
     }
 
