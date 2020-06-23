@@ -137,7 +137,6 @@ public class Materia implements EventoInterfaz {
      */
     public boolean setAnio(int anio) {
         if (anio < 1) {
-            System.out.println("Anio invalido");
             return false;
         }
         this.anio = anio;

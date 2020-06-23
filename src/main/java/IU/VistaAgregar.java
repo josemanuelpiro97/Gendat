@@ -289,16 +289,22 @@ public class VistaAgregar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "El nombre es invalido");
             controlFlag = false;
         }
-        //agrego anio y chequeo estado
-        anioFlag = nuevaMateria.setAnio(Integer.parseInt(this.AnioMateria.getText()));
-        if(!nombreFlag){
-            JOptionPane.showMessageDialog(null, "El anio es invalido");
-            controlFlag = false;
+
+        //cheque el año
+        anioFlag = anioValido(this.AnioMateria.getText());
+        if(anioFlag) {
+            anioFlag = nuevaMateria.setAnio(Integer.parseInt(this.AnioMateria.getText()));
+            if(!anioFlag) {
+                controlFlag = false;
+                JOptionPane.showMessageDialog(null, "Anio invalido");
+            }
         }
+
         //agrego obligatoriedad
         nuevaMateria.setObligatoriedad(this.ObligatorieadMateria.isSelected());
         //agrego semestre
         nuevaMateria.setSemestre(this.SemestreBox.getSelectedIndex() == 0);
+
         //trato de agregar la materia en la base de datos
         if(controlFlag) {
             nombreDupliFlag = this.vistaPrincipal.getUsuarioSeleccionado().addEvento(nuevaMateria);
@@ -308,7 +314,7 @@ public class VistaAgregar extends javax.swing.JFrame {
             controlFlag = false;
         }
 
-
+        //si alguno de los datos no fue valido, no salgo de la vista
         if (controlFlag) {
             vistaPrincipal.agregarEventoLista(NombreMateria.getText());
             //si esta todito bien se agrega el evento y se hace visible la vista principal
@@ -368,8 +374,24 @@ public class VistaAgregar extends javax.swing.JFrame {
             AgEventoPFrame.setVisible(false);
             AgregarEventoP.setSelected(false);
         }
-    }//GEN-LAST:event_BtAgEventoPActionPerformed
+    }
+    //-------------METODOS-------------------
+    //******************************************
 
+    public boolean anioValido(String val){
+        //cheque contenido
+        if(val.length() == 0)
+            return false;
+        //agrego anio y chequeo estado
+        for(int a = 0 ; a<val.length() ; a++) {
+            if(!(val.charAt(a) > 47 && val.charAt(a) < 58))
+                return false;
+        }
+        return  true;
+    }
+
+    //-------------INTOCABLE-------------------
+    //******************************************
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JInternalFrame AgEventoPFrame;
