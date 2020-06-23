@@ -241,7 +241,7 @@ public class VistaAgregar extends javax.swing.JFrame {
                 .addComponent(BtVolver)
                 .addContainerGap())
         );
-
+        setUndecorated(true);
         pack();
     }// </editor-fold>//GEN-END:initComponents
 

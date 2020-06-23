@@ -1,7 +1,7 @@
 package BaseDeDatos;
 
-import Observer.Sujeto;
 import Observer.Observador;
+import Observer.Sujeto;
 
 import java.util.ArrayList;
 
@@ -166,7 +166,7 @@ public class Usuario implements Sujeto {
      * @param variante     variante a agregar
      * @param nombreEvento nombre del evento al que quiero agregarle la variante
      * @return retornara uno de los mensajes dependiendo el caso
-     * @brief añade una variante al evento especificado
+     * @brief a?ade una variante al evento especificado
      */
     public String addVariante(VarianteInterfaz variante, String nombreEvento) {
         final String msjERROR1 = "Evento no encontrado";

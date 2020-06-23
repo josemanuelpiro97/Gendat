@@ -3,6 +3,7 @@ package IU;
 import BaseDeDatos.BaseDeDatos;
 import BaseDeDatos.Usuario;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -105,7 +106,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        botonCerrarSesion.setText("Cerrar Sesi�n");
+        botonCerrarSesion.setText("Cerrar Sesion");
         botonCerrarSesion.setMaximumSize(new java.awt.Dimension(140, 25));
         botonCerrarSesion.setMinimumSize(new java.awt.Dimension(140, 25));
         botonCerrarSesion.setPreferredSize(new java.awt.Dimension(140, 25));
@@ -201,7 +202,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 320, Short.MAX_VALUE))
         );
-
+        //setUndecorated(true);
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -209,8 +210,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
     //******************************************
 
     private void botonCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarSesionActionPerformed
-        this.setVisible(false);
-        vistaIngresar.setVisible(true);
+        int input = JOptionPane.showConfirmDialog(rootPane, "¿Esta seguro de querer cerrar sesion?", "Cerrar Sesion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        //input: 0=yes ; 1=no ; 2=cancel
+        if(input == 0)
+        {
+            this.setVisible(false);
+            vistaIngresar.setVisible(true);
+        }
     }//GEN-LAST:event_botonCerrarSesionActionPerformed
 
     private void botonAgregarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarEventoActionPerformed

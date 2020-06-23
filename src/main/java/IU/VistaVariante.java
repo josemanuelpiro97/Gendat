@@ -369,7 +369,7 @@ public class VistaVariante extends javax.swing.JFrame {
                     .addComponent(BtAtras))
                 .addContainerGap())
         );
-
+        setUndecorated(true);
         pack();
     }// </editor-fold>//GEN-END:initComponents
 

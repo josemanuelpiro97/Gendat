@@ -178,7 +178,8 @@ public class VistaIngresar extends javax.swing.JFrame {
 
     private void botonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarseActionPerformed
         //establezco el nombre
-        String nombre = textLogIn.getText().trim();
+        String nombre = textLogIn.getText();
+        nombre.trim();
         //chequeo si es vacio
         if(nombre.equals(""))
         {
@@ -197,7 +198,8 @@ public class VistaIngresar extends javax.swing.JFrame {
             }   
             else
             {
-                JOptionPane.showMessageDialog(rootPane, "Ese usuario ya existe, ingrese otro nombre.");
+                JOptionPane.showMessageDialog(rootPane, "Ese usuario ya existe, ingrese otro nombre.", "Error al crear", JOptionPane.ERROR_MESSAGE);
+                textLogIn.setText("");
             }
         }
     }//GEN-LAST:event_botonRegistrarseActionPerformed
