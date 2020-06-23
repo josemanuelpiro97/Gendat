@@ -169,7 +169,6 @@ public class VistaIngresar extends javax.swing.JFrame {
             this.setVisible(false);
             vistaPrincipal.setNombreUsuario(comboUsuarios.getSelectedItem().toString());
             vistaPrincipal.setVisible(true);
-
         }
     }//GEN-LAST:event_BotonLogInActionPerformed
 

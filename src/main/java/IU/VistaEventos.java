@@ -157,6 +157,8 @@ public class VistaEventos extends javax.swing.JPanel{
         modeloLista.removeElement(NombreEvento);
     }
 
+    public void vaciarLista(){modeloLista.clear();}
+
 
     //-------------INTOCABLE-------------------
     //******************************************

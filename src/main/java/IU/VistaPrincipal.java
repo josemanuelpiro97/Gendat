@@ -2,6 +2,7 @@ package IU;
 
 import BaseDeDatos.BaseDeDatos;
 import BaseDeDatos.Usuario;
+import BaseDeDatos.EventoInterfaz;
 
 import javax.swing.*;
 import java.awt.*;
@@ -73,6 +74,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gendat v1.0.0");
         setSize(new java.awt.Dimension(900, 600));
 
         panelMenu.setToolTipText("");
@@ -293,6 +295,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         //actualiza la label
         this.updateSetLabelVista();
+        this.updateEventos();
 
         //setea el sujeto en los observadores
         //this.vistaEventos.setSujeto(this.baseDeDatos.getUsuario(nombreUsuario));
@@ -306,6 +309,14 @@ public class VistaPrincipal extends javax.swing.JFrame {
         labelUsuario.setText(nombreUsuario);
         //imprime todito el contenido
         this.baseDeDatos.toPrint();
+    }
+
+    public void updateEventos(){
+        vistaEventos.vaciarLista();
+        for(EventoInterfaz e : usuarioSeleccionado.getListaEventos())
+        {
+            vistaEventos.AgregarALista(e.getNombre());
+        }
     }
 
     /**
