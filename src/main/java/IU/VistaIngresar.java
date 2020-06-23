@@ -40,7 +40,7 @@ public class VistaIngresar extends javax.swing.JFrame {
         ingreseNombre = new javax.swing.JLabel();
         bienvenido = new javax.swing.JLabel();
         botonRegistrarse = new javax.swing.JButton();
-        comboUsuarios = new javax.swing.JComboBox<>();
+        comboUsuarios = new javax.swing.JComboBox();
         labelExistentes = new javax.swing.JLabel();
         labelG = new javax.swing.JLabel();
 
@@ -201,6 +201,16 @@ public class VistaIngresar extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_botonRegistrarseActionPerformed
+
+    //-------------METODOS PARTICULARES---------
+    //******************************************
+    /**
+     * @brief borra un usuario de la lista de usuario
+     * @param indexNombreDeUsuario indice del usuario a eliminar
+     */
+    public void quitElemento(int indexNombreDeUsuario){
+        this.comboUsuarios.remove(indexNombreDeUsuario);
+    }
 
 
     //-------------INTOCABLE-------------------

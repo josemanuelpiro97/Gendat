@@ -35,6 +35,17 @@ public class BaseDeDatos {
     }
 
     /**
+     * @brief remueve un usuario de la lista de usuarios
+     * @param nombreDeUsuario nombre de usuario a eliminar
+     */
+    public void quitUsuario(String nombreDeUsuario){
+        for (Usuario usuarioActual:this.listaDeUsuarios){
+            if(usuarioActual.getNombreDeUsuario().equals(nombreDeUsuario))
+                this.listaDeUsuarios.remove(usuarioActual);
+        }
+    }
+
+    /**
      * permite obtener un usuario de la lista de usuarios
      * @param nombreDeUsuario nombre del usuario buscado
      * @return usuario buscado, null en caso de que no se encuentre el usuario
@@ -45,6 +56,20 @@ public class BaseDeDatos {
                 return usuarioActual;
         }
         return null;
+    }
+
+    /**
+     * @brief permite obtener el indice del usuario
+     * @param nombreDeUsuario nombre de usuario del cual quiero saber el indice
+     * @return indice de usuario
+     */
+    public int getIndex(String nombreDeUsuario){
+        for (int i =0 ; i< this.listaDeUsuarios.size();i++){
+            if(this.listaDeUsuarios.get(i).getNombreDeUsuario().equals(nombreDeUsuario))
+                return i;
+        }
+        //retorno un valor erroneo conocido
+        return 9999;
     }
 
     /**

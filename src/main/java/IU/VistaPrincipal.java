@@ -219,8 +219,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botonAgregarEventoActionPerformed
 
     private void botonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarActionPerformed
-        //TODO: ELIMINAR USUARIOOO
         this.setVisible(false);
+
+        // borrar el usuario
+        int index = getIndex();
+        this.baseDeDatos.quitUsuario(this.nombreUsuario);
+        this.vistaIngresar.quitElemento(index);
+
         vistaIngresar.setVisible(true);
     }//GEN-LAST:event_botonBorrarActionPerformed
 
@@ -243,15 +248,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
         return controlFlag;
     }
 
-    /**
-     * @brief actualiza sus labels
-     */
-    public void updateVista()
-    {
-        labelUsuario.setText(nombreUsuario);
 
-        //imprime todito el contenido
-        this.baseDeDatos.toPrint();
+    /**
+     * @brief  actualiza sos labels eliminando un usuario
+     */
+    public int getIndex(){
+        return this.baseDeDatos.getIndex(this.nombreUsuario);
     }
 
     /**
@@ -260,8 +262,19 @@ public class VistaPrincipal extends javax.swing.JFrame {
      */
     public void setNombreUsuario(String nombreUsuario){
         this.nombreUsuario = nombreUsuario;
-        this.updateVista();
+        this.updateSetLabelVista();
     }
+
+    /**
+     * @brief actualiza sus labels
+     */
+    public void updateSetLabelVista()
+    {
+        labelUsuario.setText(nombreUsuario);
+        //imprime todito el contenido
+        this.baseDeDatos.toPrint();
+    }
+
 
 
     //-------------INTOCABLE-------------------
