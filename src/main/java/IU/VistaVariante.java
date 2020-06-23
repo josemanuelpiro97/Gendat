@@ -19,8 +19,9 @@ public class VistaVariante extends javax.swing.JFrame {
         //inicializo componentes
         initComponents();
         this.vistaPrincipal = vp;
+
         this.setLocationRelativeTo(null);
-        ComisionFrame.setVisible(false);
+        ComisionFrame.setVisible(true);
         OpcionFrame.setVisible(false);
     }
 
@@ -37,37 +38,36 @@ public class VistaVariante extends javax.swing.JFrame {
         ProfeField = new javax.swing.JTextField();
         NumeroField = new javax.swing.JTextField();
         AulaField = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        profeLabel = new javax.swing.JLabel();
+        numeroLabel = new javax.swing.JLabel();
         DiaField = new javax.swing.JTextField();
-        HoraInicioFIeld = new javax.swing.JTextField();
-        MinutoInicioField = new javax.swing.JTextField();
-        HoraFinField = new javax.swing.JTextField();
-        MinutoFinField = new javax.swing.JTextField();
         BoxPrioM = new javax.swing.JCheckBox();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        AulaLabel = new javax.swing.JLabel();
+        diaLabel = new javax.swing.JLabel();
+        hsIniMatLabel = new javax.swing.JLabel();
+        hsFinMatLabel = new javax.swing.JLabel();
+        puntitos3 = new javax.swing.JLabel();
+        puntitos4 = new javax.swing.JLabel();
+        BtGuardarCom = new javax.swing.JButton();
+        HoraInicioMat = new javax.swing.JComboBox<>();
+        HoraFinMat = new javax.swing.JComboBox<>();
+        MinInicioMat = new javax.swing.JComboBox<>();
+        MinFinMat = new javax.swing.JComboBox<>();
         OpcionFrame = new javax.swing.JInternalFrame();
         LugarField = new javax.swing.JTextField();
         DiaFieldOp = new javax.swing.JTextField();
-        MinutoInicioFIeldOp = new javax.swing.JTextField();
-        HoraInicioFieldOp = new javax.swing.JTextField();
-        MinutoFinFieldOp = new javax.swing.JTextField();
-        HoraFinFieldOp = new javax.swing.JTextField();
         BoxPiroO = new javax.swing.JCheckBox();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        BoxComision = new javax.swing.JCheckBox();
-        BoxOpcion = new javax.swing.JCheckBox();
-        BtGuardar = new javax.swing.JButton();
+        LugarLabel = new javax.swing.JLabel();
+        diaOpLabel = new javax.swing.JLabel();
+        HsIniOpLabel = new javax.swing.JLabel();
+        HsFinOpLabel = new javax.swing.JLabel();
+        puntitos2 = new javax.swing.JLabel();
+        puntitos1 = new javax.swing.JLabel();
+        BtAgregarOpc = new javax.swing.JButton();
+        HoraInicioOp = new javax.swing.JComboBox<>();
+        MinInicioOp = new javax.swing.JComboBox<>();
+        MinFinOp = new javax.swing.JComboBox<>();
+        HoraFinOp = new javax.swing.JComboBox<>();
         BtAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,19 +81,13 @@ public class VistaVariante extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Profesor");
+        profeLabel.setText("Profesor");
 
-        jLabel2.setText("Numero");
+        numeroLabel.setText("Numero");
 
         DiaField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DiaFieldActionPerformed(evt);
-            }
-        });
-
-        MinutoInicioField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MinutoInicioFieldActionPerformed(evt);
             }
         });
 
@@ -104,17 +98,32 @@ public class VistaVariante extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Aula");
+        AulaLabel.setText("Aula");
 
-        jLabel4.setText("Dia");
+        diaLabel.setText("Dia");
 
-        jLabel5.setText("Hora/Minuto Inicio");
+        hsIniMatLabel.setText("Hora/Minuto Inicio");
 
-        jLabel7.setText("Hora/Minuto Fin");
+        hsFinMatLabel.setText("Hora/Minuto Fin");
 
-        jLabel6.setText(":");
+        puntitos3.setText(":");
 
-        jLabel16.setText(":");
+        puntitos4.setText(":");
+
+        BtGuardarCom.setText("Guardar Comision");
+        BtGuardarCom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtGuardarComActionPerformed(evt);
+            }
+        });
+
+        HoraInicioMat.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 }));
+
+        HoraFinMat.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 }));
+
+        MinInicioMat.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 0, 15, 30, 45 }));
+
+        MinFinMat.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 00, 15, 30, 45 }));
 
         javax.swing.GroupLayout ComisionFrameLayout = new javax.swing.GroupLayout(ComisionFrame.getContentPane());
         ComisionFrame.getContentPane().setLayout(ComisionFrameLayout);
@@ -125,24 +134,23 @@ public class VistaVariante extends javax.swing.JFrame {
                 .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComisionFrameLayout.createSequentialGroup()
                         .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7))
+                            .addComponent(diaLabel)
+                            .addComponent(hsIniMatLabel)
+                            .addComponent(hsFinMatLabel))
                         .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(ComisionFrameLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(HoraFinField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(HoraInicioFIeld, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(HoraInicioMat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(HoraFinMat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(puntitos3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(puntitos4, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(MinutoInicioField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(MinutoFinField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(7, 7, 7))
+                                    .addComponent(MinInicioMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(MinFinMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(ComisionFrameLayout.createSequentialGroup()
                                 .addGap(34, 34, 34)
                                 .addComponent(DiaField))))
@@ -152,14 +160,18 @@ public class VistaVariante extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComisionFrameLayout.createSequentialGroup()
                         .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
+                            .addComponent(profeLabel)
+                            .addComponent(numeroLabel)
+                            .addComponent(AulaLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(AulaField, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
                             .addComponent(NumeroField)
-                            .addComponent(ProfeField))))
+                            .addComponent(ProfeField)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComisionFrameLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(BtGuardarCom)
+                        .addGap(14, 14, 14)))
                 .addContainerGap())
         );
         ComisionFrameLayout.setVerticalGroup(
@@ -168,34 +180,36 @@ public class VistaVariante extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ProfeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(profeLabel))
                 .addGap(18, 18, 18)
                 .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NumeroField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(numeroLabel))
                 .addGap(18, 18, 18)
                 .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AulaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(AulaLabel))
                 .addGap(18, 18, 18)
                 .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DiaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(diaLabel))
                 .addGap(18, 18, 18)
                 .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(HoraInicioFIeld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(MinutoInicioField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(hsIniMatLabel)
+                    .addComponent(puntitos3)
+                    .addComponent(HoraInicioMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MinInicioMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(HoraFinField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MinutoFinField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel7))
+                    .addComponent(puntitos4)
+                    .addComponent(hsFinMatLabel)
+                    .addComponent(HoraFinMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MinFinMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(BoxPrioM)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(BtGuardarCom)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         OpcionFrame.setVisible(true);
@@ -206,31 +220,29 @@ public class VistaVariante extends javax.swing.JFrame {
             }
         });
 
-        MinutoInicioFIeldOp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MinutoInicioFIeldOpActionPerformed(evt);
-            }
-        });
-
-        HoraFinFieldOp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HoraFinFieldOpActionPerformed(evt);
-            }
-        });
-
         BoxPiroO.setText("Prioritaria");
 
-        jLabel9.setText("Lugar");
+        LugarLabel.setText("Lugar");
 
-        jLabel10.setText("Dia");
+        diaOpLabel.setText("Dia");
 
-        jLabel13.setText("Hora/Minuto Inicio");
+        HsIniOpLabel.setText("Hora/Minuto Inicio");
 
-        jLabel15.setText("Hora/Minuto Fin");
+        HsFinOpLabel.setText("Hora/Minuto Fin");
 
-        jLabel8.setText("  : ");
+        puntitos2.setText("  : ");
 
-        jLabel17.setText("  : ");
+        puntitos1.setText("  : ");
+
+        BtAgregarOpc.setText("Guardar Opcion");
+
+        HoraInicioOp.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 }));
+
+        MinInicioOp.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 0, 15, 30, 45 }));
+
+        MinFinOp.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 0, 15, 30, 45 }));
+
+        HoraFinOp.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 }));
 
         javax.swing.GroupLayout OpcionFrameLayout = new javax.swing.GroupLayout(OpcionFrame.getContentPane());
         OpcionFrame.getContentPane().setLayout(OpcionFrameLayout);
@@ -241,36 +253,41 @@ public class VistaVariante extends javax.swing.JFrame {
                 .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OpcionFrameLayout.createSequentialGroup()
                         .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(OpcionFrameLayout.createSequentialGroup()
-                                .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel13))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                                .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(HoraInicioFieldOp, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                                    .addComponent(HoraFinFieldOp)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OpcionFrameLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(BoxPiroO)
-                                .addGap(18, 18, 18)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(OpcionFrameLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(MinutoFinFieldOp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(OpcionFrameLayout.createSequentialGroup()
-                                .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(MinutoInicioFIeldOp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OpcionFrameLayout.createSequentialGroup()
-                        .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
+                            .addComponent(diaOpLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LugarLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(LugarField, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                            .addComponent(DiaFieldOp))))
+                            .addComponent(DiaFieldOp)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OpcionFrameLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(BtAgregarOpc)
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OpcionFrameLayout.createSequentialGroup()
+                        .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(OpcionFrameLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(BoxPiroO))
+                            .addGroup(OpcionFrameLayout.createSequentialGroup()
+                                .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(HsFinOpLabel)
+                                    .addComponent(HsIniOpLabel))
+                                .addGap(0, 24, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(OpcionFrameLayout.createSequentialGroup()
+                                .addComponent(HoraInicioOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(puntitos1))
+                            .addGroup(OpcionFrameLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(HoraFinOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(puntitos2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(MinInicioOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MinFinOp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         OpcionFrameLayout.setVerticalGroup(
@@ -278,49 +295,30 @@ public class VistaVariante extends javax.swing.JFrame {
             .addGroup(OpcionFrameLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
+                    .addComponent(LugarLabel)
                     .addComponent(LugarField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
+                    .addComponent(diaOpLabel)
                     .addComponent(DiaFieldOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(28, 28, 28)
                 .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(HoraInicioFieldOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17)
-                    .addComponent(MinutoInicioFIeldOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(HsIniOpLabel)
+                    .addComponent(puntitos1)
+                    .addComponent(MinInicioOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(HoraInicioOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MinutoFinFieldOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(HoraFinFieldOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
-                .addGap(31, 31, 31)
+                    .addComponent(puntitos2)
+                    .addComponent(HsFinOpLabel)
+                    .addComponent(MinFinOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(HoraFinOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addComponent(BoxPiroO)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtAgregarOpc)
+                .addGap(15, 15, 15))
         );
-
-        BoxComision.setText("Comision");
-        BoxComision.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BoxComisionActionPerformed(evt);
-            }
-        });
-
-        BoxOpcion.setText("Opcion");
-        BoxOpcion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BoxOpcionActionPerformed(evt);
-            }
-        });
-
-        BtGuardar.setText("Guardar Variante");
-        BtGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtGuardarActionPerformed(evt);
-            }
-        });
 
         BtAtras.setText("Atras");
         BtAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -334,87 +332,51 @@ public class VistaVariante extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(BtAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(BtGuardar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(ComisionFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(OpcionFrame))))
+                        .addComponent(BtAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(BoxComision)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BoxOpcion)
-                        .addGap(67, 67, 67)))
+                        .addComponent(ComisionFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(OpcionFrame)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BoxComision)
-                    .addComponent(BoxOpcion))
-                .addGap(27, 27, 27)
+                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ComisionFrame)
-                    .addComponent(OpcionFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(OpcionFrame)
+                    .addComponent(ComisionFrame))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                    .addComponent(BtAtras))
+                .addComponent(BtAtras)
                 .addContainerGap())
         );
-        setUndecorated(true);
+
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void BoxComisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxComisionActionPerformed
-
-        if (BoxComision.isSelected()){
-            ComisionFrame.setVisible(true);
-            BoxOpcion.setSelected(false);
-            OpcionFrame.setVisible(false);
-        }
-        else{
-            ComisionFrame.setVisible(false);
-        }
-    }//GEN-LAST:event_BoxComisionActionPerformed
+    //-------------ACCIONES DE BOTONES----------
+    //******************************************
 
     private void BtAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAtrasActionPerformed
         vistaPrincipal.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BtAtrasActionPerformed
 
-    private void MinutoInicioFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinutoInicioFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MinutoInicioFieldActionPerformed
-
     private void BoxPrioMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxPrioMActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BoxPrioMActionPerformed
-
-    private void HoraFinFieldOpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HoraFinFieldOpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HoraFinFieldOpActionPerformed
-
-    private void MinutoInicioFIeldOpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinutoInicioFIeldOpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MinutoInicioFIeldOpActionPerformed
 
     private void LugarFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LugarFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LugarFieldActionPerformed
 
-    private void BtGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtGuardarActionPerformed
+    private void BtGuardarComActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtGuardarComActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtGuardarActionPerformed
+    }//GEN-LAST:event_BtGuardarComActionPerformed
 
     private void AulaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AulaFieldActionPerformed
         // TODO add your handling code here:
@@ -424,56 +386,44 @@ public class VistaVariante extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_DiaFieldActionPerformed
 
-    private void BoxOpcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxOpcionActionPerformed
-        // TODO add your handling code here:
-        if(BoxOpcion.isSelected()){
-            OpcionFrame.setVisible(true);
-            BoxComision.setSelected(false);
-            ComisionFrame.setVisible(false); 
-        }
-         else{
-            ComisionFrame.setVisible(false);
-        }
-    }//GEN-LAST:event_BoxOpcionActionPerformed
 
-
-
+    //-------------INTOCABLE-------------------
+    //******************************************
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AulaField;
-    private javax.swing.JCheckBox BoxComision;
-    private javax.swing.JCheckBox BoxOpcion;
+    private javax.swing.JLabel AulaLabel;
     private javax.swing.JCheckBox BoxPiroO;
     private javax.swing.JCheckBox BoxPrioM;
+    private javax.swing.JButton BtAgregarOpc;
     private javax.swing.JButton BtAtras;
-    private javax.swing.JButton BtGuardar;
+    private javax.swing.JButton BtGuardarCom;
     private javax.swing.JInternalFrame ComisionFrame;
     private javax.swing.JTextField DiaField;
     private javax.swing.JTextField DiaFieldOp;
-    private javax.swing.JTextField HoraFinField;
-    private javax.swing.JTextField HoraFinFieldOp;
-    private javax.swing.JTextField HoraInicioFIeld;
-    private javax.swing.JTextField HoraInicioFieldOp;
+    private javax.swing.JComboBox<Integer> HoraFinMat;
+    private javax.swing.JComboBox<Integer> HoraFinOp;
+    private javax.swing.JComboBox<Integer> HoraInicioMat;
+    private javax.swing.JComboBox<Integer> HoraInicioOp;
+    private javax.swing.JLabel HsFinOpLabel;
+    private javax.swing.JLabel HsIniOpLabel;
     private javax.swing.JTextField LugarField;
-    private javax.swing.JTextField MinutoFinField;
-    private javax.swing.JTextField MinutoFinFieldOp;
-    private javax.swing.JTextField MinutoInicioFIeldOp;
-    private javax.swing.JTextField MinutoInicioField;
+    private javax.swing.JLabel LugarLabel;
+    private javax.swing.JComboBox<Integer> MinFinMat;
+    private javax.swing.JComboBox<Integer> MinFinOp;
+    private javax.swing.JComboBox<Integer> MinInicioMat;
+    private javax.swing.JComboBox<Integer> MinInicioOp;
     private javax.swing.JTextField NumeroField;
     private javax.swing.JInternalFrame OpcionFrame;
     private javax.swing.JTextField ProfeField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel diaLabel;
+    private javax.swing.JLabel diaOpLabel;
+    private javax.swing.JLabel hsFinMatLabel;
+    private javax.swing.JLabel hsIniMatLabel;
+    private javax.swing.JLabel numeroLabel;
+    private javax.swing.JLabel profeLabel;
+    private javax.swing.JLabel puntitos1;
+    private javax.swing.JLabel puntitos2;
+    private javax.swing.JLabel puntitos3;
+    private javax.swing.JLabel puntitos4;
     // End of variables declaration//GEN-END:variables
 }
