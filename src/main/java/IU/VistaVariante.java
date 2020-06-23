@@ -18,7 +18,7 @@ public class VistaVariante extends javax.swing.JFrame {
     public VistaVariante(VistaPrincipal vp) {
         initComponents();
         this.vistaPrincipal = vp;
-        ComisionFrame.setVisible(true);
+        ComisionFrame.setVisible(false);
         OpcionFrame.setVisible(false);
     }
 
@@ -232,6 +232,11 @@ public class VistaVariante extends javax.swing.JFrame {
         puntitos1.setText("  : ");
 
         BtAgregarOpc.setText("Guardar Opcion");
+        BtAgregarOpc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtAgregarOpcActionPerformed(evt);
+            }
+        });
 
         HoraInicioOp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
 
@@ -379,6 +384,10 @@ public class VistaVariante extends javax.swing.JFrame {
     private void DiaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_DiaFieldActionPerformed
+
+    private void BtAgregarOpcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAgregarOpcActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtAgregarOpcActionPerformed
 
 
 

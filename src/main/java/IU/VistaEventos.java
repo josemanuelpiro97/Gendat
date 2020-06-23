@@ -1,5 +1,7 @@
 package IU;
 
+import BaseDeDatos.Materia;
+
 import javax.swing.*;
 
 /**
@@ -118,13 +120,18 @@ public class VistaEventos extends javax.swing.JPanel{
     //-------------ACCIONES DE BOTONES----------
     //******************************************
     private void AgregarVarianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarVarianteActionPerformed
+
+        boolean materia;
+        int index = listaEventos.getSelectedIndex();
+        String nombreEvento = modeloLista.get(index).toString();
+        materia = this.vistaPrincipal.getUsuarioSeleccionado().getEvento(nombreEvento) instanceof Materia;
+
+
+
+        //---------------------
         vistaPrincipal.vistaVariante.setVisible(true);
         vistaPrincipal.setVisible(false);
     }//GEN-LAST:event_AgregarVarianteActionPerformed
-
-
-    //-------------METODOS PARTICULARES---------
-    //******************************************
 
     private void EliminarEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarVarianteActionPerformed
         boolean seleccion = listaEventos.isSelectionEmpty();
@@ -133,10 +140,15 @@ public class VistaEventos extends javax.swing.JPanel{
         }
         else{
             int index = listaEventos.getSelectedIndex();
-            String NombreEvento = modeloLista.get(index).toString();
-            eliminarDeLista(NombreEvento);
+            String nombreEvento = modeloLista.get(index).toString();
+            eliminarDeLista(nombreEvento);
         }
     }
+
+    //-------------METODOS PARTICULARES---------
+    //******************************************
+
+
 
     /**
      * Agrego a la lista el elemento del evento
