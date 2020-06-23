@@ -56,7 +56,7 @@ public class VistaAgregar extends javax.swing.JFrame {
 
         MateriaNombreLabel.setText("Nombre");
 
-        MateriaAnioLabel.setText("A�o");
+        MateriaAnioLabel.setText("Anio");
 
         SemestreLabel.setText("Semestre");
 
