@@ -1,5 +1,6 @@
 package IU;
 
+import BaseDeDatos.EventoParticular;
 import BaseDeDatos.Materia;
 
 import javax.swing.*;
@@ -274,20 +275,7 @@ public class VistaAgregar extends javax.swing.JFrame {
     }//GEN-LAST:event_BtVolverActionPerformed
 
     private void BtAgMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAgMateriaActionPerformed
-<<<<<<< HEAD
-        this.setVisible(false);
-        vistaPrincipal.setVisible(true);
-        vistaPrincipal.agregarEventoLista(NombreMateria.getText());
-        AnioMateria.setText("");
-        NombreMateria.setText("");
-        ObligatorieadMateria.setSelected(false);
-        AgMateriaFrame.setVisible(false);
-        AgregarMateria.setSelected(false);
-        //System.out.println("Semestre elegido 1:");
-        //System.out.println(this.SemestreBox.getSelectedIndex());
-    }//GEN-LAST:event_BtAgMateriaActionPerformed
 
-=======
         boolean controlFlag = true;
         boolean nombreDupliFlag = true;
         boolean nombreFlag = true;
@@ -312,7 +300,9 @@ public class VistaAgregar extends javax.swing.JFrame {
         //agrego semestre
         nuevaMateria.setSemestre(this.SemestreBox.getSelectedIndex() == 0);
         //trato de agregar la materia en la base de datos
-        nombreDupliFlag = this.vistaPrincipal.getUsuarioSeleccionado().addEvento(nuevaMateria);
+        if(controlFlag) {
+            nombreDupliFlag = this.vistaPrincipal.getUsuarioSeleccionado().addEvento(nuevaMateria);
+        }
         if(!nombreDupliFlag) {
             JOptionPane.showMessageDialog(null, "Nombre de materia duplicado");
             controlFlag = false;
@@ -321,6 +311,7 @@ public class VistaAgregar extends javax.swing.JFrame {
 
         if (controlFlag) {
             //si esta todito bien se agrega el evento y se hace visible la vista principal
+            vistaPrincipal.agregarEventoLista(NombreMateria.getText());
             this.setVisible(false);
             vistaPrincipal.setVisible(true);
             //reseteo valores-------------------------
@@ -332,17 +323,50 @@ public class VistaAgregar extends javax.swing.JFrame {
             //-----------------------------------------
         }
     }
->>>>>>> ccb176866d5f2bd84f6a75c0b8bfacfe8a393a31
-
     private void BtAgEventoPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAgEventoPActionPerformed
-        this.setVisible(false);
-        vistaPrincipal.setVisible(true);
-        vistaPrincipal.agregarEventoLista(NombreEventoP.getText());
-        RubroEventoP.setText("");
-        NombreEventoP.setText("");
-        EventoObligatorio.setSelected(false);
-        AgEventoPFrame.setVisible(false);
-        AgregarEventoP.setSelected(false);
+        boolean controlFlag = true;
+        boolean nombreDupliFlag = true;
+        boolean nombreFlag = true;
+        boolean rubroFlag = true;
+
+        //creo evento
+        EventoParticular nuevoEvento = new EventoParticular();
+        //agrego nombre y chequeo estado
+        nombreFlag = nuevoEvento.setNombre(this.NombreEventoP.getText());
+        if(!nombreFlag) {
+            JOptionPane.showMessageDialog(null, "El nombre es invalido");
+            controlFlag = false;
+        }
+        //agrego rubro y chequeo estado
+        rubroFlag = nuevoEvento.setRubro(this.RubroEventoP.getText());
+        if(!rubroFlag){
+            JOptionPane.showMessageDialog(null, "El rubro es invalido");
+            controlFlag = false;
+        }
+        //agrego obligatoriedad
+        nuevoEvento.setObligatoriedad(this.EventoObligatorio.isSelected());
+
+        //trato de agregar la materia en la base de datos
+        if(controlFlag) {
+            nombreDupliFlag = this.vistaPrincipal.getUsuarioSeleccionado().addEvento(nuevoEvento);
+        }
+
+        if(!nombreDupliFlag) {
+            JOptionPane.showMessageDialog(null, "Nombre de evento duplicado");
+            controlFlag = false;
+        }
+
+        if (controlFlag) {
+            vistaPrincipal.agregarEventoLista(NombreEventoP.getText());
+            this.setVisible(false);
+            vistaPrincipal.setVisible(true);
+            //-------------------------
+            RubroEventoP.setText("");
+            NombreEventoP.setText("");
+            EventoObligatorio.setSelected(false);
+            AgEventoPFrame.setVisible(false);
+            AgregarEventoP.setSelected(false);
+        }
     }//GEN-LAST:event_BtAgEventoPActionPerformed
 
 

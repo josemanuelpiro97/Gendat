@@ -121,7 +121,10 @@ public class EventoParticular implements EventoInterfaz{
      * @brief setter del rubro del evento
      * @param rubro rubro del evento
      */
-    public void setRubro(String rubro){
-        this.rubro = rubro;
+    public boolean setRubro(String rubro){
+        if(rubro.equals(""))
+            return false;
+
+        this.rubro = rubro; return true;
     }
 }
