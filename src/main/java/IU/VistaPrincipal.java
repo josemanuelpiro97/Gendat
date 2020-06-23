@@ -18,7 +18,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public VistaPrincipal() {
         initComponents();
         this.setLayout(new FlowLayout());
-        //this.setLayout(new GridLayout(2,3));//(2,3));
         this.vistaIngresar = new VistaIngresar(this);
         this.vistaAgregar = new VistaAgregar(this);
         this.vistaVariante = new VistaVariante(this);

@@ -1,11 +1,14 @@
 import IU.VistaIngresar;
 import IU.VistaPrincipal;
+import BaseDeDatos.BaseDeDatos;
 
 public class Gendat{
 
     public static void main(String[] arg){
         //1) creamos la base de datos
         //2) creamos la vista principal y le pasamos la base de datos
+
+
 
         /** 3)
          * la vista al recibir que se agregara un nuevo usuario, le pregunta a la base de datos si
