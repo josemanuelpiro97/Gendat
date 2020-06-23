@@ -16,8 +16,10 @@ public class VistaVariante extends javax.swing.JFrame {
      * Creates new form VistaVariante
      */
     public VistaVariante(VistaPrincipal vp) {
+        //inicializo componentes
         initComponents();
         this.vistaPrincipal = vp;
+        this.setLocationRelativeTo(null);
         ComisionFrame.setVisible(false);
         OpcionFrame.setVisible(false);
     }

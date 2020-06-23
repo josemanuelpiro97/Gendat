@@ -318,7 +318,6 @@ public class VistaAgregar extends javax.swing.JFrame {
         if (controlFlag) {
             vistaPrincipal.agregarEventoLista(NombreMateria.getText());
             //si esta todito bien se agrega el evento y se hace visible la vista principal
-            vistaPrincipal.agregarEventoLista(NombreMateria.getText());
             this.setVisible(false);
             vistaPrincipal.setVisible(true);
             //reseteo valores-------------------------

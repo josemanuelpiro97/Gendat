@@ -1,8 +1,5 @@
 package IU;
 
-import Observer.Observador;
-import Observer.Sujeto;
-
 import javax.swing.*;
 
 /**
@@ -137,24 +134,25 @@ public class VistaEventos extends javax.swing.JPanel{
         else{
             int index = listaEventos.getSelectedIndex();
             String NombreEvento = modeloLista.get(index).toString();
-            EliminarDeLista(NombreEvento);
+            eliminarDeLista(NombreEvento);
         }
     }
 
     /**
      * Agrego a la lista el elemento del evento
-     * @param NombreEvento
+     * @param nombreEvento
      */
-    public void AgregarALista(String NombreEvento){
-        modeloLista.addElement(NombreEvento);
+    public void agregarALista(String nombreEvento){
+        modeloLista.addElement(nombreEvento);
     }
 
     /**
      * Elimino el elemento seleccionado de la lista
-     * @param NombreEvento
+     * @param nombreEvento
      */
-    public void EliminarDeLista(String NombreEvento){
-        modeloLista.removeElement(NombreEvento);
+    public void eliminarDeLista(String nombreEvento){
+        this.vistaPrincipal.getUsuarioSeleccionado().quitEvento(nombreEvento);
+        modeloLista.removeElement(nombreEvento);
     }
 
     public void vaciarLista(){modeloLista.clear();}
