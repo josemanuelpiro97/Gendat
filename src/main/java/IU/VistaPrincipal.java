@@ -12,6 +12,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     VistaEventos vistaEventos;
     VistaAgendas vistaAgendas;
     VistaSeleccion vistaSeleccion;
+    VistaVariante vistaVariante;
     String nombreUsuario;
 
     public VistaPrincipal() {
@@ -20,13 +21,16 @@ public class VistaPrincipal extends javax.swing.JFrame {
         //this.setLayout(new GridLayout(2,3));//(2,3));
         this.vistaIngresar = new VistaIngresar(this);
         this.vistaAgregar = new VistaAgregar(this);
-        this.vistaEventos = new VistaEventos();
+        this.vistaVariante = new VistaVariante(this);
+        this.vistaEventos = new VistaEventos(this);
+        this.vistaAgendas = new VistaAgendas(this);
+        this.vistaSeleccion = new VistaSeleccion(this);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(false);
-        this.add(new VistaEventos());
-        this.add(new VistaAgendas());
-        this.add(new VistaSeleccion());
+        this.add(vistaEventos);
+        this.add(vistaAgendas);
+        this.add(vistaSeleccion);
         /*
         this.add(vistaEventos);
         this.add(vistaAgendas);

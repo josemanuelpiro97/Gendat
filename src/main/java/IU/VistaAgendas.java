@@ -10,12 +10,10 @@ package IU;
  * @author FedeSSD
  */
 public class VistaAgendas extends javax.swing.JPanel {
-
-    /**
-     * Creates new form VistaAgendas
-     */
-    public VistaAgendas() {
+    VistaPrincipal vistaPrincipal;
+    public VistaAgendas(VistaPrincipal vp) {
         initComponents();
+        this.vistaPrincipal = vp;
     }
 
     /**

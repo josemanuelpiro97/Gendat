@@ -7,8 +7,10 @@ import Observer.Observador;
  * @author FedeSSD
  */
 public class VistaEventos extends javax.swing.JPanel{ // implements Observador {
-    public VistaEventos() {
+    VistaPrincipal vistaPrincipal;
+    public VistaEventos(VistaPrincipal vp) {
         initComponents();
+        this.vistaPrincipal = vp;
     }
 
     /**
@@ -91,7 +93,8 @@ public class VistaEventos extends javax.swing.JPanel{ // implements Observador {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarVarianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarVarianteActionPerformed
-        // TODO add your handling code here:
+        vistaPrincipal.vistaVariante.setVisible(true);
+        vistaPrincipal.setVisible(false);
     }//GEN-LAST:event_AgregarVarianteActionPerformed
 
     /*

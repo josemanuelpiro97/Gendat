@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package IU;
 
 /**
@@ -10,12 +5,10 @@ package IU;
  * @author FedeSSD
  */
 public class VistaSeleccion extends javax.swing.JPanel {
-
-    /**
-     * Creates new form VistaSeleccion
-     */
-    public VistaSeleccion() {
+    VistaPrincipal vistaPrincipal;
+    public VistaSeleccion(VistaPrincipal vp) {
         initComponents();
+        this.vistaPrincipal = vp;
     }
 
     /**
