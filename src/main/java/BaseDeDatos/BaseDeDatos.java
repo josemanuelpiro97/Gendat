@@ -24,6 +24,12 @@ public class BaseDeDatos {
         if (nombreDeUsuario.equals(" ") || nombreDeUsuario.length() == 0)
             return false;
 
+        //chequeo duplicado
+        for (Usuario usuarioActual:this.listaDeUsuarios){
+            if(usuarioActual.getNombreDeUsuario().equals(nombreDeUsuario))
+                return false;
+        }
+
         this.listaDeUsuarios.add(new Usuario(nombreDeUsuario));
         return true;
     }
@@ -39,6 +45,15 @@ public class BaseDeDatos {
                 return usuarioActual;
         }
         return null;
+    }
+
+    /**
+     * @brief  imprime todos los nombres de los usuarios registrados
+     */
+    public void toPrint(){
+        for (Usuario usuarioActual: this.listaDeUsuarios){
+            System.out.println(usuarioActual.getNombreDeUsuario());
+        }
     }
 
 }

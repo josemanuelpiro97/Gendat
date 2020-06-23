@@ -1,12 +1,23 @@
+import BaseDeDatos.BaseDeDatos;
 import IU.VistaIngresar;
 import IU.VistaPrincipal;
+<<<<<<< HEAD
 import BaseDeDatos.BaseDeDatos;
+=======
+import BaseDeDatos.Usuario;
+
+import java.util.ArrayList;
+>>>>>>> 35f8f7cfe21e5f875c4333e1ce2fdea58dcbf37b
 
 public class Gendat{
 
     public static void main(String[] arg){
-        //1) creamos la base de datos
-        //2) creamos la vista principal y le pasamos la base de datos
+        //base de dato de trabajo
+        BaseDeDatos baseDeDatos = new BaseDeDatos();
+
+        //Creacion de vistas
+        VistaPrincipal vistaPrincipal = new VistaPrincipal();
+
 
 
 

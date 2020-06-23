@@ -161,13 +161,14 @@ public class VistaIngresar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //-------------ACCIONES DE BOTONES----------
+    //******************************************
     private void BotonLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonLogInActionPerformed
         if(comboUsuarios.getSelectedItem() != null)
         {
             this.setVisible(false);
             vistaPrincipal.setVisible(true);
-            vistaPrincipal.nombreUsuario = comboUsuarios.getSelectedItem().toString(); //textLogIn.getText();
-            vistaPrincipal.updateVista();
+            vistaPrincipal.setNombreUsuario(comboUsuarios.getSelectedItem().toString());
         }
     }//GEN-LAST:event_BotonLogInActionPerformed
 
@@ -176,17 +177,22 @@ public class VistaIngresar extends javax.swing.JFrame {
     }//GEN-LAST:event_textLogInActionPerformed
 
     private void botonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarseActionPerformed
-        //TODO FALTA REVISAR SI EL USUARIO YA EXISTE
-        if(textLogIn.getText().equals(""))
+        //establezco el nombre
+        String nombre = textLogIn.getText().trim();
+        //chequeo si es vacio
+        if(nombre.equals(""))
         {
             JOptionPane.showMessageDialog(rootPane, "Debes ingresar tu nombre de usuario.");
         }
+        //sino trato de agregar
         else
         {
+            boolean controlFlag = this.vistaPrincipal.setUsuarioSeleccionado(nombre);
+
             //TODO: Llamar al metodo de la base de datos addUsuario(String nombre)
-            if(true) //Si el usuario no existe y se crea correctamente, devuelve true
+            if(controlFlag) //Si el usuario no existe y se crea correctamente, devuelve true
             {
-                comboUsuarios.addItem(textLogIn.getText());
+                comboUsuarios.addItem(nombre);
                 textLogIn.setText("");
             }   
             else
@@ -195,7 +201,10 @@ public class VistaIngresar extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_botonRegistrarseActionPerformed
-    
+
+
+    //-------------INTOCABLE-------------------
+    //******************************************
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonLogIn;
     private javax.swing.JPanel PanelLogIn;

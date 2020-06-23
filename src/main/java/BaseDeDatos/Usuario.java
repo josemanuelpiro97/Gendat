@@ -61,6 +61,11 @@ public class Usuario implements Sujeto {
         }
     }
 
+    /**
+     * constructor vacio
+     */
+    public Usuario(){}
+
     //-------------GETTERS----------------------
     //******************************************
 

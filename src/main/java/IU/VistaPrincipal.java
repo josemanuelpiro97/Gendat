@@ -1,5 +1,8 @@
 package IU;
 
+import BaseDeDatos.BaseDeDatos;
+import BaseDeDatos.Usuario;
+
 import java.awt.*;
 
 /**
@@ -7,15 +10,32 @@ import java.awt.*;
  * @author FedeSSD
  */
 public class VistaPrincipal extends javax.swing.JFrame {
+    /**
+     * base de datos de trabajo
+     */
+     private BaseDeDatos baseDeDatos;
+    /**
+     * usuario seleccionado por la vista
+     */
+    private Usuario usuarioSeleccionado;
+
+
+    // creacion de vistas
     VistaIngresar vistaIngresar;
     VistaAgregar vistaAgregar;
     VistaEventos vistaEventos;
     VistaAgendas vistaAgendas;
     VistaSeleccion vistaSeleccion;
     VistaVariante vistaVariante;
-    String nombreUsuario;
+    private String nombreUsuario;
 
-    public VistaPrincipal() {
+    public VistaPrincipal(BaseDeDatos baseDeDatos) {
+        //asigno base
+        this.baseDeDatos = baseDeDatos;
+        //Usuario seleccionado
+        this.usuarioSeleccionado = new Usuario();
+
+        //inicio los componentes
         initComponents();
         this.setLayout(new FlowLayout());
         this.vistaIngresar = new VistaIngresar(this);
@@ -30,16 +50,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         this.add(vistaEventos);
         this.add(vistaAgendas);
         this.add(vistaSeleccion);
-        /*
-        this.add(vistaEventos);
-        this.add(vistaAgendas);
-        this.add(vistaSeleccion);*/
     }
 
-    public void updateVista()
-    {
-        labelUsuario.setText(nombreUsuario);
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -93,7 +105,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        botonCerrarSesion.setText("Cerrar Sesión");
+        botonCerrarSesion.setText("Cerrar Sesiï¿½n");
         botonCerrarSesion.setMaximumSize(new java.awt.Dimension(140, 25));
         botonCerrarSesion.setMinimumSize(new java.awt.Dimension(140, 25));
         botonCerrarSesion.setPreferredSize(new java.awt.Dimension(140, 25));
@@ -193,6 +205,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //-------------ACCIONES DE BOTONES----------
+    //******************************************
+
     private void botonCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarSesionActionPerformed
         this.setVisible(false);
         vistaIngresar.setVisible(true);
@@ -212,7 +227,46 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void botonImprimirAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonImprimirAgendaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonImprimirAgendaActionPerformed
-   
+
+    //-------------METODOS PARTICULARES---------
+    //******************************************
+
+    /**
+     * @brief trata de agregar usuario nuevo
+     * @param nombreUsuario nombre de usuario
+     * @return true en caso de poder agregarlo en la base de datos, false caso contrario
+     */
+    public boolean setUsuarioSeleccionado(String nombreUsuario){
+        //trata de agregar usuario
+        boolean controlFlag = this.baseDeDatos.addUsuario(nombreUsuario);
+
+        return controlFlag;
+    }
+
+    /**
+     * @brief actualiza sus labels
+     */
+    public void updateVista()
+    {
+        labelUsuario.setText(nombreUsuario);
+
+        //imprime todito el contenido
+        this.baseDeDatos.toPrint();
+    }
+
+    /**
+     * @brief setter del nombre de usuario
+     * @param nombreUsuario nombre de usuario
+     */
+    public void setNombreUsuario(String nombreUsuario){
+        this.nombreUsuario = nombreUsuario;
+        this.updateVista();
+    }
+
+
+    //-------------INTOCABLE-------------------
+    //******************************************
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAgregarEvento;
     private javax.swing.JButton botonBorrar;
