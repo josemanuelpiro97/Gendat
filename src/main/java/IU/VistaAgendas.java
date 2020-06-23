@@ -42,12 +42,6 @@ public class VistaAgendas extends javax.swing.JPanel {
         jLabel1.setText("Agendas");
 
         BtSeleccionarA.setText("Seleccionar Agenda");
-
-        /*jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });*/
         jScrollPane1.setViewportView(jList1);
 
         BtEliminarA.setText("Eliminar Agenda");

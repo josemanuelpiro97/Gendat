@@ -143,15 +143,11 @@ public class Usuario implements Sujeto {
      * @brief agrega un evento a nuestra lista de eventos y retorna un mensaje de confirmacion
      * en caso de que el evento ya exista, retorna un mensaje de error y no lo agrega
      */
-    public String addEvento(EventoInterfaz evento) {
-        final String msjERROR = "Evento duplicado";
-        final String msjCORRECT = "Evento agregado";
-
-
+    public boolean addEvento(EventoInterfaz evento) {
         for (EventoInterfaz eventoActual : this.listaEventosInterfaz
         ) {
             if (eventoActual.getNombre().equals(evento.getNombre()))
-                return msjERROR;
+                return false;
         }
         //si no hay error agrego el evento
         this.listaEventosInterfaz.add(evento);
@@ -159,7 +155,7 @@ public class Usuario implements Sujeto {
         //notifico cambios
         this.notificarObservador();
 
-        return msjCORRECT;
+        return true;
     }
 
     /**

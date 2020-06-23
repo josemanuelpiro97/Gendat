@@ -33,8 +33,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public VistaPrincipal(BaseDeDatos baseDeDatos) {
         //asigno base
         this.baseDeDatos = baseDeDatos;
-        //Usuario seleccionado
-        this.usuarioSeleccionado = new Usuario();
 
         //inicio los componentes
         initComponents();
@@ -266,10 +264,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
      * @param nombreUsuario nombre de usuario
      * @return true en caso de poder agregarlo en la base de datos, false caso contrario
      */
-    public boolean setUsuarioSeleccionado(String nombreUsuario){
+    public boolean setNuevoUsuario(String nombreUsuario){
         //trata de agregar usuario
         boolean controlFlag = this.baseDeDatos.addUsuario(nombreUsuario);
 
+
+        //en caso de setear correctamente el usuario
         return controlFlag;
     }
 
@@ -286,8 +286,16 @@ public class VistaPrincipal extends javax.swing.JFrame {
      * @param nombreUsuario nombre de usuario
      */
     public void setNombreUsuario(String nombreUsuario){
+        //setea el nombre de usuario en la label
         this.nombreUsuario = nombreUsuario;
+        //sete el objeto usuario en su campo usuario
+        this.usuarioSeleccionado = this.baseDeDatos.getUsuario(nombreUsuario);
+
+        //actualiza la label
         this.updateSetLabelVista();
+
+        //setea el sujeto en los observadores
+        //this.vistaEventos.setSujeto(this.baseDeDatos.getUsuario(nombreUsuario));
     }
 
     /**
@@ -306,6 +314,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
      */
     public void agregarEventoLista(String NombreEvento){
         vistaEventos.AgregarALista(NombreEvento);
+    }
+
+    public Usuario getUsuarioSeleccionado(){
+        return this.usuarioSeleccionado;
     }
 
 

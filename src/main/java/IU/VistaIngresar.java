@@ -167,8 +167,9 @@ public class VistaIngresar extends javax.swing.JFrame {
         if(comboUsuarios.getSelectedItem() != null)
         {
             this.setVisible(false);
-            vistaPrincipal.setVisible(true);
             vistaPrincipal.setNombreUsuario(comboUsuarios.getSelectedItem().toString());
+            vistaPrincipal.setVisible(true);
+
         }
     }//GEN-LAST:event_BotonLogInActionPerformed
 
@@ -188,7 +189,7 @@ public class VistaIngresar extends javax.swing.JFrame {
         //sino trato de agregar
         else
         {
-            boolean controlFlag = this.vistaPrincipal.setUsuarioSeleccionado(nombre);
+            boolean controlFlag = this.vistaPrincipal.setNuevoUsuario(nombre);
 
             //TODO: Llamar al metodo de la base de datos addUsuario(String nombre)
             if(controlFlag) //Si el usuario no existe y se crea correctamente, devuelve true

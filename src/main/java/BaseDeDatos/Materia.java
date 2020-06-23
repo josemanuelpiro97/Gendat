@@ -27,11 +27,8 @@ public class Materia implements EventoInterfaz {
     /**
      * semestre de cursado de la materia
      */
-    private int semestre;
-    /**
-     * flag que indica si la materia es optativa o del plan estudiantil
-     */
-    private boolean optativa;
+    private boolean semestre; //--> 0 en caso de primer semestre, 1 en caso de segundo semestre
+
 
     //-------------CONSTRUCTOR------------------
     //******************************************
@@ -93,18 +90,10 @@ public class Materia implements EventoInterfaz {
      * @brief getter del numero de semestre de la materia.
      * @return numero de semestre
      */
-    public int getSemestre() {
+    public boolean getSemestre() {
         return this.semestre;
     }
 
-    /**
-     * @brief obtiene la bandera que indica si es una materia optativa o propia del
-     *        plan de estudios.
-     * @return flag de optatividad
-     */
-    public boolean isOptativa() {
-        return this.optativa;
-    }
 
     //-------------SETTERS----------------------
     //******************************************
@@ -147,7 +136,7 @@ public class Materia implements EventoInterfaz {
      * @return true en caso de que el parametro sea corecto, falso en caso contrario
      */
     public boolean setAnio(int anio) {
-        if (anio < 0) {
+        if (anio < 1) {
             System.out.println("Anio invalido");
             return false;
         }
@@ -160,21 +149,6 @@ public class Materia implements EventoInterfaz {
      * @param sem semestre de cursado de la materia, no puede ser menor a 0
      * @return true en caso de que el parametro sea correcto, falso en caso contrario
      */
-    public boolean setSemestre(int sem) {
-        if (sem < 0) {
-            System.out.println("Semestre invalido");
-            return false;
-        }
-        this.semestre = sem;
-        return true;
-    }
+    public void setSemestre(boolean sem) {this.semestre = sem; }
 
-    /**
-     * @brief establece si la materia es optativa o si es pertinente al plan de estudios
-     *        del plan estudiantil
-     * @param opt flag de optatividad de la materia
-     */
-    public void setOptativa(boolean opt) {
-        this.optativa = opt;
-    }
 }

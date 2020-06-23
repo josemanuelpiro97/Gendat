@@ -1,6 +1,7 @@
 package IU;
 
 import Observer.Observador;
+import Observer.Sujeto;
 
 import javax.swing.*;
 
@@ -8,15 +9,28 @@ import javax.swing.*;
  *
  * @author FedeSSD
  */
-public class VistaEventos extends javax.swing.JPanel{ // implements Observador {
+public class VistaEventos extends javax.swing.JPanel{
     VistaPrincipal vistaPrincipal;
+
+    /**
+     * @brief constructor de clase
+     * @param vp vista prioncipal
+     */
     DefaultListModel modeloLista = new DefaultListModel();
 
+
     public VistaEventos(VistaPrincipal vp) {
-        initComponents();
+        //asigno la vita principal
         this.vistaPrincipal = vp;
+
+        //inicio componentes
+        initComponents();
+
         listaEventos.setModel(modeloLista);
     }
+
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -104,10 +118,16 @@ public class VistaEventos extends javax.swing.JPanel{ // implements Observador {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    //-------------ACCIONES DE BOTONES----------
+    //******************************************
     private void AgregarVarianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarVarianteActionPerformed
         vistaPrincipal.vistaVariante.setVisible(true);
         vistaPrincipal.setVisible(false);
     }//GEN-LAST:event_AgregarVarianteActionPerformed
+
+
+    //-------------METODOS PARTICULARES---------
+    //******************************************
 
     private void EliminarEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarVarianteActionPerformed
         boolean seleccion = listaEventos.isSelectionEmpty();
@@ -136,18 +156,10 @@ public class VistaEventos extends javax.swing.JPanel{ // implements Observador {
     public void EliminarDeLista(String NombreEvento){
         modeloLista.removeElement(NombreEvento);
     }
-    /*
-    @Override
-    public void actualizar() {
-
-    }
-
-    @Override
-    public int getID() {
-        return 0;
-    }*/
 
 
+    //-------------INTOCABLE-------------------
+    //******************************************
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarVariante;
     private javax.swing.JButton EliminarEventos;
@@ -156,3 +168,23 @@ public class VistaEventos extends javax.swing.JPanel{ // implements Observador {
     public javax.swing.JList<String> listaEventos;
     // End of variables declaration//GEN-END:variables
 }
+
+
+
+
+
+
+/*
+pendiente
+
+--------------------------------------------------------
+    **
+     * @brief setea el usuario actual en la vista
+     * @param usuario usuario que observara la vista
+     *
+public void setSujeto(Sujeto usuario){
+    //asigno el sujeto y me registro
+    this.usuario = usuario;
+    this.usuario.registrarObservador(this);
+}
+ */

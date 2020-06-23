@@ -15,16 +15,14 @@ class CreadorAgendasTest {
         //creo materias y eventos
         Materia materia = new Materia();
         materia.setNombre("fisica");
-        materia.setSemestre(1);
+        materia.setSemestre(false);
         materia.setAnio(2020);
-        materia.setOptativa(true);
         materia.setObligatoriedad(true);
 
         Materia materia2 = new Materia();
         materia2.setNombre("Algebra");
-        materia2.setSemestre(1);
+        materia2.setSemestre(false);
         materia2.setAnio(2020);
-        materia2.setOptativa(true);
         materia2.setObligatoriedad(true);
 
         EventoParticular eventoParticular = new EventoParticular();
@@ -153,23 +151,20 @@ class CreadorAgendasTest {
         //creo materia
         Materia materia = new Materia();
         materia.setNombre("fisica");
-        materia.setSemestre(1);
+        materia.setSemestre(false);
         materia.setAnio(2020);
-        materia.setOptativa(true);
         materia.setObligatoriedad(false);
 
         Materia materia2 = new Materia();
         materia2.setNombre("Algebra");
-        materia2.setSemestre(1);
+        materia2.setSemestre(false);
         materia2.setAnio(2020);
-        materia2.setOptativa(true);
         materia2.setObligatoriedad(false);
 
         Materia materia3 = new Materia();
         materia3.setNombre("Matematicas");
-        materia3.setSemestre(1);
+        materia3.setSemestre(false);
         materia3.setAnio(2020);
-        materia3.setOptativa(true);
         materia3.setObligatoriedad(false);
 
         //agrego comisiones a materia
@@ -236,23 +231,20 @@ class CreadorAgendasTest {
         //creo materia
         Materia materia = new Materia();
         materia.setNombre("fisica");
-        materia.setSemestre(1);
+        materia.setSemestre(false);
         materia.setAnio(2020);
-        materia.setOptativa(true);
         materia.setObligatoriedad(false);
 
         Materia materia2 = new Materia();
         materia2.setNombre("Algebra");
-        materia2.setSemestre(1);
+        materia2.setSemestre(false);
         materia2.setAnio(2020);
-        materia2.setOptativa(true);
         materia2.setObligatoriedad(false);
 
         Materia materia3 = new Materia();
         materia3.setNombre("Matematicas");
-        materia3.setSemestre(1);
+        materia3.setSemestre(false);
         materia3.setAnio(2020);
-        materia3.setOptativa(true);
         materia3.setObligatoriedad(false);
 
         //agrego comisiones a materia
@@ -331,16 +323,14 @@ class CreadorAgendasTest {
         //creo materia
         Materia materia = new Materia();
         materia.setNombre("fisica");
-        materia.setSemestre(1);
+        materia.setSemestre(false);
         materia.setAnio(2020);
-        materia.setOptativa(true);
         materia.setObligatoriedad(false);
 
         Materia materia2 = new Materia();
         materia.setNombre("Algebra");
-        materia.setSemestre(1);
+        materia.setSemestre(false);
         materia.setAnio(2020);
-        materia.setOptativa(true);
         materia.setObligatoriedad(false);
 
         //agrego comisiones a materia
@@ -398,9 +388,8 @@ class CreadorAgendasTest {
         //creo materia
         Materia materia = new Materia();
         materia.setNombre("fisica");
-        materia.setSemestre(1);
+        materia.setSemestre(false);
         materia.setAnio(2020);
-        materia.setOptativa(true);
         materia.setObligatoriedad(false);
 
         //agrego comisiones a materia
@@ -450,9 +439,8 @@ class CreadorAgendasTest {
         //creo materia
         Materia materia = new Materia();
         materia.setNombre("fisica");
-        materia.setSemestre(1);
+        materia.setSemestre(false);
         materia.setAnio(2020);
-        materia.setOptativa(true);
         materia.setObligatoriedad(false);
 
         //agrego comisiones a materia
