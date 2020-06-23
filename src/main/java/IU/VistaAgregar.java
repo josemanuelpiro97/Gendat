@@ -267,15 +267,26 @@ public class VistaAgregar extends javax.swing.JFrame {
     }//GEN-LAST:event_BtVolverActionPerformed
 
     private void BtAgMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAgMateriaActionPerformed
-        /*VistaMenu vM = new VistaMenu();
-        vM.setVisible(true);
-        this.setVisible(false);*/
+        this.setVisible(false);
+        vistaPrincipal.setVisible(true);
+        vistaPrincipal.agregarEventoLista(NombreMateria.getText());
+        AnioMateria.setText("");
+        NombreMateria.setText("");
+        ObligatorieadMateria.setSelected(false);
+        AgMateriaFrame.setVisible(false);
+        AgregarMateria.setSelected(false);
     }//GEN-LAST:event_BtAgMateriaActionPerformed
 
+
     private void BtAgEventoPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAgEventoPActionPerformed
-        /*VistaMenu vM = new VistaMenu();
-        vM.setVisible(true);
-        this.setVisible(false);*/
+        this.setVisible(false);
+        vistaPrincipal.setVisible(true);
+        vistaPrincipal.agregarEventoLista(NombreEventoP.getText());
+        RubroEventoP.setText("");
+        NombreEventoP.setText("");
+        EventoObligatorio.setSelected(false);
+        AgEventoPFrame.setVisible(false);
+        AgregarEventoP.setSelected(false);
     }//GEN-LAST:event_BtAgEventoPActionPerformed
 
 

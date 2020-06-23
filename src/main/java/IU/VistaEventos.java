@@ -2,15 +2,20 @@ package IU;
 
 import Observer.Observador;
 
+import javax.swing.*;
+
 /**
  *
  * @author FedeSSD
  */
 public class VistaEventos extends javax.swing.JPanel{ // implements Observador {
     VistaPrincipal vistaPrincipal;
+    DefaultListModel modeloLista = new DefaultListModel();
+
     public VistaEventos(VistaPrincipal vp) {
         initComponents();
         this.vistaPrincipal = vp;
+        listaEventos.setModel(modeloLista);
     }
 
     /**
@@ -47,12 +52,19 @@ public class VistaEventos extends javax.swing.JPanel{ // implements Observador {
         EliminarEventos.setMaximumSize(new java.awt.Dimension(125, 25));
         EliminarEventos.setMinimumSize(new java.awt.Dimension(125, 25));
         EliminarEventos.setPreferredSize(new java.awt.Dimension(125, 25));
+        EliminarEventos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarEventosActionPerformed(evt);
+            }
+        });
 
-        listaEventos.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "sdvcsdv", "sdvsdvsf" };
+
+
+        /*listaEventos.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
-        });
+        });*/
         listaEventos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         listaEventos.setToolTipText("");
         jScrollPane1.setViewportView(listaEventos);
@@ -97,6 +109,33 @@ public class VistaEventos extends javax.swing.JPanel{ // implements Observador {
         vistaPrincipal.setVisible(false);
     }//GEN-LAST:event_AgregarVarianteActionPerformed
 
+    private void EliminarEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarVarianteActionPerformed
+        boolean seleccion = listaEventos.isSelectionEmpty();
+        if(seleccion) {
+            JOptionPane.showMessageDialog(null, "No selecciono ningun evento a eliminar.");
+        }
+        else{
+            int index = listaEventos.getSelectedIndex();
+            String NombreEvento = modeloLista.get(index).toString();
+            EliminarDeLista(NombreEvento);
+        }
+    }
+
+    /**
+     * Agrego a la lista el elemento del evento
+     * @param NombreEvento
+     */
+    public void AgregarALista(String NombreEvento){
+        modeloLista.addElement(NombreEvento);
+    }
+
+    /**
+     * Elimino el elemento seleccionado de la lista
+     * @param NombreEvento
+     */
+    public void EliminarDeLista(String NombreEvento){
+        modeloLista.removeElement(NombreEvento);
+    }
     /*
     @Override
     public void actualizar() {

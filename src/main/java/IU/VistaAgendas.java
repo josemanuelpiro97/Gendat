@@ -5,15 +5,20 @@
  */
 package IU;
 
+import javax.swing.*;
+
 /**
  *
  * @author FedeSSD
  */
 public class VistaAgendas extends javax.swing.JPanel {
     VistaPrincipal vistaPrincipal;
+    DefaultListModel modeloLista = new DefaultListModel();
+
     public VistaAgendas(VistaPrincipal vp) {
         initComponents();
         this.vistaPrincipal = vp;
+        jList1.setModel(modeloLista);
     }
 
     /**
@@ -38,11 +43,11 @@ public class VistaAgendas extends javax.swing.JPanel {
 
         BtSeleccionarA.setText("Seleccionar Agenda");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        /*jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
-        });
+        });*/
         jScrollPane1.setViewportView(jList1);
 
         BtEliminarA.setText("Eliminar Agenda");
@@ -89,9 +94,33 @@ public class VistaAgendas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtEliminarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtEliminarAActionPerformed
-        // TODO add your handling code here:
+        boolean seleccion = jList1.isSelectionEmpty();
+        if(seleccion) {
+            JOptionPane.showMessageDialog(null, "No selecciono ninguna Agenda a eliminar.");
+        }
+        else {
+            int index = jList1.getSelectedIndex();
+            String NombreAgenda1 = modeloLista.get(index).toString();
+            EliminarDeListaA(NombreAgenda1);
+        }
     }//GEN-LAST:event_BtEliminarAActionPerformed
 
+
+    /**
+     * Agrego a la lista las agendas generadas
+     * @param Agendas le mando las agendas generadas para agregar en la lista
+     */
+    public void AgregarAListaAgendas(Object Agendas){
+        modeloLista.addElement(Agendas);
+    }
+
+    /**
+     * Elimino el elemento seleccionado de la lista
+     * @param NombreAgenda1
+     */
+    public void EliminarDeListaA(String NombreAgenda1){
+        modeloLista.removeElement(NombreAgenda1);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtEliminarA;

@@ -95,6 +95,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         botonGenerarAgendas.setMaximumSize(new java.awt.Dimension(140, 25));
         botonGenerarAgendas.setMinimumSize(new java.awt.Dimension(140, 25));
         botonGenerarAgendas.setPreferredSize(new java.awt.Dimension(140, 25));
+        botonGenerarAgendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGenerarAgendasActionPerformed(evt);
+            }
+        });
 
         botonImprimirAgenda.setText("Imprimir Agenda");
         botonImprimirAgenda.setMaximumSize(new java.awt.Dimension(140, 25));
@@ -239,6 +244,16 @@ public class VistaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_botonImprimirAgendaActionPerformed
 
+    private void botonGenerarAgendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonImprimirAgendaActionPerformed
+        // TODO add your handling code here:
+        // aca vamos a crear una lista de posibles agendas?
+        //osea vamos a llamar a un metodo de usuario o por ahi que las genere?
+        //para ver si de aca generamos un for que recorra esa arrayList y nos vaya mandando
+        //las agendas a un metodo en vista agendas llamado AgregarAListaAgendas
+        //que va a recibir objetos
+
+    }//GEN-LAST:event_botonImprimirAgendaActionPerformed
+
     //-------------METODOS PARTICULARES---------
     //******************************************
 
@@ -281,6 +296,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
         this.baseDeDatos.toPrint();
     }
 
+    /**
+     * @brief agrego evento a la vista de la lista
+     * @param NombreEvento nombre del evento que quiero agregar
+     */
+    public void agregarEventoLista(String NombreEvento){
+        vistaEventos.AgregarALista(NombreEvento);
+    }
 
 
     //-------------INTOCABLE-------------------
