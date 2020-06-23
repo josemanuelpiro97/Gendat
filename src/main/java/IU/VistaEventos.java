@@ -1,17 +1,30 @@
 package IU;
 
 import Observer.Observador;
+import Observer.Sujeto;
 
 /**
  *
  * @author FedeSSD
  */
-public class VistaEventos extends javax.swing.JPanel{ // implements Observador {
+public class VistaEventos extends javax.swing.JPanel implements Observador{
     VistaPrincipal vistaPrincipal;
+    Sujeto usuario;
+
+    /**
+     * @brief constructor de clase
+     * @param vp vista prioncipal
+     */
     public VistaEventos(VistaPrincipal vp) {
-        initComponents();
+        //asigno la vita principal
         this.vistaPrincipal = vp;
+
+        //inicio componentes
+        initComponents();
     }
+
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -92,23 +105,40 @@ public class VistaEventos extends javax.swing.JPanel{ // implements Observador {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    //-------------ACCIONES DE BOTONES----------
+    //******************************************
     private void AgregarVarianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarVarianteActionPerformed
         vistaPrincipal.vistaVariante.setVisible(true);
         vistaPrincipal.setVisible(false);
     }//GEN-LAST:event_AgregarVarianteActionPerformed
 
-    /*
+    //-------------METODOS PARTICULARES---------
+    //******************************************
     @Override
     public void actualizar() {
+        //se debe pedir a mi objeto la lista de eventos
 
+        // la lista de eventos sera la que debe actualizarse
     }
 
     @Override
     public int getID() {
         return 0;
-    }*/
+    }
+
+    /**
+     * @brief setea el usuario actual en la vista
+     * @param usuario usuario que observara la vista
+     */
+    public void setSujeto(Sujeto usuario){
+        //asigno el sujeto y me registro
+        this.usuario = usuario;
+        this.usuario.registrarObservador(this);
+    }
 
 
+    //-------------INTOCABLE-------------------
+    //******************************************
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarVariante;
     private javax.swing.JButton EliminarEventos;
