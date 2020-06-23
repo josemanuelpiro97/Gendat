@@ -225,14 +225,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botonAgregarEventoActionPerformed
 
     private void botonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarActionPerformed
-        this.setVisible(false);
+        int input = JOptionPane.showConfirmDialog(rootPane, "¿Esta seguro de querer eliminar el usuario " + nombreUsuario + "?", "Eliminar Usuario", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        //input: 0=yes ; 1=no ; 2=cancel
+        if(input == 0)
+        {
+            this.setVisible(false);
+            // borrar el usuario
+            int index = getIndex();
+            this.baseDeDatos.quitUsuario(this.nombreUsuario);
+            this.vistaIngresar.quitElemento(index);
 
-        // borrar el usuario
-        int index = getIndex();
-        this.baseDeDatos.quitUsuario(this.nombreUsuario);
-        this.vistaIngresar.quitElemento(index);
-
-        vistaIngresar.setVisible(true);
+            vistaIngresar.setVisible(true);
+        }
     }//GEN-LAST:event_botonBorrarActionPerformed
 
     private void botonImprimirAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonImprimirAgendaActionPerformed
