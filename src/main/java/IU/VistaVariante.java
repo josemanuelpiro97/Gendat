@@ -16,9 +16,12 @@ public class VistaVariante extends javax.swing.JFrame {
      * Creates new form VistaVariante
      */
     public VistaVariante(VistaPrincipal vp) {
+        //inicializo componentes
         initComponents();
         this.vistaPrincipal = vp;
-        ComisionFrame.setVisible(false);
+
+        this.setLocationRelativeTo(null);
+        ComisionFrame.setVisible(true);
         OpcionFrame.setVisible(false);
     }
 
@@ -114,13 +117,13 @@ public class VistaVariante extends javax.swing.JFrame {
             }
         });
 
-        HoraInicioMat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        HoraInicioMat.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 }));
 
-        HoraFinMat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        HoraFinMat.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 }));
 
-        MinInicioMat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "15", "30", "45" }));
+        MinInicioMat.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 0, 15, 30, 45 }));
 
-        MinFinMat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "15", "30", "45" }));
+        MinFinMat.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 00, 15, 30, 45 }));
 
         javax.swing.GroupLayout ComisionFrameLayout = new javax.swing.GroupLayout(ComisionFrame.getContentPane());
         ComisionFrame.getContentPane().setLayout(ComisionFrameLayout);
@@ -238,13 +241,13 @@ public class VistaVariante extends javax.swing.JFrame {
             }
         });
 
-        HoraInicioOp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        HoraInicioOp.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 }));
 
-        MinInicioOp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "15", "30", "45" }));
+        MinInicioOp.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 0, 15, 30, 45 }));
 
-        MinFinOp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "15", "30", "45" }));
+        MinFinOp.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 0, 15, 30, 45 }));
 
-        HoraFinOp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        HoraFinOp.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 }));
 
         javax.swing.GroupLayout OpcionFrameLayout = new javax.swing.GroupLayout(OpcionFrame.getContentPane());
         OpcionFrame.getContentPane().setLayout(OpcionFrameLayout);
@@ -358,7 +361,10 @@ public class VistaVariante extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
+
+    //-------------ACCIONES DE BOTONES----------
+    //******************************************
 
     private void BtAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAtrasActionPerformed
         vistaPrincipal.setVisible(true);
@@ -390,7 +396,8 @@ public class VistaVariante extends javax.swing.JFrame {
     }//GEN-LAST:event_BtAgregarOpcActionPerformed
 
 
-
+    //-------------INTOCABLE-------------------
+    //******************************************
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AulaField;
     private javax.swing.JLabel AulaLabel;

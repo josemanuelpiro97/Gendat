@@ -77,7 +77,7 @@ public class OpcionEP implements VarianteInterfaz {
 
     @Override
     public boolean setHoraInicio(int hora) {
-        if(hora < 0 || hora >24)
+        if(hora < 0 || hora >23)
             return false;
         else{
             this.horaInicio = hora;
@@ -97,7 +97,7 @@ public class OpcionEP implements VarianteInterfaz {
 
     @Override
     public boolean setHoraFin(int hora) {
-        if(hora < 0 || hora > 24)
+        if(hora < 0 || hora > 23)
             return false;
         else{
             this.horaFin = hora;
