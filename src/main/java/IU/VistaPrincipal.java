@@ -3,6 +3,7 @@ package IU;
 import BaseDeDatos.BaseDeDatos;
 import BaseDeDatos.Usuario;
 import BaseDeDatos.EventoInterfaz;
+import BaseDeDatos.Agenda;
 import procesamiento.CreadorAgendas;
 
 import javax.swing.*;
@@ -10,14 +11,13 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- *
  * @author FedeSSD
  */
 public class VistaPrincipal extends javax.swing.JFrame {
     /**
      * base de datos de trabajo
      */
-     private BaseDeDatos baseDeDatos;
+    private BaseDeDatos baseDeDatos;
     /**
      * usuario seleccionado por la vista
      */
@@ -263,8 +263,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void botonCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarSesionActionPerformed
         int input = JOptionPane.showConfirmDialog(rootPane, "¿Esta seguro de querer cerrar sesion?", "Cerrar Sesion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         //input: 0=yes ; 1=no ; 2=cancel
-        if(input == 0)
-        {
+        if (input == 0) {
             this.setVisible(false);
             vistaIngresar.setVisible(true);
         }
@@ -278,8 +277,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void botonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarActionPerformed
         int input = JOptionPane.showConfirmDialog(rootPane, "¿Esta seguro de querer eliminar el usuario " + nombreUsuario + "?", "Eliminar Usuario", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         //input: 0=yes ; 1=no ; 2=cancel
-        if(input == 0)
-        {
+        if (input == 0) {
             this.setVisible(false);
             // borrar el usuario
             int index = getIndex();
@@ -303,11 +301,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
     //******************************************
 
     /**
-     * @brief trata de agregar usuario nuevo
      * @param nombreUsuario nombre de usuario
      * @return true en caso de poder agregarlo en la base de datos, false caso contrario
+     * @brief trata de agregar usuario nuevo
      */
-    public boolean setNuevoUsuario(String nombreUsuario){
+    public boolean setNuevoUsuario(String nombreUsuario) {
         //trata de agregar usuario
         boolean controlFlag = this.baseDeDatos.addUsuario(nombreUsuario);
 
@@ -318,17 +316,17 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
 
     /**
-     * @brief  actualiza sos labels eliminando un usuario
+     * @brief actualiza sos labels eliminando un usuario
      */
-    public int getIndex(){
+    public int getIndex() {
         return this.baseDeDatos.getIndex(this.nombreUsuario);
     }
 
     /**
-     * @brief setter del nombre de usuario
      * @param nombreUsuario nombre de usuario
+     * @brief setter del nombre de usuario
      */
-    public void setNombreUsuario(String nombreUsuario){
+    public void setNombreUsuario(String nombreUsuario) {
         //setea el nombre de usuario en la label
         this.nombreUsuario = nombreUsuario;
         //sete el objeto usuario en su campo usuario
@@ -346,34 +344,34 @@ public class VistaPrincipal extends javax.swing.JFrame {
     /**
      * @brief actualiza sus labels
      */
-    public void updateSetLabelVista()
-    {
+    public void updateSetLabelVista() {
         labelUsuario.setText(nombreUsuario);
         //imprime todito el contenido
         this.baseDeDatos.toPrint();
     }
 
-    public void updateEventos(){
+    public void updateEventos() {
         this.vistaEventos.vaciarLista();
-        for(EventoInterfaz e : usuarioSeleccionado.getListaEventos())
-        {
-            vistaEventos.agregarALista(e.getNombre());
+        for (EventoInterfaz e : this.usuarioSeleccionado.getListaEventos()) {
+            this.vistaEventos.agregarALista(e.getNombre());
         }
     }
 
-    public void updateAgendas(){
+    public void updateAgendas() {
         this.vistaAgendas.vaciarLista();
+        this.vistaAgendas.actualizar();
+
     }
 
     /**
-     * @brief agrego evento a la vista de la lista
      * @param NombreEvento nombre del evento que quiero agregar
+     * @brief agrego evento a la vista de la lista
      */
-    public void agregarEventoLista(String NombreEvento){
+    public void agregarEventoLista(String NombreEvento) {
         vistaEventos.agregarALista(NombreEvento);
     }
 
-    public Usuario getUsuarioSeleccionado(){
+    public Usuario getUsuarioSeleccionado() {
         return this.usuarioSeleccionado;
     }
 

@@ -78,4 +78,10 @@ public class Agenda {
         this.listaEventos.add(evento);
     }
 
+    //-------------TOOLS------------------------
+    //******************************************
+    public void resetCountID(){
+        Agenda.idCount = 0;
+    }
+
 }
