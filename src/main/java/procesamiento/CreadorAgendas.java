@@ -23,7 +23,7 @@ public class CreadorAgendas {
     /**
      * @brief constructor de clase
      */
-    public CreadorAgendas(ArrayList<EventoInterfaz> listaDeEventos, int[][] horariosOcupados,int agendasRequeridas) {
+    public CreadorAgendas(ArrayList<EventoInterfaz> listaDeEventos, int[][] horariosOcupados, int agendasRequeridas) {
         this.agendasRequeridas = agendasRequeridas;
         this.horariosOcupados = horariosOcupados;
         this.horariosObligatorios = horariosOcupados;
@@ -40,12 +40,14 @@ public class CreadorAgendas {
     }
 
     //********** constructores para test*******************
+
     /**
      * @brief constructor vacio para testeo de metodos herramienta
      */
-    public CreadorAgendas(){}
+    public CreadorAgendas() {
+    }
 
-    public CreadorAgendas(ArrayList<EventoInterfaz> listaDeEventos){
+    public CreadorAgendas(ArrayList<EventoInterfaz> listaDeEventos) {
         this.eventosObligatorios = new ArrayList<EventoInterfaz>();
         this.eventosRegulares = new ArrayList<EventoInterfaz>();
         //armo las distintas listas
@@ -56,7 +58,6 @@ public class CreadorAgendas {
                 this.eventosRegulares.add(eventoActual);
         }
     }
-
 
 
     //-------------METODOS DE CALCULO-----------
@@ -113,25 +114,31 @@ public class CreadorAgendas {
             controlFlag = false;
             for (EventoInterfaz eventoActual : eventosParaAsignar) {
                 controlFlag2 = true;
-                for (VarianteInterfaz varianteActual : eventoActual.getListaVariantes()) {
-                    if (this.estaEnRango(horariosOcup,varianteActual) && controlFlag2) {
+                for (int i = 0; i < eventoActual.getListaVariantes().size(); i++) {
+                    VarianteInterfaz varianteActual = eventoActual.getListaVariantes().get(i);
+                    if (this.estaEnRango(horariosOcup, varianteActual) && controlFlag2) {
                         if (eventoActual instanceof Materia) {
                             //agrego la materia en la lista
                             Materia nuevaMateria = this.contructorMateriaSimple((Materia) eventoActual, varianteActual);
+                            //desencolo la variante asignada
+                            eventoActual.getListaVariantes().remove(i);
+
                             agenda.setMateria(nuevaMateria);
                             //actualizo bandera
                             controlFlag2 = false;
                             //actualizo matriz de tiempo disponible
-                            this.setHorarioOcupado(horariosOcup,varianteActual);
+                            this.setHorarioOcupado(horariosOcup, varianteActual);
                         } else if (eventoActual instanceof EventoParticular) {
                             //agrego el evento particular
-                            EventoParticular eventoNuevo =
-                                    this.contructorEventoSimple((EventoParticular) eventoActual,varianteActual);
+                            EventoParticular eventoNuevo = this.contructorEventoSimple((EventoParticular) eventoActual, varianteActual);
+                            //desencolo la variante asignada
+                            eventoActual.getListaVariantes().remove(i);
+
                             agenda.setEvento(eventoNuevo);
                             //actualizo bandera
                             controlFlag2 = false;
                             //actualizo matriz de tiempo disponible
-                            this.setHorarioOcupado(horariosOcup,varianteActual);
+                            this.setHorarioOcupado(horariosOcup, varianteActual);
                         }
                     }
                 }
@@ -147,7 +154,7 @@ public class CreadorAgendas {
      * @param variante variante a agregar en matriz
      * @brief setea en la matriz de horarios disponibles la variable pasada por parametro
      */
-    public void setHorarioOcupado(int [][] matrix,VarianteInterfaz variante) {
+    public void setHorarioOcupado(int[][] matrix, VarianteInterfaz variante) {
         int valInicial = (variante.getHoraInicio() * 60) + variante.getMinInicio();
         int valFinal = (variante.getHoraFin() * 60) + variante.getMinFin();
         int dia = variante.getDia();
@@ -156,9 +163,9 @@ public class CreadorAgendas {
         }
     }
 
-    public void vaciarHorariosOcupados(){
+    public void vaciarHorariosOcupados() {
         for (int i = 0; i < this.horariosOcupados.length; i++) {
-            for (int j = 0; j< this.horariosOcupados[i].length ; j++){
+            for (int j = 0; j < this.horariosOcupados[i].length; j++) {
                 this.horariosOcupados[i][j] = 0;
             }
         }
@@ -170,7 +177,7 @@ public class CreadorAgendas {
      * no deba
      * @brief consulta si el dia y horario establecido en la variante del evento esta ocupado por algun evento obligatorio
      */
-    public boolean estaEnRango(int [][] matrix,VarianteInterfaz variante) {
+    public boolean estaEnRango(int[][] matrix, VarianteInterfaz variante) {
         int valInicial = (variante.getHoraInicio() * 60) + variante.getMinInicio();
         int valFinal = (variante.getHoraFin() * 60) + variante.getMinFin();
         int dia = variante.getDia();
@@ -205,7 +212,7 @@ public class CreadorAgendas {
                         //si lo encuentro
                         if (this.tieneUnPriori(eventoActual)) {
                             //lo saco de ahi y lo pongo al principio
-                           listaRetorno.add(0,listaRetorno.remove(j));
+                            listaRetorno.add(0, listaRetorno.remove(j));
                             //actualizo el flag
                             controlFlag = true;
                         }
@@ -247,7 +254,7 @@ public class CreadorAgendas {
                                     //la saco de la columna
                                     VarianteInterfaz aux1 = columna.remove(j);
                                     //la reEncolo
-                                    columna.add(0,aux1);
+                                    columna.add(0, aux1);
 
                                     //acomodo el flag para una nueva iteracion
                                     controlFlag = true;
@@ -321,7 +328,6 @@ public class CreadorAgendas {
         //retorno la nueva materia
         return nuevoEventoParticular;
     }
-
 
 
 }
