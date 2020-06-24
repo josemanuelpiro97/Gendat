@@ -408,20 +408,21 @@ public class VistaVariante extends javax.swing.JFrame {
             controlFlag = false;
             JOptionPane.showMessageDialog(null, "Horario Invalido");
         }
-        else if (horaInicio <= horaFin) {
-            if (minInicio <= minFin) {
-                opcionEP.setHoraInicio(horaInicio);
-                opcionEP.setHoraFin(horaFin);
-                opcionEP.setMinInicio(minInicio);
-                opcionEP.setMinFin(minFin);
-            } else {
-                controlFlag = false;
-                JOptionPane.showMessageDialog(null, "Horario Invalido");
-            }
-        } else {
+        else if(horaInicio == horaFin && minInicio > minFin){
             controlFlag = false;
             JOptionPane.showMessageDialog(null, "Horario Invalido");
         }
+        else if(horaInicio > horaFin){
+            controlFlag = false;
+            JOptionPane.showMessageDialog(null, "Horario Invalido");
+        }
+        else{
+            opcionEP.setHoraInicio(horaInicio);
+            opcionEP.setHoraFin(horaFin);
+            opcionEP.setMinInicio(minInicio);
+            opcionEP.setMinFin(minFin);
+        }
+
 
         //cheque el dia para ver si lo agrego
         String dia = this.DiaFieldOp.getText();
@@ -482,19 +483,19 @@ public class VistaVariante extends javax.swing.JFrame {
             controlFlag = false;
             JOptionPane.showMessageDialog(null, "Horario Invalido");
         }
-        else if (horaInicio <= horaFin) {
-            if (minInicio <= minFin) {
-                comision.setHoraInicio(horaInicio);
-                comision.setHoraFin(horaFin);
-                comision.setMinInicio(minInicio);
-                comision.setMinFin(minFin);
-            } else {
-                controlFlag = false;
-                JOptionPane.showMessageDialog(null, "Horario Invalido");
-            }
-        } else {
+        else if(horaInicio == horaFin && minInicio > minFin){
             controlFlag = false;
             JOptionPane.showMessageDialog(null, "Horario Invalido");
+        }
+        else if(horaInicio > horaFin){
+            controlFlag = false;
+            JOptionPane.showMessageDialog(null, "Horario Invalido");
+        }
+        else{
+            comision.setHoraInicio(horaInicio);
+            comision.setHoraFin(horaFin);
+            comision.setMinInicio(minInicio);
+            comision.setMinFin(minFin);
         }
 
         //cheque el dia para ver si lo agrego
