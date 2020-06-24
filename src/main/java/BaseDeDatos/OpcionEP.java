@@ -4,13 +4,14 @@ public class OpcionEP implements VarianteInterfaz {
     //-----------VARIABLES----------------------
     //******************************************
     //-----------Interface needed-------------
-    int horaInicio;
-    int horaFin;
-    int minutoInicio;
-    int minutoFin;
-    int dia;
-    boolean prioritario;
-    int ID;
+    private int horaInicio;
+    private int horaFin;
+    private int minutoInicio;
+    private int minutoFin;
+    private int dia;
+    private boolean prioritario;
+    private int ID;
+    private static int idCount = 1;
     //------------requerido por opcionEP---------
    String lugar;
 
@@ -117,12 +118,12 @@ public class OpcionEP implements VarianteInterfaz {
 
     @Override
     public boolean setIdentificador(int iden) {
-        if(iden < 0)
-            return false;
-        else{
-            this.ID = iden;
-            return true;
-        }
+        return false;
+    }
+
+    public void setID() {
+        this.ID = OpcionEP.idCount;
+        OpcionEP.idCount++;
     }
 
 
