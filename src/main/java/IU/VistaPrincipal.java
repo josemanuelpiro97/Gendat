@@ -3,9 +3,11 @@ package IU;
 import BaseDeDatos.BaseDeDatos;
 import BaseDeDatos.Usuario;
 import BaseDeDatos.EventoInterfaz;
+import procesamiento.CreadorAgendas;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -249,13 +251,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botonImprimirAgendaActionPerformed
 
     private void botonGenerarAgendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonImprimirAgendaActionPerformed
-        // TODO add your handling code here:
-        // aca vamos a crear una lista de posibles agendas?
-        //osea vamos a llamar a un metodo de usuario o por ahi que las genere?
-        //para ver si de aca generamos un for que recorra esa arrayList y nos vaya mandando
-        //las agendas a un metodo en vista agendas llamado AgregarAListaAgendas
-        //que va a recibir objetos
-
+        //genero agendas
+        this.usuarioSeleccionado.generarAgendas();
     }//GEN-LAST:event_botonImprimirAgendaActionPerformed
 
     //-------------METODOS PARTICULARES---------
@@ -298,7 +295,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         this.updateEventos();
 
         //setea el sujeto en los observadores
-        //this.vistaEventos.setSujeto(this.baseDeDatos.getUsuario(nombreUsuario));
+        this.vistaAgendas.setSujeto(this.baseDeDatos.getUsuario(nombreUsuario));
     }
 
     /**

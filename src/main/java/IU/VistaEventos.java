@@ -190,17 +190,3 @@ public class VistaEventos extends javax.swing.JPanel {
 
 
 
-/*
-pendiente
-
---------------------------------------------------------
-    **
-     * @brief setea el usuario actual en la vista
-     * @param usuario usuario que observara la vista
-     *
-public void setSujeto(Sujeto usuario){
-    //asigno el sujeto y me registro
-    this.usuario = usuario;
-    this.usuario.registrarObservador(this);
-}
- */
