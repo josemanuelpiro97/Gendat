@@ -48,16 +48,29 @@ public class VistaAgendas extends javax.swing.JPanel implements Observador{
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         BtEliminarA = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(290, 280));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Agendas");
 
-        BtSeleccionarA.setText("Seleccionar Agenda");
+        BtSeleccionarA.setIcon(new javax.swing.ImageIcon("C:\\ingsoft\\Gendat\\icons\\icons8-checked-64.png")); // NOI18N
+        BtSeleccionarA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtSeleccionarAActionPerformed(evt);
+            }
+        });
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
         jScrollPane1.setViewportView(jList1);
 
-        BtEliminarA.setText("Eliminar Agenda");
+        BtEliminarA.setIcon(new javax.swing.ImageIcon("C:\\ingsoft\\Gendat\\icons\\icons8-remove-64.png")); // NOI18N
         BtEliminarA.setMaximumSize(new java.awt.Dimension(120, 25));
         BtEliminarA.setMinimumSize(new java.awt.Dimension(120, 25));
         BtEliminarA.setPreferredSize(new java.awt.Dimension(135, 25));
@@ -67,23 +80,36 @@ public class VistaAgendas extends javax.swing.JPanel implements Observador{
             }
         });
 
+        jLabel2.setText("Eliminar Agenda");
+
+        jLabel3.setText("Seleccionar Agenda");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(117, 117, 117))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(BtEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtSeleccionarA)))
-                .addGap(18, 18, 18))
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(117, 117, 117))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(42, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(26, 26, 26))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(BtEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtSeleccionarA, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,11 +117,18 @@ public class VistaAgendas extends javax.swing.JPanel implements Observador{
                 .addGap(12, 12, 12)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtSeleccionarA, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(BtEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtSeleccionarA)
-                    .addComponent(BtEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -106,11 +139,15 @@ public class VistaAgendas extends javax.swing.JPanel implements Observador{
             JOptionPane.showMessageDialog(null, "No selecciono ninguna Agenda a eliminar.");
         }
         else {
-            int index = jList1.getSelectedIndex();
-            String NombreAgenda1 = modeloLista.get(index).toString();
-            EliminarDeListaA(NombreAgenda1);
+            //int index = ;
+            EliminarDeListaA(jList1.getSelectedIndex());
         }
     }//GEN-LAST:event_BtEliminarAActionPerformed
+
+    private void BtSeleccionarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSeleccionarAActionPerformed
+        // TODO add your handling code here:
+        //tkm bro
+    }//GEN-LAST:event_BtSeleccionarAActionPerformed
 
 
     /**
@@ -133,10 +170,10 @@ public class VistaAgendas extends javax.swing.JPanel implements Observador{
 
     /**
      * Elimino el elemento seleccionado de la lista
-     * @param NombreAgenda1
+     * @param index
      */
-    public void EliminarDeListaA(String NombreAgenda1){
-        modeloLista.removeElement(NombreAgenda1);
+    public void EliminarDeListaA(int index){
+        modeloLista.removeElement(index);
     }
 
     /**
@@ -163,6 +200,8 @@ public class VistaAgendas extends javax.swing.JPanel implements Observador{
     private javax.swing.JButton BtEliminarA;
     private javax.swing.JButton BtSeleccionarA;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
 
