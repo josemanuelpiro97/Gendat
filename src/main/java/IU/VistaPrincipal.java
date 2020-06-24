@@ -255,7 +255,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     //-------------METODOS PARTICULARES---------
     //******************************************
-
+//a ver
     /**
      * @param nombreUsuario nombre de usuario
      * @return true en caso de poder agregarlo en la base de datos, false caso contrario
