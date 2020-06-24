@@ -26,6 +26,9 @@ public class VistaAgendas extends javax.swing.JPanel implements Observador{
     DefaultListModel modeloLista = new DefaultListModel();
 
     public VistaAgendas(VistaPrincipal vp) {
+        //inicializo variables
+        this.usuario = new Usuario();
+
         initComponents();
         this.vistaPrincipal = vp;
         jList1.setModel(modeloLista);
@@ -155,6 +158,7 @@ public class VistaAgendas extends javax.swing.JPanel implements Observador{
         this.usuario.registrarObservador(this);
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtEliminarA;
     private javax.swing.JButton BtSeleccionarA;
@@ -166,6 +170,11 @@ public class VistaAgendas extends javax.swing.JPanel implements Observador{
     public void actualizar() {
         Usuario usuarioCast = (Usuario)this.usuario;
         this.agendas = usuarioCast.getAgendas();
+
+        //borro las agendas viejas
+        this.modeloLista.clear();
+
+        //agrego las nuevas agendas
         this.agregarAListaAgendas();
     }
 

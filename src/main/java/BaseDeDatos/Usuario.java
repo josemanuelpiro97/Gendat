@@ -64,7 +64,12 @@ public class Usuario implements Sujeto {
     /**
      * constructor vacio
      */
-    public Usuario(){}
+    public Usuario(){
+        this.nombreDeUsuario = "";
+        this.listaEventosInterfaz = new ArrayList<EventoInterfaz>();
+        this.agendas = new ArrayList<Agenda>();
+        this.listaDeObservadores = new ArrayList<Observador>();
+    }
 
     //-------------GETTERS----------------------
     //******************************************
@@ -211,6 +216,7 @@ public class Usuario implements Sujeto {
     //-------------ELIMINATORS----------------------
     //*********************************************
 
+
     /**
      * @param nombreEvento nombre del evento que se quiere eliminar de la lista
      * @return mensaje de confirmacion o de error
@@ -295,7 +301,7 @@ public class Usuario implements Sujeto {
 
     public void generarAgendas(){
         //creo el creador de agendas
-        CreadorAgendas creadorAgendas = new CreadorAgendas(this.listaEventosInterfaz,this.horariosOcupados,2);
+        CreadorAgendas creadorAgendas = new CreadorAgendas(this.listaEventosInterfaz,this.horariosOcupados);
         this.agendas = creadorAgendas.generarAgendas();
 
         this.notificarObservador();

@@ -2,6 +2,8 @@ package procesamiento;
 
 import BaseDeDatos.*;
 
+import javax.swing.*;
+import javax.swing.text.StyledEditorKit;
 import java.util.ArrayList;
 
 public class CreadorAgendas {
@@ -10,7 +12,6 @@ public class CreadorAgendas {
     /**
      * variable que llevara la cuenta de cuantas veces si invoca a la creacion de agendas
      */
-    private int agendasRequeridas;
     private ArrayList<EventoInterfaz> eventosRegulares;
     private ArrayList<EventoInterfaz> eventosObligatorios;
 
@@ -23,15 +24,17 @@ public class CreadorAgendas {
     /**
      * @brief constructor de clase
      */
-    public CreadorAgendas(ArrayList<EventoInterfaz> listaDeEventos, int[][] horariosOcupados, int agendasRequeridas) {
-        this.agendasRequeridas = agendasRequeridas;
+    public CreadorAgendas(ArrayList<EventoInterfaz> listaDeEventos, int[][] horariosOcupados) {
         this.horariosOcupados = horariosOcupados;
         this.horariosObligatorios = horariosOcupados;
         this.eventosObligatorios = new ArrayList<EventoInterfaz>();
         this.eventosRegulares = new ArrayList<EventoInterfaz>();
 
+
+        //creo una nueva lista para no borrar las variables de la base de datos
+        ArrayList<EventoInterfaz> listaDeEventosNueva = this.clonarLista(listaDeEventos);
         //armo las distintas listas
-        for (EventoInterfaz eventoActual : listaDeEventos) {
+        for (EventoInterfaz eventoActual : listaDeEventosNueva) {
             if (eventoActual.isObligatoria())
                 this.eventosObligatorios.add(eventoActual);
             else
@@ -50,8 +53,11 @@ public class CreadorAgendas {
     public CreadorAgendas(ArrayList<EventoInterfaz> listaDeEventos) {
         this.eventosObligatorios = new ArrayList<EventoInterfaz>();
         this.eventosRegulares = new ArrayList<EventoInterfaz>();
+
+
         //armo las distintas listas
         for (EventoInterfaz eventoActual : listaDeEventos) {
+
             if (eventoActual.isObligatoria())
                 this.eventosObligatorios.add(eventoActual);
             else
@@ -62,6 +68,11 @@ public class CreadorAgendas {
 
     //-------------METODOS DE CALCULO-----------
     //******************************************
+
+    /**
+     * @return lista de agendas generadas
+     * @brief genera todas las posibles agendas con los eventos y variantes disponibles
+     */
     public ArrayList<Agenda> generarAgendas() {
         //lista de agendas
         ArrayList<Agenda> agendas = new ArrayList<Agenda>();
@@ -71,8 +82,14 @@ public class CreadorAgendas {
         eventosOrdinariosOrdenados = this.generadorFilasOrden(eventosOrdinariosOrdenados);
 
         //una ves ya listo
-        for (int i = 0; i < this.agendasRequeridas; i++) {
+        Boolean agendasFlag = true;
+        while (agendasFlag) {
+            //creo agenda nueva
             Agenda agendaGenerada = new Agenda();
+
+            //reseteo el contador de agendas
+            agendaGenerada.resetCountID();
+
             //seteo los horarios obligatorios en los horarios ocupados
             this.horariosOcupados = this.horariosObligatorios;
 
@@ -80,8 +97,14 @@ public class CreadorAgendas {
             this.agregadorDeObligatorias(agendaGenerada);
             this.asignadorDeEventos(agendaGenerada, eventosOrdinariosOrdenados);
 
-            agendas.add(agendaGenerada);
+            //si ya no tengo mas eventos mas que los obligatorios, dejo de generar agendas
+            if ((agendaGenerada.getListaMaterias().size() + agendaGenerada.getListaEventos().size() != this.eventosObligatorios.size())) {
+                agendas.add(agendaGenerada);
+                agendasFlag = true;
+            } else
+                agendasFlag = false;
 
+            //vacio horarios para futura iteracion
             this.vaciarHorariosOcupados();
         }
 
@@ -149,6 +172,70 @@ public class CreadorAgendas {
 
     //-------------TOOLS-----------
     //******************************************
+
+    /**
+     * @param listaAClonar lista que clonara
+     * @return lista clonada
+     * @brief metrodo para clonar la lista con todos sus componentes
+     */
+    public ArrayList<EventoInterfaz> clonarLista(ArrayList<EventoInterfaz> listaAClonar) {
+        ArrayList<EventoInterfaz> nuevaLista = new ArrayList<>();
+
+        //recorro los eventos de la lista
+        for (EventoInterfaz eventoActual : listaAClonar) {
+            if (eventoActual instanceof Materia) {
+                //creo la nueva materia
+                Materia materiaNueva = new Materia();
+                //clono los datos
+                materiaNueva.setSemestre(((Materia) eventoActual).getSemestre());
+                materiaNueva.setNombre(((Materia) eventoActual).getNombre());
+                materiaNueva.setObligatoriedad(((Materia) eventoActual).isObligatoria());
+                materiaNueva.setAnio(((Materia) eventoActual).getAnio());
+                //luego clono las variables
+                for (VarianteInterfaz varianteActual : eventoActual.getListaVariantes()) {
+                    //hago una copia de cada una de las variantes
+                    VarianteInterfaz nuevaVariante = new Comision();
+                    nuevaVariante.setDia(varianteActual.getDia());
+                    nuevaVariante.setHoraFin(varianteActual.getHoraFin());
+                    nuevaVariante.setHoraInicio(varianteActual.getHoraInicio());
+                    nuevaVariante.setIdentificador(varianteActual.getIdentificador());
+                    nuevaVariante.setMinFin(varianteActual.getMinFin());
+                    nuevaVariante.setMinInicio(varianteActual.getMinInicio());
+                    nuevaVariante.setPrioridad(varianteActual.getPrioridad());
+
+                    //seteo la variante en la materia
+                    materiaNueva.setVariante(nuevaVariante);
+                    //agrego la materia en la lista
+                    nuevaLista.add(materiaNueva);
+                }
+            } else if (eventoActual instanceof EventoParticular) {
+                //creo el nuevo evento particular
+                EventoParticular eventoParticularNuevo = new EventoParticular();
+                //clono los datos
+                eventoParticularNuevo.setNombre(((EventoParticular) eventoActual).getNombre());
+                eventoParticularNuevo.setObligatoriedad(((EventoParticular) eventoActual).isObligatoria());
+                eventoParticularNuevo.setRubro(((EventoParticular) eventoActual).getRubro());
+
+                for (VarianteInterfaz varianteActual : eventoActual.getListaVariantes()) {
+                    //hago una copia de cada una de las variantes
+                    VarianteInterfaz nuevaVariante = new OpcionEP();
+                    nuevaVariante.setDia(varianteActual.getDia());
+                    nuevaVariante.setHoraFin(varianteActual.getHoraFin());
+                    nuevaVariante.setHoraInicio(varianteActual.getHoraInicio());
+                    nuevaVariante.setIdentificador(varianteActual.getIdentificador());
+                    nuevaVariante.setMinFin(varianteActual.getMinFin());
+                    nuevaVariante.setMinInicio(varianteActual.getMinInicio());
+                    nuevaVariante.setPrioridad(varianteActual.getPrioridad());
+
+                    //seteo la vaiante en el evento particular
+                    eventoParticularNuevo.setVariante(nuevaVariante);
+                    //agrego el nuevo eventoP a la lista
+                    nuevaLista.add(eventoParticularNuevo);
+                }
+            }
+        }
+        return nuevaLista;
+    }
 
     /**
      * @param variante variante a agregar en matriz

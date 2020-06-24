@@ -3,6 +3,7 @@ package IU;
 import BaseDeDatos.BaseDeDatos;
 import BaseDeDatos.Usuario;
 import BaseDeDatos.EventoInterfaz;
+import BaseDeDatos.Agenda;
 import procesamiento.CreadorAgendas;
 
 import javax.swing.*;
@@ -10,14 +11,13 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- *
  * @author FedeSSD
  */
 public class VistaPrincipal extends javax.swing.JFrame {
     /**
      * base de datos de trabajo
      */
-     private BaseDeDatos baseDeDatos;
+    private BaseDeDatos baseDeDatos;
     /**
      * usuario seleccionado por la vista
      */
@@ -148,66 +148,66 @@ public class VistaPrincipal extends javax.swing.JFrame {
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
         panelMenuLayout.setHorizontalGroup(
-            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMenuLayout.createSequentialGroup()
-                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelMenuLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61)
-                        .addComponent(labelGendat))
-                    .addGroup(panelMenuLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(labelMenu)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelUsuario))
-                    .addGroup(panelMenuLayout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(botonBorrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(botonAgregarEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botonGenerarAgendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botonImprimirAgenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botonCerrarSesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelMenuLayout.createSequentialGroup()
+                                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panelMenuLayout.createSequentialGroup()
+                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(61, 61, 61)
+                                                .addComponent(labelGendat))
+                                        .addGroup(panelMenuLayout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(labelMenu)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(labelUsuario))
+                                        .addGroup(panelMenuLayout.createSequentialGroup()
+                                                .addGap(69, 69, 69)
+                                                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(botonBorrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                .addComponent(botonAgregarEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(botonGenerarAgendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(botonImprimirAgenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(botonCerrarSesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelMenuLayout.setVerticalGroup(
-            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMenuLayout.createSequentialGroup()
-                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelGendat))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelUsuario)
-                    .addComponent(labelMenu))
-                .addGap(11, 11, 11)
-                .addComponent(botonAgregarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonGenerarAgendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonImprimirAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelMenuLayout.createSequentialGroup()
+                                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(labelGendat))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(labelUsuario)
+                                        .addComponent(labelMenu))
+                                .addGap(11, 11, 11)
+                                .addComponent(botonAgregarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(botonGenerarAgendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(botonImprimirAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(botonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(botonCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(610, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(610, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 320, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 320, Short.MAX_VALUE))
         );
         //setUndecorated(true);
         pack();
@@ -219,8 +219,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void botonCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarSesionActionPerformed
         int input = JOptionPane.showConfirmDialog(rootPane, "¿Esta seguro de querer cerrar sesion?", "Cerrar Sesion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         //input: 0=yes ; 1=no ; 2=cancel
-        if(input == 0)
-        {
+        if (input == 0) {
             this.setVisible(false);
             vistaIngresar.setVisible(true);
         }
@@ -234,8 +233,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void botonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarActionPerformed
         int input = JOptionPane.showConfirmDialog(rootPane, "¿Esta seguro de querer eliminar el usuario " + nombreUsuario + "?", "Eliminar Usuario", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         //input: 0=yes ; 1=no ; 2=cancel
-        if(input == 0)
-        {
+        if (input == 0) {
             this.setVisible(false);
             // borrar el usuario
             int index = getIndex();
@@ -259,11 +257,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
     //******************************************
 
     /**
-     * @brief trata de agregar usuario nuevo
      * @param nombreUsuario nombre de usuario
      * @return true en caso de poder agregarlo en la base de datos, false caso contrario
+     * @brief trata de agregar usuario nuevo
      */
-    public boolean setNuevoUsuario(String nombreUsuario){
+    public boolean setNuevoUsuario(String nombreUsuario) {
         //trata de agregar usuario
         boolean controlFlag = this.baseDeDatos.addUsuario(nombreUsuario);
 
@@ -274,17 +272,17 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
 
     /**
-     * @brief  actualiza sos labels eliminando un usuario
+     * @brief actualiza sos labels eliminando un usuario
      */
-    public int getIndex(){
+    public int getIndex() {
         return this.baseDeDatos.getIndex(this.nombreUsuario);
     }
 
     /**
-     * @brief setter del nombre de usuario
      * @param nombreUsuario nombre de usuario
+     * @brief setter del nombre de usuario
      */
-    public void setNombreUsuario(String nombreUsuario){
+    public void setNombreUsuario(String nombreUsuario) {
         //setea el nombre de usuario en la label
         this.nombreUsuario = nombreUsuario;
         //sete el objeto usuario en su campo usuario
@@ -302,34 +300,34 @@ public class VistaPrincipal extends javax.swing.JFrame {
     /**
      * @brief actualiza sus labels
      */
-    public void updateSetLabelVista()
-    {
+    public void updateSetLabelVista() {
         labelUsuario.setText(nombreUsuario);
         //imprime todito el contenido
         this.baseDeDatos.toPrint();
     }
 
-    public void updateEventos(){
+    public void updateEventos() {
         this.vistaEventos.vaciarLista();
-        for(EventoInterfaz e : usuarioSeleccionado.getListaEventos())
-        {
-            vistaEventos.agregarALista(e.getNombre());
+        for (EventoInterfaz e : this.usuarioSeleccionado.getListaEventos()) {
+            this.vistaEventos.agregarALista(e.getNombre());
         }
     }
 
-    public void updateAgendas(){
+    public void updateAgendas() {
         this.vistaAgendas.vaciarLista();
+        this.vistaAgendas.actualizar();
+
     }
 
     /**
-     * @brief agrego evento a la vista de la lista
      * @param NombreEvento nombre del evento que quiero agregar
+     * @brief agrego evento a la vista de la lista
      */
-    public void agregarEventoLista(String NombreEvento){
+    public void agregarEventoLista(String NombreEvento) {
         vistaEventos.agregarALista(NombreEvento);
     }
 
-    public Usuario getUsuarioSeleccionado(){
+    public Usuario getUsuarioSeleccionado() {
         return this.usuarioSeleccionado;
     }
 
