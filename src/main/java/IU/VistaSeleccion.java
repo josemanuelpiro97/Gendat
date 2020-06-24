@@ -113,5 +113,16 @@ public class VistaSeleccion extends javax.swing.JPanel implements Observador {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable AgendaSemanal;
     private javax.swing.JScrollPane jScrollPane1;
+    @Override
+    public void actualizar() {
+        Usuario usuario = (Usuario) this.usuario;
+        Agenda agendaParaPoner = usuario.getAgendaSeleccionada();
+    }
+
+//
+    @Override
+    public int getID() {
+        return 0;
+    }
     // End of variables declaration//GEN-END:variables
 }
