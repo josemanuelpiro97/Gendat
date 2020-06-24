@@ -79,18 +79,9 @@ public class VistaSeleccion extends javax.swing.JPanel implements Observador {
         AgendaSemanal.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         AgendaSemanal.setRowMargin(2);
         AgendaSemanal.setShowGrid(true);
+        AgendaSemanal.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(AgendaSemanal);
         AgendaSemanal.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        if (AgendaSemanal.getColumnModel().getColumnCount() > 0) {
-            AgendaSemanal.getColumnModel().getColumn(0).setResizable(false);
-            AgendaSemanal.getColumnModel().getColumn(1).setResizable(false);
-            AgendaSemanal.getColumnModel().getColumn(2).setResizable(false);
-            AgendaSemanal.getColumnModel().getColumn(3).setResizable(false);
-            AgendaSemanal.getColumnModel().getColumn(4).setResizable(false);
-            AgendaSemanal.getColumnModel().getColumn(5).setResizable(false);
-            AgendaSemanal.getColumnModel().getColumn(6).setResizable(false);
-            AgendaSemanal.getColumnModel().getColumn(7).setResizable(false);
-        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -114,32 +105,5 @@ public class VistaSeleccion extends javax.swing.JPanel implements Observador {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable AgendaSemanal;
     private javax.swing.JScrollPane jScrollPane1;
-
-    @Override
-    public void actualizar() {
-        Usuario usuario = (Usuario) this.usuario;
-        Agenda agendaParaPoner = usuario.getAgendaSeleccionada();
-
-        for (EventoInterfaz materiaActual: agendaParaPoner.getListaMaterias()){
-            Materia materia = (Materia) materiaActual;
-            Comision comision = (Comision) materia.getVariante(0);
-            String[] vals = new String[8];
-            vals[0] = "a";
-            vals[1] = "a";
-            vals[2] = "a";
-            vals[3] = "a";
-            vals[4] = "a";
-            vals[5] = "a";
-            vals[6] = "a";
-            vals[7] = "a";
-            tableModel.addRow(vals);
-        }
-    }
-
-
-    @Override
-    public int getID() {
-        return 0;
-    }
     // End of variables declaration//GEN-END:variables
 }
