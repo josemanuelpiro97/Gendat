@@ -119,24 +119,9 @@ public class VistaSeleccion extends javax.swing.JPanel implements Observador {
     public void actualizar() {
         Usuario usuario = (Usuario) this.usuario;
         Agenda agendaParaPoner = usuario.getAgendaSeleccionada();
-
-        for (EventoInterfaz materiaActual: agendaParaPoner.getListaMaterias()){
-            Materia materia = (Materia) materiaActual;
-            Comision comision = (Comision) materia.getVariante(0);
-            String[] vals = new String[8];
-            vals[0] = "a";
-            vals[1] = "a";
-            vals[2] = "a";
-            vals[3] = "a";
-            vals[4] = "a";
-            vals[5] = "a";
-            vals[6] = "a";
-            vals[7] = "a";
-            tableModel.addRow(vals);
-        }
     }
 
-//asd
+//
     @Override
     public int getID() {
         return 0;
