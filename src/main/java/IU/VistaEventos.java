@@ -42,13 +42,15 @@ public class VistaEventos extends javax.swing.JPanel {
         EliminarEventos = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaEventos = new javax.swing.JList<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(280, 280));
 
         VistaEventos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         VistaEventos.setText("Eventos");
 
-        AgregarVariante.setText("Agregar Variante");
+        AgregarVariante.setIcon(new javax.swing.ImageIcon("C:\\ingsoft\\Gendat\\icons\\icons8-add-64.png")); // NOI18N
         AgregarVariante.setMaximumSize(new java.awt.Dimension(130, 25));
         AgregarVariante.setMinimumSize(new java.awt.Dimension(130, 25));
         AgregarVariante.setPreferredSize(new java.awt.Dimension(135, 25));
@@ -58,7 +60,7 @@ public class VistaEventos extends javax.swing.JPanel {
             }
         });
 
-        EliminarEventos.setText("Eliminar Evento");
+        EliminarEventos.setIcon(new javax.swing.ImageIcon("C:\\ingsoft\\Gendat\\icons\\icons8-delete-64.png")); // NOI18N
         EliminarEventos.setMaximumSize(new java.awt.Dimension(125, 25));
         EliminarEventos.setMinimumSize(new java.awt.Dimension(125, 25));
         EliminarEventos.setPreferredSize(new java.awt.Dimension(125, 25));
@@ -68,49 +70,65 @@ public class VistaEventos extends javax.swing.JPanel {
             }
         });
 
-
-
-        /*listaEventos.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "" };
+        listaEventos.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "sdvcsdv", "sdvsdvsf" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
-        });*/
+        });
         listaEventos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         listaEventos.setToolTipText("");
         jScrollPane1.setViewportView(listaEventos);
         listaEventos.getAccessibleContext().setAccessibleName("");
 
+        jLabel1.setText("Agregar Variante");
+
+        jLabel2.setText("Eliminar Evento");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGap(14, 14, 14)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(AgregarVariante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(EliminarEventos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGap(124, 124, 124)
-                                                .addComponent(VistaEventos)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(124, 124, 124)
+                .addComponent(VistaEventos)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(AgregarVariante, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(EliminarEventos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(48, 48, 48))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(30, 30, 30))))
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(VistaEventos)
-                                .addGap(13, 13, 13)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(AgregarVariante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(EliminarEventos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(14, 14, 14))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(VistaEventos)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(AgregarVariante, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+                    .addComponent(EliminarEventos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
+                .addGap(8, 8, 8))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -136,7 +154,7 @@ public class VistaEventos extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_AgregarVarianteActionPerformed
 
-    private void EliminarEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarVarianteActionPerformed
+    private void EliminarEventosActionPerformed(java.awt.event.ActionEvent evt) {                                                
         boolean seleccion = listaEventos.isSelectionEmpty();
         if (seleccion) {
             JOptionPane.showMessageDialog(null, "No selecciono ningun evento a eliminar.");
@@ -180,6 +198,8 @@ public class VistaEventos extends javax.swing.JPanel {
     private javax.swing.JButton AgregarVariante;
     private javax.swing.JButton EliminarEventos;
     private javax.swing.JLabel VistaEventos;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JList<String> listaEventos;
     // End of variables declaration//GEN-END:variables

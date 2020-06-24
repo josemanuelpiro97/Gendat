@@ -105,6 +105,7 @@ public class CreadorAgendas {
         while (controlFlag) {
             controlFlag = false;
             for (EventoInterfaz eventoActual : eventosParaAsignar) {
+                controlFlag2 = true;
                 for (VarianteInterfaz varianteActual : eventoActual.getListaVariantes()) {
                     if (this.estaEnRango(horariosOcup,varianteActual) && controlFlag2) {
                         if (eventoActual instanceof Materia) {
