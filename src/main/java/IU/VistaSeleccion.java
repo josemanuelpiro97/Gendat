@@ -192,7 +192,7 @@ public class VistaSeleccion extends javax.swing.JPanel implements Observador {
     public void completarHorarios(int tokens, int tokenIni, int dia, String nombre){
         for (int i = tokenIni ; i< tokenIni+tokens ; i++){
         }
-
+//sd
     }
 
     /**
