@@ -50,7 +50,7 @@ public class VistaEventos extends javax.swing.JPanel {
         VistaEventos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         VistaEventos.setText("Eventos");
 
-        AgregarVariante.setIcon(new javax.swing.ImageIcon("C:\\ingsoft\\Gendat\\icons\\icons8-add-64.png")); // NOI18N
+        AgregarVariante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-add-64.png"))); // NOI18N
         AgregarVariante.setMaximumSize(new java.awt.Dimension(130, 25));
         AgregarVariante.setMinimumSize(new java.awt.Dimension(130, 25));
         AgregarVariante.setPreferredSize(new java.awt.Dimension(135, 25));
@@ -60,7 +60,7 @@ public class VistaEventos extends javax.swing.JPanel {
             }
         });
 
-        EliminarEventos.setIcon(new javax.swing.ImageIcon("C:\\ingsoft\\Gendat\\icons\\icons8-delete-64.png")); // NOI18N
+        EliminarEventos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-delete-64.png"))); // NOI18N
         EliminarEventos.setMaximumSize(new java.awt.Dimension(125, 25));
         EliminarEventos.setMinimumSize(new java.awt.Dimension(125, 25));
         EliminarEventos.setPreferredSize(new java.awt.Dimension(125, 25));
@@ -105,13 +105,12 @@ public class VistaEventos extends javax.swing.JPanel {
                         .addGap(46, 46, 46)
                         .addComponent(AgregarVariante, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(EliminarEventos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(48, 48, 48))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(30, 30, 30))))
+                        .addComponent(EliminarEventos, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)))
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

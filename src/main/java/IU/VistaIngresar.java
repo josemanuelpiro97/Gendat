@@ -48,7 +48,6 @@ public class VistaIngresar extends javax.swing.JFrame {
         setTitle("Gendat v1.0.0");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("frameLogIn"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(400, 300));
         setResizable(false);
         setSize(new java.awt.Dimension(400, 300));
 
@@ -94,7 +93,7 @@ public class VistaIngresar extends javax.swing.JFrame {
         labelExistentes.setForeground(new java.awt.Color(255, 255, 255));
         labelExistentes.setText("Usuarios Existentes");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\ingsoft\\Gendat\\icons\\IconoGendat.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/IconoGendat.png"))); // NOI18N
 
         javax.swing.GroupLayout PanelLogInLayout = new javax.swing.GroupLayout(PanelLogIn);
         PanelLogIn.setLayout(PanelLogInLayout);

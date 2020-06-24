@@ -97,7 +97,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
         labelUsuario.setText("nombreUsuario");
 
         jLabel1.setFont(new java.awt.Font("MV Boli", 3, 30)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\ingsoft\\Gendat\\icons\\IconoGnegro.png")); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel2.setText("Agregar Evento");
@@ -111,7 +110,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel6.setText("Cerrar Sesion");
 
-        botonCerrarSesion.setIcon(new javax.swing.ImageIcon("C:\\ingsoft\\Gendat\\icons\\icons8-lock-64.png")); // NOI18N
+        botonCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-lock-64.png"))); // NOI18N
         botonCerrarSesion.setMaximumSize(new java.awt.Dimension(140, 25));
         botonCerrarSesion.setMinimumSize(new java.awt.Dimension(140, 25));
         botonCerrarSesion.setPreferredSize(new java.awt.Dimension(140, 25));
@@ -121,7 +120,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        botonBorrar.setIcon(new javax.swing.ImageIcon("C:\\ingsoft\\Gendat\\icons\\icons8-denied-64.png")); // NOI18N
+        botonBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-denied-64.png"))); // NOI18N
         botonBorrar.setMaximumSize(new java.awt.Dimension(140, 25));
         botonBorrar.setMinimumSize(new java.awt.Dimension(140, 25));
         botonBorrar.setPreferredSize(new java.awt.Dimension(140, 25));
@@ -131,7 +130,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        botonImprimirAgenda.setIcon(new javax.swing.ImageIcon("C:\\ingsoft\\Gendat\\icons\\icons8-add-image-64.png")); // NOI18N
+        botonImprimirAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-add-image-64.png"))); // NOI18N
         botonImprimirAgenda.setMaximumSize(new java.awt.Dimension(140, 25));
         botonImprimirAgenda.setMinimumSize(new java.awt.Dimension(140, 25));
         botonImprimirAgenda.setPreferredSize(new java.awt.Dimension(140, 25));
@@ -142,17 +141,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        botonGenerarAgendas.setIcon(new javax.swing.ImageIcon("C:\\ingsoft\\Gendat\\icons\\icons8-bookmark-64.png")); // NOI18N
+        botonGenerarAgendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-bookmark-64.png"))); // NOI18N
         botonGenerarAgendas.setMaximumSize(new java.awt.Dimension(140, 25));
         botonGenerarAgendas.setMinimumSize(new java.awt.Dimension(140, 25));
         botonGenerarAgendas.setPreferredSize(new java.awt.Dimension(140, 25));
-        botonGenerarAgendas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonGenerarAgendasActionPerformed(evt);
-            }
-        });
 
-        botonAgregarEvento.setIcon(new javax.swing.ImageIcon("C:\\ingsoft\\Gendat\\icons\\icons8-add-property-64.png")); // NOI18N
+        botonAgregarEvento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-add-property-64.png"))); // NOI18N
         botonAgregarEvento.setMaximumSize(new java.awt.Dimension(140, 25));
         botonAgregarEvento.setMinimumSize(new java.awt.Dimension(140, 25));
         botonAgregarEvento.setPreferredSize(new java.awt.Dimension(140, 25));

@@ -13,14 +13,14 @@ import javax.swing.table.DefaultTableModel;
 public class VistaSeleccion extends javax.swing.JPanel implements Observador {
     VistaPrincipal vistaPrincipal;
     Sujeto usuario;
-    DefaultTableModel tableModel;
+    //DefaultTableModel tableModel;
 
     public VistaSeleccion(VistaPrincipal vp) {
         initComponents();
         this.vistaPrincipal = vp;
 
-        tableModel = new DefaultTableModel();
-        AgendaSemanal.setModel(tableModel);
+        //tableModel = new DefaultTableModel();
+        //AgendaSemanal.setModel(tableModel);
     }
 
     /**
@@ -82,6 +82,14 @@ public class VistaSeleccion extends javax.swing.JPanel implements Observador {
         AgendaSemanal.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(AgendaSemanal);
         AgendaSemanal.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        if (AgendaSemanal.getColumnModel().getColumnCount() > 0) {
+            AgendaSemanal.getColumnModel().getColumn(0).setResizable(false);
+            AgendaSemanal.getColumnModel().getColumn(1).setResizable(false);
+            AgendaSemanal.getColumnModel().getColumn(2).setResizable(false);
+            AgendaSemanal.getColumnModel().getColumn(3).setResizable(false);
+            AgendaSemanal.getColumnModel().getColumn(4).setResizable(false);
+            AgendaSemanal.getColumnModel().getColumn(6).setResizable(false);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
