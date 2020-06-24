@@ -14,7 +14,8 @@ public class CreadorAgendas {
     private ArrayList<EventoInterfaz> eventosRegulares;
     private ArrayList<EventoInterfaz> eventosObligatorios;
 
-    private int[][] horariosDisponibles;
+    private int[][] horariosOcupados;
+    private int[][] horariosObligatorios;
 
     //-------------CONSTRUCTOR------------------
     //******************************************
@@ -24,7 +25,8 @@ public class CreadorAgendas {
      */
     public CreadorAgendas(ArrayList<EventoInterfaz> listaDeEventos, int[][] horariosOcupados,int agendasRequeridas) {
         this.agendasRequeridas = agendasRequeridas;
-        this.horariosDisponibles = horariosOcupados;
+        this.horariosOcupados = horariosOcupados;
+        this.horariosObligatorios = horariosOcupados;
         this.eventosObligatorios = new ArrayList<EventoInterfaz>();
         this.eventosRegulares = new ArrayList<EventoInterfaz>();
 
@@ -70,11 +72,16 @@ public class CreadorAgendas {
         //una ves ya listo
         for (int i = 0; i < this.agendasRequeridas; i++) {
             Agenda agendaGenerada = new Agenda();
+            //seteo los horarios obligatorios en los horarios ocupados
+            this.horariosOcupados = this.horariosObligatorios;
+
             //le agrego los eventos obligatorios
             this.agregadorDeObligatorias(agendaGenerada);
             this.asignadorDeEventos(agendaGenerada, eventosOrdinariosOrdenados);
 
             agendas.add(agendaGenerada);
+
+            this.vaciarHorariosOcupados();
         }
 
         return agendas;
@@ -100,8 +107,8 @@ public class CreadorAgendas {
     public void asignadorDeEventos(Agenda agenda, ArrayList<EventoInterfaz> eventosParaAsignar) {
         boolean controlFlag = true;
         boolean controlFlag2 = true;
-        int[][] horariosOcup = new int[this.horariosDisponibles.length][this.horariosDisponibles[0].length];
-        horariosOcup = this.horariosDisponibles;
+        int[][] horariosOcup = new int[this.horariosOcupados.length][this.horariosOcupados[0].length];
+        horariosOcup = this.horariosOcupados;
         while (controlFlag) {
             controlFlag = false;
             for (EventoInterfaz eventoActual : eventosParaAsignar) {
@@ -146,6 +153,14 @@ public class CreadorAgendas {
         int dia = variante.getDia();
         for (int i = valInicial - 1; i < valFinal - 1; i++) {
             matrix[dia][i] = 1;
+        }
+    }
+
+    public void vaciarHorariosOcupados(){
+        for (int i = 0; i < this.horariosOcupados.length; i++) {
+            for (int j = 0; j< this.horariosOcupados[i].length ; j++){
+                this.horariosOcupados[i][j] = 0;
+            }
         }
     }
 
