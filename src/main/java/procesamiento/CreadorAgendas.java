@@ -109,7 +109,7 @@ public class CreadorAgendas {
                     if (this.estaEnRango(horariosOcup,varianteActual) && controlFlag2) {
                         if (eventoActual instanceof Materia) {
                             //agrego la materia en la lista
-                            Materia nuevaMateria = this.contructorMateriaSimple((Materia) varianteActual, varianteActual);
+                            Materia nuevaMateria = this.contructorMateriaSimple((Materia) eventoActual, varianteActual);
                             agenda.setMateria(nuevaMateria);
                             //actualizo bandera
                             controlFlag2 = false;
@@ -118,7 +118,7 @@ public class CreadorAgendas {
                         } else if (eventoActual instanceof EventoParticular) {
                             //agrego el evento particular
                             EventoParticular eventoNuevo =
-                                    this.contructorEventoSimple((EventoParticular) varianteActual,varianteActual);
+                                    this.contructorEventoSimple((EventoParticular) eventoActual,varianteActual);
                             agenda.setEvento(eventoNuevo);
                             //actualizo bandera
                             controlFlag2 = false;

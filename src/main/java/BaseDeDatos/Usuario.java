@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class Usuario implements Sujeto {
 
-
     //-----------VARIABLES----------------------
     //******************************************
 
