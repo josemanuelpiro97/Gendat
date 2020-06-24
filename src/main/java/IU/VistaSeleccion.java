@@ -4,6 +4,8 @@ import BaseDeDatos.*;
 import Observer.Observador;
 import Observer.Sujeto;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author FedeSSD
@@ -11,10 +13,14 @@ import Observer.Sujeto;
 public class VistaSeleccion extends javax.swing.JPanel implements Observador {
     VistaPrincipal vistaPrincipal;
     Sujeto usuario;
+    DefaultTableModel tableModel;
 
     public VistaSeleccion(VistaPrincipal vp) {
         initComponents();
         this.vistaPrincipal = vp;
+
+        tableModel = new DefaultTableModel();
+        AgendaSemanal.setModel(tableModel);
     }
 
     /**
@@ -117,49 +123,19 @@ public class VistaSeleccion extends javax.swing.JPanel implements Observador {
         for (EventoInterfaz materiaActual: agendaParaPoner.getListaMaterias()){
             Materia materia = (Materia) materiaActual;
             Comision comision = (Comision) materia.getVariante(0);
-            //relleno campos
-            int tokens = this.getTokens(comision.getHoraInicio(),comision.getHoraFin(),comision.getMinInicio(),comision.getMinFin());
-            int tokenIni = this.getTokenInicial(comision.getHoraInicio(),comision.getMinInicio());
-            this.completarHorarios(tokens,tokenIni,comision.getDia(), materia.getNombre());
+            String[] vals = new String[8];
+            vals[0] = "a";
+            vals[1] = "a";
+            vals[2] = "a";
+            vals[3] = "a";
+            vals[4] = "a";
+            vals[5] = "a";
+            vals[6] = "a";
+            vals[7] = "a";
+            tableModel.addRow(vals);
         }
     }
 
-    /**
-     * @brief completa los casilleros correspondientes con el nombre de la materia/evento
-     * @param tokens numero de casilleros a pintar
-     * @param nombre nombre nombre de la materia/evento
-     * @param dia dia del evento
-     */
-    public void completarHorarios(int tokens, int tokenIni, int dia, String nombre){
-        for (int i = tokenIni ; i< tokenIni+tokens ; i++){
-        }
-//sd
-    }
-
-    /**
-     * @brief  dependiendo del horario, calcula la cantidad de bloques de 15 minutos que debere completar de la tabla
-     * @param horaInicio hora inicio
-     * @param horaFin hora fin
-     * @param minInicio minuto inicio
-     * @param minFinal minuto final
-     * @return cantidad de tokens
-     */
-    public int getTokens(int horaInicio,int horaFin, int minInicio, int minFinal){
-        int minInicial = (horaInicio * 60 + minInicio);
-        int minFin = (horaFin *60 + minFinal);
-        float dif = minFin - minFinal;
-
-        //redondeo ya que al final del rango de horario se escribe un minuto menos
-        int cantidadTokens = Math.round(dif/15);
-        return cantidadTokens;
-    }
-
-    public int getTokenInicial(int horaInicio, int minInicio){
-        int minuIni = (horaInicio * 60 + minInicio) - 360;
-        int tokenIni = minuIni / 15;
-
-        return tokenIni;
-    }
 
     @Override
     public int getID() {

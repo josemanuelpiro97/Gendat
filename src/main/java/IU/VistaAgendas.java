@@ -150,7 +150,7 @@ public class VistaAgendas extends javax.swing.JPanel implements Observador{
             JOptionPane.showMessageDialog(null, "No hay seleccionada ninguna Agenda.");
         }
         else {
-            int ID = this.jList1.getSelectedIndex();
+            int ID = this.jList1.getSelectedIndex()+1;
             this.vistaPrincipal.getUsuarioSeleccionado().setAgendaSeleccionada(ID);
         };
     }//GEN-LAST:event_BtSeleccionarAActionPerformed

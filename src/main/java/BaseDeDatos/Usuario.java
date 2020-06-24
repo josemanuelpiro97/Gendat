@@ -57,6 +57,7 @@ public class Usuario implements Sujeto {
         this.listaEventosInterfaz = new ArrayList<EventoInterfaz>();
         this.agendas = new ArrayList<Agenda>();
         this.listaDeObservadores = new ArrayList<Observador>();
+        this.agendaSeleccionada = new Agenda();
 
         this.horariosOcupados = new int[this.NUM_DIAS][this.MIN_FINAL];
         for (int i = 0; i < this.NUM_DIAS; i++) {
