@@ -146,6 +146,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         botonGenerarAgendas.setMaximumSize(new java.awt.Dimension(140, 25));
         botonGenerarAgendas.setMinimumSize(new java.awt.Dimension(140, 25));
         botonGenerarAgendas.setPreferredSize(new java.awt.Dimension(140, 25));
+        botonGenerarAgendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGenerarAgendasActionPerformed(evt);
+            }
+        });
 
         botonAgregarEvento.setIcon(new javax.swing.ImageIcon("C:\\ingsoft\\Gendat\\icons\\icons8-add-property-64.png")); // NOI18N
         botonAgregarEvento.setMaximumSize(new java.awt.Dimension(140, 25));
@@ -299,7 +304,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     //-------------METODOS PARTICULARES---------
     //******************************************
-//a ver
+
     /**
      * @param nombreUsuario nombre de usuario
      * @return true en caso de poder agregarlo en la base de datos, false caso contrario

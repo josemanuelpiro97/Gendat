@@ -139,14 +139,14 @@ public class VistaAgendas extends javax.swing.JPanel implements Observador{
             JOptionPane.showMessageDialog(null, "No selecciono ninguna Agenda a eliminar.");
         }
         else {
-            int index = jList1.getSelectedIndex();
-            String NombreAgenda1 = modeloLista.get(index).toString();
-            EliminarDeListaA(NombreAgenda1);
+            //int index = ;
+            EliminarDeListaA(jList1.getSelectedIndex());
         }
     }//GEN-LAST:event_BtEliminarAActionPerformed
 
     private void BtSeleccionarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSeleccionarAActionPerformed
         // TODO add your handling code here:
+        //tkm bro
     }//GEN-LAST:event_BtSeleccionarAActionPerformed
 
 
@@ -170,10 +170,10 @@ public class VistaAgendas extends javax.swing.JPanel implements Observador{
 
     /**
      * Elimino el elemento seleccionado de la lista
-     * @param NombreAgenda1
+     * @param index
      */
-    public void EliminarDeListaA(String NombreAgenda1){
-        modeloLista.removeElement(NombreAgenda1);
+    public void EliminarDeListaA(int index){
+        modeloLista.removeElement(index);
     }
 
     /**
