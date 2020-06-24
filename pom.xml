@@ -21,7 +21,7 @@
                 <archive>
                     <manifest>
                         <addClasspath>true</addClasspath>
-                        <mainClass>src/main/java/Gendat</mainClass>
+                        <mainClass>Gendat.java</mainClass>
                     </manifest>
                 </archive>
             </configuration>
@@ -45,7 +45,7 @@
     <dependency>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>3.2.0</version>
+        <version>3.0.2</version>
     </dependency>
     <!-- java lang dependencies -->
     <dependency>
