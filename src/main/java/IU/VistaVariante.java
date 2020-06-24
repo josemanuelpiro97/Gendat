@@ -391,7 +391,7 @@ public class VistaVariante extends javax.swing.JFrame {
     }//GEN-LAST:event_DiaFieldActionPerformed
 
     private void BtAgregarOpcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAgregarOpcActionPerformed
-        boolean anioFlag = true;
+        boolean diaFlag = true;
         boolean controlFlag = true;
         //creo la opcionEP
         OpcionEP opcionEP = new OpcionEP();
@@ -422,11 +422,11 @@ public class VistaVariante extends javax.swing.JFrame {
 
         //cheque el dia para ver si lo agrego
         String dia = this.DiaFieldOp.getText();
-        anioFlag = anioValido(dia);
-        if (anioFlag) {
-            anioFlag = opcionEP.setDia(Integer.parseInt(dia));
+        diaFlag = diaValido(dia);
+        if (diaFlag) {
+            diaFlag = opcionEP.setDia(Integer.parseInt(dia));
         }
-        if (!anioFlag) {
+        if (!diaFlag) {
             controlFlag = false;
             JOptionPane.showMessageDialog(null, "Dia invalido");
         }
@@ -471,7 +471,7 @@ public class VistaVariante extends javax.swing.JFrame {
 
     //-------------METODOS-------------------
     //******************************************
-    public boolean anioValido(String val) {
+    public boolean diaValido(String val) {
         //cheque contenido
         if (val.length() == 0)
             return false;
