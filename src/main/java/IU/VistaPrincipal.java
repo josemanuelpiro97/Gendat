@@ -293,6 +293,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         //actualiza la label
         this.updateSetLabelVista();
         this.updateEventos();
+        this.updateAgendas();
 
         //setea el sujeto en los observadores
         this.vistaAgendas.setSujeto(this.baseDeDatos.getUsuario(nombreUsuario));
@@ -309,11 +310,15 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }
 
     public void updateEventos(){
-        vistaEventos.vaciarLista();
+        this.vistaEventos.vaciarLista();
         for(EventoInterfaz e : usuarioSeleccionado.getListaEventos())
         {
             vistaEventos.agregarALista(e.getNombre());
         }
+    }
+
+    public void updateAgendas(){
+        this.vistaAgendas.vaciarLista();
     }
 
     /**
