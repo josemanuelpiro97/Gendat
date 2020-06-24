@@ -5,14 +5,22 @@
  */
 package IU;
 
+import BaseDeDatos.Agenda;
+import BaseDeDatos.Usuario;
+import Observer.Observador;
+import Observer.Sujeto;
+
 import javax.swing.*;
+import java.util.ArrayList;
 
 /**
  *
  * @author FedeSSD
  */
-public class VistaAgendas extends javax.swing.JPanel {
+public class VistaAgendas extends javax.swing.JPanel implements Observador{
     VistaPrincipal vistaPrincipal;
+    Sujeto usuario;
+    ArrayList<Agenda> agendas;
     DefaultListModel modeloLista = new DefaultListModel();
 
     public VistaAgendas(VistaPrincipal vp) {
@@ -102,10 +110,11 @@ public class VistaAgendas extends javax.swing.JPanel {
 
     /**
      * Agrego a la lista las agendas generadas
-     * @param Agendas le mando las agendas generadas para agregar en la lista
      */
-    public void AgregarAListaAgendas(Object Agendas){
-        modeloLista.addElement(Agendas);
+    public void agregarAListaAgendas(){
+        for (Agenda agendaActual:this.agendas){
+            this.modeloLista.addElement(agendaActual.getID());
+        }
     }
 
     /**
@@ -116,11 +125,33 @@ public class VistaAgendas extends javax.swing.JPanel {
         modeloLista.removeElement(NombreAgenda1);
     }
 
+    /**
+     * @brief setea el usuario actual en la vista
+     * @param usuario usuario que observara la vista
+     */
+    public void setSujeto(Sujeto usuario){
+        //asigno el sujeto y me registro
+        this.usuario = usuario;
+        this.usuario.registrarObservador(this);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtEliminarA;
     private javax.swing.JButton BtSeleccionarA;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+
+    @Override
+    public void actualizar() {
+        Usuario usuarioCast = (Usuario)this.usuario;
+        this.agendas = usuarioCast.getAgendas();
+        this.agregarAListaAgendas();
+    }
+
+    @Override
+    public int getID() {
+        return 0;
+    }
     // End of variables declaration//GEN-END:variables
 }

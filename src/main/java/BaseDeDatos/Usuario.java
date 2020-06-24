@@ -2,6 +2,7 @@ package BaseDeDatos;
 
 import Observer.Observador;
 import Observer.Sujeto;
+import procesamiento.CreadorAgendas;
 
 import java.util.ArrayList;
 
@@ -135,6 +136,14 @@ public class Usuario implements Sujeto {
         return null;
     }
 
+    /**
+     * @brief retorna horarios ocupados por eventos obligatorios
+     * @return arreglo de horarios obligatorios ocupados
+     */
+    public int[][] getHorariosOcupados(){
+        return this.horariosOcupados;
+    }
+
     //-------------SETTERS----------------------
     //******************************************
 
@@ -151,9 +160,6 @@ public class Usuario implements Sujeto {
         }
         //si no hay error agrego el evento
         this.listaEventosInterfaz.add(evento);
-
-        //notifico cambios
-        this.notificarObservador();
 
         return true;
     }
@@ -196,8 +202,7 @@ public class Usuario implements Sujeto {
                 }
                 //agrego variante
                 eventoActual.getListaVariantes().add(variante);
-                //notifico
-                this.notificarObservador();
+
                 return msjCORRECT;
             }
         }
@@ -220,8 +225,7 @@ public class Usuario implements Sujeto {
         for (int i = 0; i < this.listaEventosInterfaz.size(); i++) {
             if (this.listaEventosInterfaz.get(i).getNombre().equals(nombreEvento)) {
                 this.listaEventosInterfaz.remove(i);
-                //notifico cambios
-                this.notificarObservador();
+
                 return msjCORRECT;
             }
         }
@@ -255,8 +259,6 @@ public class Usuario implements Sujeto {
                         //quito la variante
                         eventoActual.getListaVariantes().remove(j);
 
-                        //notifico cambios
-                        this.notificarObservador();
 
                         return msjCORRECT;
                     }
@@ -289,8 +291,17 @@ public class Usuario implements Sujeto {
         }
     }
 
-    //----------------TOOLS----------------------
+    //----------------TOOLS----------------------------
     //**************************************************
+
+    public void generarAgendas(){
+        //creo el creador de agendas
+        CreadorAgendas creadorAgendas = new CreadorAgendas(this.listaEventosInterfaz,this.horariosOcupados,1);
+        this.agendas = creadorAgendas.generarAgendas();
+
+        this.notificarObservador();
+    }
+
 
     /**
      * @param variante variante del evento
