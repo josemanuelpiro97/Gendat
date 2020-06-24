@@ -10,7 +10,7 @@ public class OpcionEP implements VarianteInterfaz {
     private int minutoFin;
     private int dia;
     private boolean prioritario;
-    private int ID;
+    private int ID=0;
     private static int idCount = 1;
     //------------requerido por opcionEP---------
    String lugar;
