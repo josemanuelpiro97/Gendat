@@ -8,6 +8,7 @@ package IU;
 import BaseDeDatos.OpcionEP;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author marco
@@ -75,8 +76,9 @@ public class VistaVariante extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-
-        ComisionFrame.setVisible(true);
+        Dimension dim = new Dimension(300, 550);
+        setMinimumSize(dim);
+        setSize(dim);
 
         AulaField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -362,7 +364,7 @@ public class VistaVariante extends javax.swing.JFrame {
                                 .addComponent(BtAtras)
                                 .addContainerGap())
         );
-
+        setUndecorated(true);
         pack();
     }
 
