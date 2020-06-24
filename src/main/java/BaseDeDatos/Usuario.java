@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class Usuario implements Sujeto {
 
-
     //-----------VARIABLES----------------------
     //******************************************
 
@@ -296,7 +295,7 @@ public class Usuario implements Sujeto {
 
     public void generarAgendas(){
         //creo el creador de agendas
-        CreadorAgendas creadorAgendas = new CreadorAgendas(this.listaEventosInterfaz,this.horariosOcupados,1);
+        CreadorAgendas creadorAgendas = new CreadorAgendas(this.listaEventosInterfaz,this.horariosOcupados,2);
         this.agendas = creadorAgendas.generarAgendas();
 
         this.notificarObservador();

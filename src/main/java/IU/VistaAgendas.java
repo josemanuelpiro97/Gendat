@@ -6,6 +6,8 @@
 package IU;
 
 import BaseDeDatos.Agenda;
+import BaseDeDatos.EventoInterfaz;
+import BaseDeDatos.Materia;
 import BaseDeDatos.Usuario;
 import Observer.Observador;
 import Observer.Sujeto;
@@ -113,6 +115,15 @@ public class VistaAgendas extends javax.swing.JPanel implements Observador{
      */
     public void agregarAListaAgendas(){
         for (Agenda agendaActual:this.agendas){
+            System.out.println("Se agrego la agenda numero: " + agendaActual.getID());
+            for (EventoInterfaz eventoActual : agendaActual.getListaEventos()){
+                System.out.print("Con los eventos: ");
+                System.out.println(eventoActual.getNombre() + " y su variante: " + eventoActual.getListaVariantes().get(0).getIdentificador());
+            }
+            for (EventoInterfaz materiaActual : agendaActual.getListaMaterias()){
+                System.out.print("Con las materias: ");
+                System.out.println(materiaActual.getNombre() + " y su comisiones: " + materiaActual.getListaVariantes().get(0).getIdentificador());
+            }
             this.modeloLista.addElement(agendaActual.getID());
         }
     }
