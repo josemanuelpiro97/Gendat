@@ -269,6 +269,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
         int input = JOptionPane.showConfirmDialog(rootPane, "¿Esta seguro de querer cerrar sesion?", "Cerrar Sesion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         //input: 0=yes ; 1=no ; 2=cancel
         if (input == 0) {
+            //dessuscribo observadores
+            this.vistaAgendas.quitSujeto();
+            this.vistaSeleccion.quitSujeto();
+
             this.setVisible(false);
             vistaIngresar.setVisible(true);
         }
@@ -344,6 +348,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         //setea el sujeto en los observadores
         this.vistaAgendas.setSujeto(this.baseDeDatos.getUsuario(nombreUsuario));
+        this.vistaSeleccion.setSujeto(this.baseDeDatos.getUsuario(nombreUsuario));
     }
 
     /**

@@ -145,8 +145,14 @@ public class VistaAgendas extends javax.swing.JPanel implements Observador{
     }//GEN-LAST:event_BtEliminarAActionPerformed
 
     private void BtSeleccionarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSeleccionarAActionPerformed
-        // TODO add your handling code here:
-        //tkm bro
+        boolean seleccion = jList1.isSelectionEmpty();
+        if(seleccion) {
+            JOptionPane.showMessageDialog(null, "No hay seleccionada ninguna Agenda.");
+        }
+        else {
+            int ID = this.jList1.getSelectedIndex();
+            this.vistaPrincipal.getUsuarioSeleccionado().setAgendaSeleccionada(ID);
+        };
     }//GEN-LAST:event_BtSeleccionarAActionPerformed
 
 
@@ -193,6 +199,13 @@ public class VistaAgendas extends javax.swing.JPanel implements Observador{
         //asigno el sujeto y me registro
         this.usuario = usuario;
         this.usuario.registrarObservador(this);
+    }
+
+    /**
+     * @brief dessuscribe a la vista del usuario
+     */
+    public void quitSujeto(){
+        this.usuario.removerObservador(this);
     }
 
 

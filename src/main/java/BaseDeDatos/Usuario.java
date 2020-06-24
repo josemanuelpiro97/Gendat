@@ -4,6 +4,7 @@ import Observer.Observador;
 import Observer.Sujeto;
 import procesamiento.CreadorAgendas;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 
@@ -31,6 +32,10 @@ public class Usuario implements Sujeto {
      * lista de agendas generadas por este usuario
      */
     private ArrayList<Agenda> agendas;
+    /**
+     * agenda seleccionada actualmente por el usuario
+     */
+    private Agenda agendaSeleccionada;
 
     /**
      * variables destinadas al control de rangos de horarios
@@ -148,8 +153,28 @@ public class Usuario implements Sujeto {
         return this.horariosOcupados;
     }
 
+    /**
+     * @brief  getter de agenda seleccionada
+     * @return agenda seleccionada
+     */
+    public Agenda getAgendaSeleccionada(){
+        return this.agendaSeleccionada;
+    }
+
     //-------------SETTERS----------------------
     //******************************************
+
+    /**
+     * @brief establece como seleccionada la agenda que corresponde al indice pasado por parametro
+     * @param ID indice de agenda
+     */
+    public void setAgendaSeleccionada(int ID){
+        for (Agenda agendaActual: this.agendas){
+            if(agendaActual.getID() == ID)
+                this.agendaSeleccionada = agendaActual;
+                this.notificarObservador();
+        }
+    }
 
     /**
      * @param evento evento a agregar
@@ -329,7 +354,7 @@ public class Usuario implements Sujeto {
         int valInicial = (variante.getHoraInicio() * 60) + variante.getMinInicio();
         int valFinal = (variante.getHoraFin() * 60) + variante.getMinFin();
         int dia = variante.getDia();
-        for (int i = valInicial - 1; i < valFinal - 1; i++) {
+        for (int i = valInicial - 1; i < valFinal - 2; i++) {
             this.horariosOcupados[dia][i] = 1;
         }
     }
