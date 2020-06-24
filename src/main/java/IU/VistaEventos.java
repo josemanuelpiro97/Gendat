@@ -117,16 +117,22 @@ public class VistaEventos extends javax.swing.JPanel {
     //-------------ACCIONES DE BOTONES----------
     //******************************************
     private void AgregarVarianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarVarianteActionPerformed
-        boolean materia;
-        int index = listaEventos.getSelectedIndex();
-        String nombreEvento = modeloLista.get(index).toString();
-        materia = this.vistaPrincipal.getUsuarioSeleccionado().getEvento(nombreEvento) instanceof Materia;
-
-        vistaPrincipal.vistaVariante.setVisible(true);
-        if (materia) {
-            vistaPrincipal.vistaVariante.agregarComision();
-        } else {
-            vistaPrincipal.vistaVariante.agregarOpcion();
+        boolean seleccion;
+        seleccion = listaEventos.isSelectionEmpty();
+        if(seleccion){
+            JOptionPane.showMessageDialog(null, "No selecciono ningun evento para agregar variantes.");
+        }
+        else {
+            boolean materia;
+            int index = listaEventos.getSelectedIndex();
+            String nombreEvento = modeloLista.get(index).toString();
+            materia = this.vistaPrincipal.getUsuarioSeleccionado().getEvento(nombreEvento) instanceof Materia;
+            vistaPrincipal.vistaVariante.setVisible(true);
+            if (materia) {
+                vistaPrincipal.vistaVariante.agregarComision();
+            } else {
+                vistaPrincipal.vistaVariante.agregarOpcion();
+            }
         }
     }//GEN-LAST:event_AgregarVarianteActionPerformed
 

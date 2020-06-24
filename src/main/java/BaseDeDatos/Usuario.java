@@ -166,9 +166,8 @@ public class Usuario implements Sujeto {
      */
     public String addVariante(VarianteInterfaz variante, String nombreEvento) {
         final String msjERROR1 = "Evento no encontrado";
-        final String msjERROR2 = "Este evento ocupa una franja horaria que ya esta ocupada por una " +
-                "variante obligatoria";
-        final String msjERROR3 = "Solo puede haber una variante por evento obligatorio";
+        final String msjERROR2 = "franja horaria ocupada";
+        final String msjERROR3 = "limite variantes sup.";
         final String msjCORRECT = "Variante agregada";
         final String msjERROR4 = "Horario invalido";
 
