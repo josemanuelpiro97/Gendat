@@ -5,6 +5,7 @@
  */
 package IU;
 
+import BaseDeDatos.Comision;
 import BaseDeDatos.OpcionEP;
 
 import javax.swing.*;
@@ -422,7 +423,7 @@ public class VistaVariante extends javax.swing.JFrame {
 
         //cheque el dia para ver si lo agrego
         String dia = this.DiaFieldOp.getText();
-        diaFlag = diaValido(dia);
+        diaFlag = validoParaConvertir(dia);
         if (diaFlag) {
             diaFlag = opcionEP.setDia(Integer.parseInt(dia));
         }
@@ -465,13 +466,108 @@ public class VistaVariante extends javax.swing.JFrame {
     }
 
     private void BtGuardarComActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtGuardarComActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtGuardarComActionPerformed
+        boolean diaFlag = true;
+        boolean controlFlag = true;
+        //creo la opcionEP
+        Comision comision = new Comision();
+
+        int horaInicio = this.HoraInicioMat.getItemAt(this.HoraInicioMat.getSelectedIndex());
+        int horaFin = this.HoraFinMat.getItemAt(this.HoraFinMat.getSelectedIndex());
+        int minInicio = this.MinInicioMat.getItemAt(this.MinInicioMat.getSelectedIndex());
+        int minFin = this.MinFinMat.getItemAt(this.MinFinMat.getSelectedIndex());
+        //si la hora es correcta la establezco
+        if (horaInicio == horaFin && minInicio == minFin) {
+            controlFlag = false;
+            JOptionPane.showMessageDialog(null, "Horario Invalido");
+        }
+        else if (horaInicio <= horaFin) {
+            if (minInicio <= minFin) {
+                comision.setHoraInicio(horaInicio);
+                comision.setHoraFin(horaFin);
+                comision.setMinInicio(minInicio);
+                comision.setMinFin(minFin);
+            } else {
+                controlFlag = false;
+                JOptionPane.showMessageDialog(null, "Horario Invalido");
+            }
+        } else {
+            controlFlag = false;
+            JOptionPane.showMessageDialog(null, "Horario Invalido");
+        }
+
+        //cheque el dia para ver si lo agrego
+        String dia = this.DiaField.getText();
+        diaFlag = validoParaConvertir(dia);
+        if (diaFlag) {
+            diaFlag = comision.setDia(Integer.parseInt(dia));
+        }
+        if (!diaFlag) {
+            controlFlag = false;
+            JOptionPane.showMessageDialog(null, "Dia invalido");
+        }
+
+        //seteo la prioridad
+        comision.setPrioridad(this.BoxPrioM.isSelected());
+
+        //seteo nombre de profesor
+        comision.setProfesor(this.ProfeField.getText());
+
+        //seteo numero de aula si es valido
+        if(this.validoParaConvertir(this.AulaField.getText())){
+            if(!comision.setNumAula(Integer.parseInt(this.AulaField.getText()))){
+                JOptionPane.showMessageDialog(null, "Numero de aula invalido");
+                controlFlag = false;
+            }
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Numero de aula invalido");
+            controlFlag = false;
+        }
+
+        //seteo numero de comision si es valido
+        if(this.validoParaConvertir(this.NumeroField.getText())){
+            if(!comision.setIdentificador(Integer.parseInt(this.NumeroField.getText()))){
+                JOptionPane.showMessageDialog(null, "Numero de comision invalido");
+                controlFlag = false;
+            }
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Numero de comision invalido");
+            controlFlag = false;
+        }
+
+
+        //si se creo correctamente la comision, trato de agregarla en la comision
+        String resultado = "";
+        String nombreEvento = this.vistaPrincipal.vistaEventos.listaEventos.getSelectedValue();
+        if (controlFlag) {
+            resultado = this.vistaPrincipal.getUsuarioSeleccionado().addVariante(comision, nombreEvento);
+        }
+
+        //reviso si la variante fue agregada correctamente
+        if (!resultado.equals("Variante agregada") && !resultado.equals("")) {
+            JOptionPane.showMessageDialog(null, resultado);
+        } else if(resultado.equals("Variante agregada")){
+            //me hago invisible
+            this.setVisible(false);
+            this.vistaPrincipal.setVisible(true);
+
+            //reseteo los valores--------------
+            this.ProfeField.setText("");
+            this.AulaField.setText("");
+            this.DiaField.setText("");
+            this.NumeroField.setText("");
+            this.BoxPrioM.setSelected(false);
+            this.LugarField.setText("");
+            //---------------------------------
+        }
+
+    }
 
 
     //-------------METODOS-------------------
     //******************************************
-    public boolean diaValido(String val) {
+    public boolean validoParaConvertir(String val) {
         //cheque contenido
         if (val.length() == 0)
             return false;
