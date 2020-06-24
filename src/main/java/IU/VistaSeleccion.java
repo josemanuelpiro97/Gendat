@@ -136,7 +136,7 @@ public class VistaSeleccion extends javax.swing.JPanel implements Observador {
         }
     }
 
-
+//asd
     @Override
     public int getID() {
         return 0;
