@@ -1,12 +1,13 @@
 package IU;
 
+import BaseDeDatos.Materia;
+
 import javax.swing.*;
 
 /**
- *
  * @author FedeSSD
  */
-public class VistaEventos extends javax.swing.JPanel{
+public class VistaEventos extends javax.swing.JPanel {
     VistaPrincipal vistaPrincipal;
 
     /**
@@ -25,8 +26,6 @@ public class VistaEventos extends javax.swing.JPanel{
 
         listaEventos.setModel(modeloLista);
     }
-
-
 
 
     /**
@@ -84,78 +83,89 @@ public class VistaEventos extends javax.swing.JPanel{
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(AgregarVariante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(EliminarEventos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(VistaEventos)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(14, 14, 14)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(AgregarVariante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(EliminarEventos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(124, 124, 124)
+                                                .addComponent(VistaEventos)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(VistaEventos)
-                .addGap(13, 13, 13)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AgregarVariante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EliminarEventos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(14, 14, 14))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(VistaEventos)
+                                .addGap(13, 13, 13)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(AgregarVariante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(EliminarEventos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(14, 14, 14))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     //-------------ACCIONES DE BOTONES----------
     //******************************************
     private void AgregarVarianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarVarianteActionPerformed
+        boolean materia;
+        int index = listaEventos.getSelectedIndex();
+        String nombreEvento = modeloLista.get(index).toString();
+        materia = this.vistaPrincipal.getUsuarioSeleccionado().getEvento(nombreEvento) instanceof Materia;
+
         vistaPrincipal.vistaVariante.setVisible(true);
-        vistaPrincipal.setVisible(false);
+        if (materia) {
+            vistaPrincipal.vistaVariante.agregarComision();
+        } else {
+            vistaPrincipal.vistaVariante.agregarOpcion();
+        }
     }//GEN-LAST:event_AgregarVarianteActionPerformed
 
+    private void EliminarEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarVarianteActionPerformed
+        boolean seleccion = listaEventos.isSelectionEmpty();
+        if (seleccion) {
+            JOptionPane.showMessageDialog(null, "No selecciono ningun evento a eliminar.");
+        } else {
+            int index = listaEventos.getSelectedIndex();
+            String nombreEvento = modeloLista.get(index).toString();
+            eliminarDeLista(nombreEvento);
+        }
+    }
 
     //-------------METODOS PARTICULARES---------
     //******************************************
 
-    private void EliminarEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarVarianteActionPerformed
-        boolean seleccion = listaEventos.isSelectionEmpty();
-        if(seleccion) {
-            JOptionPane.showMessageDialog(null, "No selecciono ningun evento a eliminar.");
-        }
-        else{
-            int index = listaEventos.getSelectedIndex();
-            String NombreEvento = modeloLista.get(index).toString();
-            eliminarDeLista(NombreEvento);
-        }
-    }
-
     /**
      * Agrego a la lista el elemento del evento
+     *
      * @param nombreEvento
      */
-    public void agregarALista(String nombreEvento){
+    public void agregarALista(String nombreEvento) {
         modeloLista.addElement(nombreEvento);
     }
 
     /**
      * Elimino el elemento seleccionado de la lista
+     *
      * @param nombreEvento
      */
-    public void eliminarDeLista(String nombreEvento){
+    public void eliminarDeLista(String nombreEvento) {
         this.vistaPrincipal.getUsuarioSeleccionado().quitEvento(nombreEvento);
         modeloLista.removeElement(nombreEvento);
     }
 
-    public void vaciarLista(){modeloLista.clear();}
+    public void vaciarLista() {
+        modeloLista.clear();
+    }
 
 
     //-------------INTOCABLE-------------------

@@ -5,8 +5,11 @@
  */
 package IU;
 
+import BaseDeDatos.OpcionEP;
+
+import javax.swing.*;
+
 /**
- *
  * @author marco
  */
 public class VistaVariante extends javax.swing.JFrame {
@@ -117,99 +120,99 @@ public class VistaVariante extends javax.swing.JFrame {
             }
         });
 
-        HoraInicioMat.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 }));
+        HoraInicioMat.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[]{6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}));
 
-        HoraFinMat.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 }));
+        HoraFinMat.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[]{6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}));
 
-        MinInicioMat.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 0, 15, 30, 45 }));
+        MinInicioMat.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[]{0, 15, 30, 45}));
 
-        MinFinMat.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 00, 15, 30, 45 }));
+        MinFinMat.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[]{00, 15, 30, 45}));
 
         javax.swing.GroupLayout ComisionFrameLayout = new javax.swing.GroupLayout(ComisionFrame.getContentPane());
         ComisionFrame.getContentPane().setLayout(ComisionFrameLayout);
         ComisionFrameLayout.setHorizontalGroup(
-            ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ComisionFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComisionFrameLayout.createSequentialGroup()
-                        .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(diaLabel)
-                            .addComponent(hsIniMatLabel)
-                            .addComponent(hsFinMatLabel))
-                        .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ComisionFrameLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(ComisionFrameLayout.createSequentialGroup()
+                                .addContainerGap()
                                 .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(HoraInicioMat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(HoraFinMat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(puntitos3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(puntitos4, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(MinInicioMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(MinFinMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(ComisionFrameLayout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(DiaField))))
-                    .addGroup(ComisionFrameLayout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(BoxPrioM)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComisionFrameLayout.createSequentialGroup()
-                        .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(profeLabel)
-                            .addComponent(numeroLabel)
-                            .addComponent(AulaLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(AulaField, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                            .addComponent(NumeroField)
-                            .addComponent(ProfeField)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComisionFrameLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(BtGuardarCom)
-                        .addGap(14, 14, 14)))
-                .addContainerGap())
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComisionFrameLayout.createSequentialGroup()
+                                                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(diaLabel)
+                                                        .addComponent(hsIniMatLabel)
+                                                        .addComponent(hsFinMatLabel))
+                                                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(ComisionFrameLayout.createSequentialGroup()
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                                                                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(HoraInicioMat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(HoraFinMat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                        .addComponent(puntitos3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addComponent(puntitos4, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(MinInicioMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(MinFinMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addGroup(ComisionFrameLayout.createSequentialGroup()
+                                                                .addGap(34, 34, 34)
+                                                                .addComponent(DiaField))))
+                                        .addGroup(ComisionFrameLayout.createSequentialGroup()
+                                                .addGap(64, 64, 64)
+                                                .addComponent(BoxPrioM)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComisionFrameLayout.createSequentialGroup()
+                                                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(profeLabel)
+                                                        .addComponent(numeroLabel)
+                                                        .addComponent(AulaLabel))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(AulaField, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                                                        .addComponent(NumeroField)
+                                                        .addComponent(ProfeField)))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComisionFrameLayout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addComponent(BtGuardarCom)
+                                                .addGap(14, 14, 14)))
+                                .addContainerGap())
         );
         ComisionFrameLayout.setVerticalGroup(
-            ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ComisionFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ProfeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(profeLabel))
-                .addGap(18, 18, 18)
-                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NumeroField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(numeroLabel))
-                .addGap(18, 18, 18)
-                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AulaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AulaLabel))
-                .addGap(18, 18, 18)
-                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DiaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(diaLabel))
-                .addGap(18, 18, 18)
-                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hsIniMatLabel)
-                    .addComponent(puntitos3)
-                    .addComponent(HoraInicioMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MinInicioMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(puntitos4)
-                    .addComponent(hsFinMatLabel)
-                    .addComponent(HoraFinMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MinFinMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(BoxPrioM)
-                .addGap(18, 18, 18)
-                .addComponent(BtGuardarCom)
-                .addContainerGap(15, Short.MAX_VALUE))
+                ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(ComisionFrameLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(ProfeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(profeLabel))
+                                .addGap(18, 18, 18)
+                                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(NumeroField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(numeroLabel))
+                                .addGap(18, 18, 18)
+                                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(AulaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(AulaLabel))
+                                .addGap(18, 18, 18)
+                                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(DiaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(diaLabel))
+                                .addGap(18, 18, 18)
+                                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(hsIniMatLabel)
+                                        .addComponent(puntitos3)
+                                        .addComponent(HoraInicioMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(MinInicioMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(ComisionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(puntitos4)
+                                        .addComponent(hsFinMatLabel)
+                                        .addComponent(HoraFinMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(MinFinMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(BoxPrioM)
+                                .addGap(18, 18, 18)
+                                .addComponent(BtGuardarCom)
+                                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         OpcionFrame.setVisible(true);
@@ -235,89 +238,94 @@ public class VistaVariante extends javax.swing.JFrame {
         puntitos1.setText("  : ");
 
         BtAgregarOpc.setText("Guardar Opcion");
+        BtAgregarOpc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtAgregarOpcActionPerformed(evt);
+            }
+        });
 
-        HoraInicioOp.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 }));
+        HoraInicioOp.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[]{6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}));
 
-        MinInicioOp.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 0, 15, 30, 45 }));
+        MinInicioOp.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[]{0, 15, 30, 45}));
 
-        MinFinOp.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 0, 15, 30, 45 }));
+        MinFinOp.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[]{0, 15, 30, 45}));
 
-        HoraFinOp.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] { 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 }));
+        HoraFinOp.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[]{6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}));
 
         javax.swing.GroupLayout OpcionFrameLayout = new javax.swing.GroupLayout(OpcionFrame.getContentPane());
         OpcionFrame.getContentPane().setLayout(OpcionFrameLayout);
         OpcionFrameLayout.setHorizontalGroup(
-            OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(OpcionFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OpcionFrameLayout.createSequentialGroup()
-                        .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(diaOpLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LugarLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(LugarField, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                            .addComponent(DiaFieldOp)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OpcionFrameLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(BtAgregarOpc)
-                        .addGap(10, 10, 10))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OpcionFrameLayout.createSequentialGroup()
-                        .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(OpcionFrameLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(BoxPiroO))
-                            .addGroup(OpcionFrameLayout.createSequentialGroup()
+                OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(OpcionFrameLayout.createSequentialGroup()
+                                .addContainerGap()
                                 .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(HsFinOpLabel)
-                                    .addComponent(HsIniOpLabel))
-                                .addGap(0, 24, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(OpcionFrameLayout.createSequentialGroup()
-                                .addComponent(HoraInicioOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(puntitos1))
-                            .addGroup(OpcionFrameLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(HoraFinOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(puntitos2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(MinInicioOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(MinFinOp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OpcionFrameLayout.createSequentialGroup()
+                                                .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(diaOpLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(LugarLabel))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(LugarField, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                                                        .addComponent(DiaFieldOp)))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OpcionFrameLayout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addComponent(BtAgregarOpc)
+                                                .addGap(10, 10, 10))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OpcionFrameLayout.createSequentialGroup()
+                                                .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(OpcionFrameLayout.createSequentialGroup()
+                                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                                .addComponent(BoxPiroO))
+                                                        .addGroup(OpcionFrameLayout.createSequentialGroup()
+                                                                .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(HsFinOpLabel)
+                                                                        .addComponent(HsIniOpLabel))
+                                                                .addGap(0, 24, Short.MAX_VALUE)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(OpcionFrameLayout.createSequentialGroup()
+                                                                .addComponent(HoraInicioOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(puntitos1))
+                                                        .addGroup(OpcionFrameLayout.createSequentialGroup()
+                                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                                .addComponent(HoraFinOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(puntitos2)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(MinInicioOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(MinFinOp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addContainerGap())
         );
         OpcionFrameLayout.setVerticalGroup(
-            OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(OpcionFrameLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LugarLabel)
-                    .addComponent(LugarField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(diaOpLabel)
-                    .addComponent(DiaFieldOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(HsIniOpLabel)
-                    .addComponent(puntitos1)
-                    .addComponent(MinInicioOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(HoraInicioOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(puntitos2)
-                    .addComponent(HsFinOpLabel)
-                    .addComponent(MinFinOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(HoraFinOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(BoxPiroO)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtAgregarOpc)
-                .addGap(15, 15, 15))
+                OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(OpcionFrameLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(LugarLabel)
+                                        .addComponent(LugarField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(25, 25, 25)
+                                .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(diaOpLabel)
+                                        .addComponent(DiaFieldOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(28, 28, 28)
+                                .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(HsIniOpLabel)
+                                        .addComponent(puntitos1)
+                                        .addComponent(MinInicioOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(HoraInicioOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(OpcionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(puntitos2)
+                                        .addComponent(HsFinOpLabel)
+                                        .addComponent(MinFinOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(HoraFinOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(26, 26, 26)
+                                .addComponent(BoxPiroO)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BtAgregarOpc)
+                                .addGap(15, 15, 15))
         );
 
         BtAtras.setText("Atras");
@@ -330,29 +338,29 @@ public class VistaVariante extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(BtAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(ComisionFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(OpcionFrame)))
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(BtAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(ComisionFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(OpcionFrame)))
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(OpcionFrame)
-                    .addComponent(ComisionFrame))
-                .addGap(18, 18, 18)
-                .addComponent(BtAtras)
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(OpcionFrame)
+                                        .addComponent(ComisionFrame))
+                                .addGap(18, 18, 18)
+                                .addComponent(BtAtras)
+                                .addContainerGap())
         );
 
         pack();
@@ -374,10 +382,6 @@ public class VistaVariante extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LugarFieldActionPerformed
 
-    private void BtGuardarComActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtGuardarComActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtGuardarComActionPerformed
-
     private void AulaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AulaFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AulaFieldActionPerformed
@@ -386,6 +390,110 @@ public class VistaVariante extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_DiaFieldActionPerformed
 
+    private void BtAgregarOpcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAgregarOpcActionPerformed
+        boolean anioFlag = true;
+        boolean controlFlag = true;
+        //creo la opcionEP
+        OpcionEP opcionEP = new OpcionEP();
+
+        int horaInicio = this.HoraInicioOp.getItemAt(this.HoraInicioOp.getSelectedIndex());
+        int horaFin = this.HoraFinOp.getItemAt(this.HoraFinOp.getSelectedIndex());
+        int minInicio = this.MinInicioOp.getItemAt(this.HoraInicioOp.getSelectedIndex());
+        int minFin = this.MinFinOp.getItemAt(this.HoraFinOp.getSelectedIndex());
+        //si la hora es correcta la establezco
+        if (horaInicio <= horaFin) {
+            if (minInicio < minFin) {
+                opcionEP.setHoraInicio(horaInicio);
+                opcionEP.setHoraFin(horaFin);
+                opcionEP.setMinInicio(minInicio);
+                opcionEP.setMinFin(minFin);
+            } else
+                controlFlag = false;
+        } else
+            controlFlag = false;
+
+        //cheque el dia para ver si lo agrego
+        String dia = this.DiaFieldOp.getText();
+        anioFlag = anioValido(dia);
+        if (anioFlag) {
+            anioFlag = opcionEP.setDia(Integer.parseInt(dia));
+        }
+        if (!anioFlag) {
+            controlFlag = false;
+            JOptionPane.showMessageDialog(null, "Dia invalido");
+        }
+
+        //seteo la prioridad
+        opcionEP.setPrioridad(this.BoxPiroO.isSelected());
+
+        //seteo el lugar
+        opcionEP.setLugar(this.LugarField.getText());
+
+        //seteo ID
+        opcionEP.setID();
+
+        //si se creo correctamente la opcionEP, trato de agregarla en el evento particular
+        String resultado = "";
+        String nombreEvento = "";
+        if (controlFlag){
+            nombreEvento = this.vistaPrincipal.vistaEventos.listaEventos.getSelectedValue();
+            resultado = this.vistaPrincipal.getUsuarioSeleccionado().addVariante(opcionEP,nombreEvento);
+        }
+
+        //reviso si la variante fue agregada correctamente
+        if(!resultado.equals("Variante agregada")){
+            JOptionPane.showMessageDialog(null, resultado);
+        }
+        else{
+            //me hago invisible
+            this.setVisible(false);
+            this.vistaPrincipal.setVisible(true);
+
+            //reseteo los valores--------------
+            this.DiaFieldOp.setText("");
+            this.BoxPiroO.setSelected(false);
+            this.LugarField.setText("");
+            //---------------------------------
+        }
+
+    }
+
+    private void BtGuardarComActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtGuardarComActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtGuardarComActionPerformed
+
+
+    //-------------METODOS-------------------
+    //******************************************
+    public boolean anioValido(String val) {
+        //cheque contenido
+        if (val.length() == 0)
+            return false;
+        //agrego anio y chequeo estado
+        for (int a = 0; a < val.length(); a++) {
+            if (!(val.charAt(a) > 47 && val.charAt(a) < 58))
+                return false;
+        }
+        return true;
+    }
+
+    /**
+     * @brief hace visible la vista de comision
+     */
+    public void agregarComision() {
+        ComisionFrame.setVisible(true);
+        OpcionFrame.setVisible(false);
+        vistaPrincipal.setVisible(false);
+    }
+
+    /**
+     * @brief hace visible la vista de opcion
+     */
+    public void agregarOpcion() {
+        OpcionFrame.setVisible(true);
+        ComisionFrame.setVisible(false);
+        vistaPrincipal.setVisible(false);
+    }
 
     //-------------INTOCABLE-------------------
     //******************************************
