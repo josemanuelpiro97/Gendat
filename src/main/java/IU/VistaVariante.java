@@ -398,19 +398,27 @@ public class VistaVariante extends javax.swing.JFrame {
 
         int horaInicio = this.HoraInicioOp.getItemAt(this.HoraInicioOp.getSelectedIndex());
         int horaFin = this.HoraFinOp.getItemAt(this.HoraFinOp.getSelectedIndex());
-        int minInicio = this.MinInicioOp.getItemAt(this.HoraInicioOp.getSelectedIndex());
-        int minFin = this.MinFinOp.getItemAt(this.HoraFinOp.getSelectedIndex());
+        int minInicio = this.MinInicioOp.getItemAt(this.MinInicioOp.getSelectedIndex());
+        int minFin = this.MinFinOp.getItemAt(this.MinFinOp.getSelectedIndex());
         //si la hora es correcta la establezco
-        if (horaInicio <= horaFin) {
-            if (minInicio < minFin) {
+        if (horaInicio == horaFin && minInicio == minFin) {
+            controlFlag = false;
+            JOptionPane.showMessageDialog(null, "Horario Invalido");
+        }
+        else if (horaInicio <= horaFin) {
+            if (minInicio <= minFin) {
                 opcionEP.setHoraInicio(horaInicio);
                 opcionEP.setHoraFin(horaFin);
                 opcionEP.setMinInicio(minInicio);
                 opcionEP.setMinFin(minFin);
-            } else
+            } else {
                 controlFlag = false;
-        } else
+                JOptionPane.showMessageDialog(null, "Horario Invalido");
+            }
+        } else {
             controlFlag = false;
+            JOptionPane.showMessageDialog(null, "Horario Invalido");
+        }
 
         //cheque el dia para ver si lo agrego
         String dia = this.DiaFieldOp.getText();
@@ -429,22 +437,20 @@ public class VistaVariante extends javax.swing.JFrame {
         //seteo el lugar
         opcionEP.setLugar(this.LugarField.getText());
 
-        //seteo ID
-        opcionEP.setID();
-
         //si se creo correctamente la opcionEP, trato de agregarla en el evento particular
         String resultado = "";
-        String nombreEvento = "";
-        if (controlFlag){
-            nombreEvento = this.vistaPrincipal.vistaEventos.listaEventos.getSelectedValue();
-            resultado = this.vistaPrincipal.getUsuarioSeleccionado().addVariante(opcionEP,nombreEvento);
+        String nombreEvento = this.vistaPrincipal.vistaEventos.listaEventos.getSelectedValue();
+        if (controlFlag) {
+            resultado = this.vistaPrincipal.getUsuarioSeleccionado().addVariante(opcionEP, nombreEvento);
         }
 
         //reviso si la variante fue agregada correctamente
-        if(!resultado.equals("Variante agregada")){
+        if (!resultado.equals("Variante agregada") && !resultado.equals("")) {
             JOptionPane.showMessageDialog(null, resultado);
-        }
-        else{
+        } else if(resultado.equals("Variante agregada")){
+            //seteo ID
+            opcionEP.setID();
+
             //me hago invisible
             this.setVisible(false);
             this.vistaPrincipal.setVisible(true);
